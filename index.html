@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Infinity — Về Chúng Tôi / About Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── HERO SLIDESHOW ── */
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;background-repeat:no-repeat;opacity:0;transition:opacity .8s ease;z-index:0;}
+.hero-slide.active{opacity:1;}
+.hero-slide.active{opacity:1;}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.2);color:white;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;transition:background .2s,transform .2s;backdrop-filter:blur(4px);}
+.hero-arrow:hover{background:rgba(169,223,112,.3);border-color:var(--green);transform:translateY(-50%) scale(1.1);}
+.hero-arrow.left{left:2vw;}
+.hero-arrow.right{right:2vw;}
+.hero-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s,transform .2s;}
+.hero-dot.active{background:#f5a623;transform:scale(1.3);}
+#hero>*:not(.hero-slide):not(.hero-arrow):not(.hero-dots){position:relative;z-index:5;}
+
+#infinity-loader{position:fixed;inset:0;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;z-index:99999;transition:opacity .7s ease .3s,visibility .7s ease .3s;}
+#infinity-loader.done{opacity:0;visibility:hidden;}
+.ld-logo-row{display:flex;align-items:center;gap:10px;}
+.ld-letters{font-family:'Montserrat',sans-serif;font-size:108px;font-weight:800;color:#3d3d3d;line-height:1;letter-spacing:-1px;opacity:0;}
+.ld-letters.inf{transform:translateX(-14px);animation:ldSlideR .5s cubic-bezier(.22,1,.36,1) 2.55s forwards;}
+.ld-letters.ty{transform:translateX(14px);animation:ldSlideL .5s cubic-bezier(.22,1,.36,1) 2.55s forwards;}
+@keyframes ldSlideR{to{opacity:1;transform:translateX(0);}}
+@keyframes ldSlideL{to{opacity:1;transform:translateX(0);}}
+.ld-symbol-crop{position:relative;width:112px;height:104px;overflow:hidden;flex-shrink:0;}
+.ld-layer{position:absolute;left:-41px;top:-19px;width:191px;height:143px;background:url('images/infinity-logo.png') no-repeat left top/100% 100%;}
+.ld-outer-left{clip-path:inset(85.21% 74.60% 14.79% 21.71%);animation:ldOlGrow .6s cubic-bezier(.22,1,.36,1) 0s forwards;}
+@keyframes ldOlGrow{to{clip-path:inset(12.94% 74.60% 14.79% 21.71%);}}
+.ld-outer-right{clip-path:inset(12.94% 19.91% 85.21% 76.94%);animation:ldOrGrow .6s cubic-bezier(.22,1,.36,1) 0s forwards;}
+@keyframes ldOrGrow{to{clip-path:inset(12.94% 19.91% 14.79% 76.94%);}}
+.ld-inner-left{clip-path:inset(12.94% 48.65% 85.21% 30.78%);animation:ldIlGrow .6s cubic-bezier(.22,1,.36,1) .85s forwards;}
+@keyframes ldIlGrow{to{clip-path:inset(12.94% 48.65% 14.79% 30.78%);}}
+.ld-inner-right{clip-path:inset(85.21% 26.28% 14.79% 52.34%);animation:ldIrGrow .6s cubic-bezier(.22,1,.36,1) .85s forwards;}
+@keyframes ldIrGrow{to{clip-path:inset(12.94% 26.28% 14.79% 52.34%);}}
+.ld-diag-thick{clip-path:polygon(52.34% 85.21%,52.34% 85.21%,52.34% 85.21%,52.34% 85.21%);animation:ldDtSweep .75s cubic-bezier(.22,1,.36,1) 1.7s forwards;}
+@keyframes ldDtSweep{to{clip-path:polygon(30.78% 12.94%,51.35% 12.94%,73.72% 85.21%,52.34% 85.21%);}}
+.ld-diag-thin{clip-path:polygon(51.35% 12.94%,51.35% 12.94%,51.35% 12.94%,51.35% 12.94%);animation:ldDtnSweep .75s cubic-bezier(.22,1,.36,1) 1.7s forwards;}
+@keyframes ldDtnSweep{to{clip-path:polygon(30.78% 12.94%,51.35% 12.94%,73.72% 85.21%,52.34% 85.21%);}}
+.ld-bar-wrap{width:250px;height:2px;background:#e8e8e8;border-radius:2px;overflow:hidden;opacity:0;animation:ldFadeIn .4s ease .2s forwards;}
+.ld-bar-fill{height:100%;width:0%;background:#a9df70;border-radius:2px;transition:width .04s linear;}
+@keyframes ldFadeIn{to{opacity:1;}}
+.no-loader #infinity-loader{display:none!important;}
+#main-content{opacity:1;}
+</style>
+
+<style>
+/* ══════════════════════════════════
+   TOKENS
+══════════════════════════════════ */
+:root {
+  --green:#a9df70;--green-dk:#7dbf44;--green-pale:#edf9df;--green-mid:#c8ed9e;
+  --charcoal:#3a3a3a;--ink:#1e1e1e;--muted:#717171;--border:#e5e5e5;
+  --canvas:#ffffff;--canvas2:#f8fdf4;--canvas3:#f4f4f2;
+  font-size:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--canvas);color:var(--ink);font-family:'Montserrat',sans-serif;font-weight:500;font-size:1rem;line-height:1.75;overflow-x:hidden;}
+
+/* CURSOR */
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;height:56px;background:rgba(255,255,255,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-logo{display:flex;align-items:center;gap:1px;text-decoration:none}
+.nav-logo svg{height:26px;width:auto}
+.lg-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:var(--charcoal);line-height:1;}
+.lg-mark{height:1.55rem;width:auto;margin:0 2px;vertical-align:middle;}
+.foot-logo-row{display:flex;align-items:center;gap:1px;text-decoration:none}
+.lg-text-foot{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:white;line-height:1;}
+.lg-mark-foot{height:1.3rem;width:auto;margin:0 1px;vertical-align:middle;}
+.nav-center{display:flex;gap:1.2rem;list-style:none;align-items:center}
+.nav-center a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:1.5px solid transparent}
+.nav-center a:hover,.nav-center a.active{color:var(--ink);border-bottom-color:var(--green)}
+/* ── Dropdown Giải pháp ── */
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.25rem;cursor:pointer;line-height:1;}
+.nav-dropdown>a::after{content:'▾';font-size:.6rem;opacity:.6;transition:transform .2s;}
+.nav-dropdown:hover>a::after{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:white;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);padding:.6rem;min-width:280px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateX(-50%) translateY(-6px);z-index:200;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-radius:8px;color:var(--ink);font-size:.78rem;font-weight:500;letter-spacing:.02em;text-transform:none;border-bottom:none;transition:background .15s,color .15s;white-space:nowrap;}
+.nav-dropdown-menu a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
+.nav-dropdown-menu .dd-icon{font-size:1rem;width:28px;text-align:center;flex-shrink:0;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:.3rem .9rem;}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;align-items:center;background:var(--canvas3);border:1px solid var(--border);border-radius:100px;padding:3px;gap:2px;}
+.lang-btn{padding:.3rem .75rem;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;}
+.lang-btn.active{background:var(--charcoal);color:white}
+.nav-cta{padding:.55rem 1.4rem;background:var(--green);color:var(--ink);border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;white-space:nowrap;}
+.nav-cta:hover{background:var(--green-dk);transform:translateY(-1px)}
+
+/* BILINGUAL */
+[data-lang="vi"] .en{display:none!important}
+[data-lang="en"] .vi{display:none!important}
+
+/* HERO */
+#hero{background:#000;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 5rem;position:relative;overflow:hidden;}
+
+.hero-title-only{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(3rem,6.5vw,6.5rem);letter-spacing:-.04em;line-height:1;color:#fff;max-width:900px;text-align:left;padding-top:8rem;text-shadow:0 2px 4px rgba(0,0,0,.9),0 4px 12px rgba(0,0,0,.7),0 8px 32px rgba(0,0,0,.5);}
+.hero-title-only span{color:var(--green);text-shadow:0 2px 4px rgba(0,0,0,.9),0 4px 12px rgba(0,0,0,.7),0 8px 32px rgba(0,0,0,.5);}
+
+/* SHARED */
+.section{padding:4.5rem 5vw}
+.section-sm{padding:3rem 5vw}
+.label-chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--green-pale);border:1px solid var(--green-mid);border-radius:100px;padding:.28rem .9rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-dk);margin-bottom:1.2rem;}
+.label-chip.light{background:rgba(169,223,112,.1);border-color:rgba(169,223,112,.25);color:var(--green)}
+h2.sec-h{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem;}
+h2.sec-h em{font-style:normal;color:var(--green-dk)}
+h2.sec-h.white{color:white}
+h2.sec-h.white em{color:var(--green)}
+p.sec-body{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.85;font-weight:500;}
+p.sec-body.wide{max-width:720px}
+p.sec-body.center{text-align:center;margin:0 auto}
+p.sec-body.light{color:rgba(255,255,255,.5)}
+.text-center{text-align:center}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.two-col-3{display:grid;grid-template-columns:1.3fr 1fr;gap:6rem;align-items:center}
+
+/* INTRO */
+#intro{background:#f5f5f3;padding:4rem 5vw;position:relative;overflow:hidden;}
+#intro::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1px);background-size:22px 22px;background-position:right top;z-index:0;mask-image:linear-gradient(to left,rgba(0,0,0,.5) 0%,transparent 55%);-webkit-mask-image:linear-gradient(to left,rgba(0,0,0,.5) 0%,transparent 55%);}
+.intro-wm-wrap{position:absolute;z-index:0;pointer-events:none;}
+.intro-wm-1{top:-2rem;left:-3vw;width:55vw;opacity:.035;}
+.intro-wm-2{bottom:-2rem;right:-3vw;width:55vw;opacity:.035;transform:scaleX(-1);}
+.open-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6rem 4rem;}
+.open-grid-row-2{display:none;}
+.oc{padding:1rem 0;position:relative;cursor:pointer;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:padding .3s ease;user-select:none;}
+
+@keyframes paperUnfold{0%{transform:scale(.55) rotate(-5deg);opacity:0;filter:blur(4px);}55%{transform:scale(1.04) rotate(1deg);opacity:.92;filter:blur(0);}80%{transform:scale(.99) rotate(-.3deg);}100%{transform:scale(1) rotate(0);opacity:1;filter:blur(0);}}
+@keyframes paperCrumple{0%{transform:scale(1) rotate(0);opacity:1;filter:blur(0);}35%{transform:scale(.97) rotate(-2deg);filter:blur(.5px);}70%{transform:scale(.7) rotate(5deg);opacity:.5;filter:blur(2px);}100%{transform:scale(.35) rotate(10deg);opacity:0;filter:blur(5px);}}
+
+.oc:not(.expanded):not(.crumbling) .oc-italic,
+.oc:not(.expanded):not(.crumbling) .oc-body,
+.oc:not(.expanded):not(.crumbling) .oc-bullets,
+.oc:not(.expanded):not(.crumbling) .oc-divider,
+.oc:not(.expanded):not(.crumbling) .oc-em{display:none;}
+.oc.expanded .oc-italic,.oc.expanded .oc-body,.oc.expanded .oc-bullets,.oc.expanded .oc-divider,.oc.expanded .oc-em{animation:paperUnfold .65s cubic-bezier(.34,1.45,.64,1) backwards;transform-origin:top left;}
+.oc.crumbling .oc-italic,.oc.crumbling .oc-body,.oc.crumbling .oc-bullets,.oc.crumbling .oc-divider,.oc.crumbling .oc-em{display:block;animation:paperCrumple .45s ease-in forwards;transform-origin:top left;}
+.oc.expanded{justify-content:flex-start;align-items:flex-start;text-align:left;cursor:zoom-out;}
+.oc-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;overflow:visible;transition:opacity .55s ease,transform .55s cubic-bezier(.34,1.45,.64,1),filter .55s ease;transform-origin:center;}
+.oc.expanded .oc-bg{opacity:0;transform:scale(.35) rotate(10deg);filter:blur(5px);pointer-events:none;}
+.oc.oc-static{cursor:default!important;}
+.oc:not(.expanded):hover .oc-headline{letter-spacing:-.015em;}
+.oc-bg svg,.oc-bg .oc-illust{width:75%;max-width:180px;height:auto;opacity:.5;transform:translateY(-3%);transition:opacity .4s ease,transform .4s ease;}
+.oc-bg .oc-illust-large{width:100%;max-width:260px;}
+.oc-bg .oc-illust-hero{width:115%;max-width:300px;transform:translateY(-10%);}
+.oc-bg .oc-illust-up{width:115%;max-width:300px;transform:translateY(-8%);}
+.oc:hover .oc-bg svg,.oc:hover .oc-bg .oc-illust{opacity:.7;transform:translateY(-3%) scale(1.04);}
+.oc:hover .oc-bg .oc-illust-large{transform:translateY(-3%) scale(1.06);}
+.oc:hover .oc-bg .oc-illust-hero{transform:translateY(-13%) scale(1.06);}
+.oc:hover .oc-bg .oc-illust-up{transform:translateY(-10%) scale(1.06);}
+.oc>*:not(.oc-bg){position:relative;z-index:1;}
+.oc-headline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.2rem,2vw,1.8rem);letter-spacing:-.02em;line-height:1.1;color:var(--green-dk);margin-bottom:.4rem;display:block;}
+.oc-headline.dark{color:var(--charcoal);}
+.oc-sub{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:block;}
+.oc-year{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(3rem,5vw,5.5rem);letter-spacing:-.05em;line-height:.85;color:var(--green-dk);display:block;margin:.4rem 0 1rem;}
+.oc-italic{font-style:italic;font-size:.9rem;color:var(--charcoal);line-height:1.75;margin-bottom:.7rem;font-weight:500;}
+.oc-body{font-size:.88rem;color:var(--charcoal);line-height:1.75;margin-bottom:.6rem;font-weight:600;}
+.oc-em{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1rem,1.8vw,1.5rem);color:var(--green-dk);display:block;margin-bottom:.5rem;line-height:1.2;}
+.oc-divider{height:1px;background:rgba(0,0,0,.08);margin:1.8rem 0;}
+.oc-bullets{list-style:none;margin-top:.5rem;padding-left:0;}
+.oc-bullets li{display:block;font-size:.87rem;color:var(--charcoal);line-height:1.65;margin-bottom:.9rem;font-weight:500;padding-left:0;}
+.oc-grid{gap:.6rem;}
+
+/* ══ OOH SLIDESHOW ══ */
+.ooh-slideshow{position:relative;overflow:hidden;}
+.ooh-track{display:flex;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.ooh-slide{min-width:100%;position:relative;}
+.ooh-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.4);border:1.5px solid rgba(255,255,255,.25);color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:background .2s;backdrop-filter:blur(4px);}
+.ooh-arrow:hover{background:rgba(74,158,46,.6);border-color:var(--green);}
+.ooh-left{left:1rem;}
+.ooh-right{right:1rem;}
+.ooh-dots{position:absolute;bottom:.8rem;left:50%;transform:translateX(-50%);display:flex;gap:.45rem;z-index:10;}
+.ooh-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:background .2s,transform .2s;}
+.ooh-dot.active{background:#f5a623;transform:scale(1.3);}
+
+/* ══ SOLUTIONS ══ */
+#solutions{background:#f5f5f3;}
+.sol-block{margin-bottom:3rem;border-radius:12px;overflow:hidden;}
+.sol-block:last-child{margin-bottom:0;}
+.sol-block-header{background:linear-gradient(135deg,#2d6e1f 0%,#4a9e2e 60%,#3a8020 100%);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;padding:1rem 1.5rem;letter-spacing:.01em;}
+.sol-block-header a:hover{color:#f5c842 !important;text-decoration:none;transition:color .2s;}
+.sol-grid{display:grid;gap:2px;background:#4a9e2e;}
+.sol-grid-3{grid-template-columns:repeat(3,1fr);}
+.sol-grid-2{grid-template-columns:repeat(2,1fr);}
+.sol-card{position:relative;overflow:hidden;}
+
+
+.sol-img-placeholder{width:100%;height:240px;background:linear-gradient(135deg,rgba(169,223,112,.08),rgba(125,191,68,.12));border:none;}
+
+.sol-img-real{width:100%;height:240px;object-fit:cover;display:block;}
+.sol-grid-2 .sol-img-real{height:200px;object-position:top;}
+.sol-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 100%);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;padding:.8rem 1.2rem;display:block;}
+
+/* SERVICES */
+#services{background:#f5f5f3;padding:3rem 5vw}
+.svc-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;}
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4.5rem 0;margin-top:1rem;}
+.svc-grid .sv{grid-column:span 2;}
+.svc-grid .sv:nth-child(4),.svc-grid .sv:nth-child(5){grid-column:span 3;}
+.sv{padding:1.2rem 1rem;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:transform .25s,padding .3s ease;background:transparent;border:none;cursor:pointer;min-height:160px;user-select:none;}
+.sv:hover{transform:translateY(-4px)}
+.sv:not(.expanded):not(.crumbling) .sv-desc{display:none;}
+.sv.expanded .sv-desc{animation:paperUnfold .65s cubic-bezier(.34,1.45,.64,1) backwards;transform-origin:top left;}
+.sv.crumbling .sv-desc{display:block;animation:paperCrumple .45s ease-in forwards;transform-origin:top left;}
+.sv.expanded{justify-content:flex-start;align-items:flex-start;text-align:left;cursor:zoom-out;}
+.sv-num{display:none}
+.sv-icon{display:none}
+.sv-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;overflow:visible;transition:opacity .55s ease,transform .55s cubic-bezier(.34,1.45,.64,1),filter .55s ease;transform-origin:center;}
+.sv.expanded .sv-bg{opacity:0;transform:scale(.35) rotate(10deg);filter:blur(5px);pointer-events:none;}
+.sv-illust{width:80%;max-width:200px;height:auto;opacity:.22;transition:opacity .4s ease,transform .4s ease;}
+.sv:hover .sv-illust{opacity:.4;transform:scale(1.05);}
+.sv>*:not(.sv-bg){position:relative;z-index:1;}
+.sv-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;color:var(--green-dk);margin-bottom:.4rem;letter-spacing:-.01em;line-height:1.2;}
+.sv-desc{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:500;}
+/* ── SERVICES horizontal cards ── */
+.svc-layout{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:1.5rem;}
+.svc-item{padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;background:linear-gradient(135deg,#2d6e1f 0%,#4a9e2e 55%,#3a8020 100%);box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.svc-item.wide{grid-column:span 1;}
+.svc-item-num{display:none;}
+.svc-item-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.01em;line-height:1.25;}
+.svc-item-desc{font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.65;}
+.svc-bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0;}
+@media(max-width:1100px){.svc-layout{grid-template-columns:repeat(3,1fr);}.svc-bottom-row{grid-template-columns:1fr;}}
+@media(max-width:700px){.svc-layout{grid-template-columns:1fr 1fr;}.svc-bottom-row{grid-template-columns:1fr;}}
+@media(max-width:480px){.svc-layout{grid-template-columns:1fr;}.svc-bottom-row{grid-template-columns:1fr;}}
+
+/* TIMELINE */
+#timeline{background:var(--charcoal);padding:4rem 5vw;position:relative;overflow:hidden;}
+#timeline::before{content:'';position:absolute;inset:0;background:url('images/journey-bg.png') center center/cover no-repeat;opacity:.15;transition:opacity .6s ease;z-index:0;pointer-events:none;}
+#timeline.tree-revealed::before{opacity:0;}
+.timeline-header{text-align:center;margin-bottom:0;}
+.timeline-track{position:relative;max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
+.timeline-track::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.08);transform:translateX(-50%);}
+.tl-item{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;gap:0;position:relative;padding:1.5rem 0;}
+.tl-item.left .tl-content{grid-column:1;text-align:right;padding-right:3rem}
+.tl-item.left .tl-empty{grid-column:3}
+.tl-item.right .tl-empty{grid-column:1}
+.tl-item.right .tl-content{grid-column:3;text-align:left;padding-left:3rem}
+.tl-dot-wrap{grid-column:2;display:flex;align-items:center;justify-content:center;display:none;}
+.tl-dot{display:none;}
+.tl-year{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-.04em;color:var(--green);display:block;margin-bottom:.3rem;transition:font-size .3s ease;}
+.tl-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;color:white;margin-bottom:.3rem;}
+.tl-desc{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.65;font-weight:500;}
+#timeline-toggle{user-select:none;margin-bottom:0;padding-bottom:1rem;}
+#timeline-toggle .tl-hint{cursor:pointer;margin-top:1rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);transition:color .25s ease;display:inline-block;}
+#timeline-toggle .tl-hint:hover{color:var(--green)}
+#timeline-toggle.expanded .tl-hint{color:var(--green)}.timeline-track-wrapper{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s cubic-bezier(.34,1.45,.64,1),opacity .55s ease,margin-top .4s ease;margin-top:0;}
+.timeline-track-wrapper.expanded{max-height:3000px;opacity:1;margin-top:5rem;}
+#timeline-toggle.expanded .tl-hint .vi,#timeline-toggle.expanded .tl-hint .en{display:none}
+#timeline-toggle.expanded .tl-hint::after{content:"Nhấn để thu gọn";display:inline-block;}
+[data-lang="en"] #timeline-toggle.expanded .tl-hint::after{content:"Click to collapse";}
+#timeline-toggle.expanded .tl-hint{color:var(--green)}
+.tl-tree-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;opacity:0;transform:scale(.7);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.34,1.45,.64,1);}
+.tl-tree-img{width:min(80vw,700px);height:auto;filter:brightness(.95);animation:treeBreath 8s ease-in-out infinite;}
+#timeline.tree-revealed .tl-tree-bg{opacity:.18;transform:scale(1);}
+#timeline>*:not(.tl-tree-bg){position:relative;z-index:1;}
+@keyframes treeBreath{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.16;transform:scale(1.02)}}
+@keyframes scrollDown{0%{top:-100%}100%{top:100%}}
+
+/* VISION */
+/* ── Vision/Purpose Prowtech-style banners ── */
+.vp-banner{position:relative;min-height:340px;display:flex;align-items:flex-end;overflow:hidden;border-radius:0;}
+.vp-banner+.vp-banner{margin-top:1.8rem;}
+.vp-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;}
+.vp-bg-placeholder{background:linear-gradient(135deg,#1e3a1a 0%,#2d6e1f 45%,#4a9e2e 100%);}
+.vp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.15) 45%,transparent 70%);z-index:1;}
+.vp-content{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;padding:2.2rem 2.5rem;}
+.vp-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.1;letter-spacing:-.02em;color:white;}
+.vp-title em{font-style:normal;color:white;}
+.vp-desc p{font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.92);max-width:520px;margin-left:auto;}
+@media(max-width:900px){
+  .vp-content{grid-template-columns:1fr;gap:1.2rem;}
+  .vp-desc p{margin-left:0;}
+  .vp-banner{min-height:300px;}
+}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3.5rem;}
+.vm-card{background:transparent;border:1.5px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;min-height:280px;cursor:pointer;user-select:none;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;transition:border-color .25s,transform .25s,box-shadow .25s,padding .3s ease;}
+.vm-card:hover{border-color:var(--green-mid);transform:translateY(-3px);box-shadow:0 10px 30px rgba(169,223,112,.12);}
+.vm-card:not(.expanded):not(.crumbling) p{display:none;}
+.vm-card.expanded{justify-content:flex-start;align-items:flex-start;text-align:left;cursor:zoom-out;}
+.vm-card.expanded p{animation:paperUnfold .65s cubic-bezier(.34,1.45,.64,1) backwards;transform-origin:top left;}
+.vm-card.crumbling p{display:block;animation:paperCrumple .45s ease-in forwards;transform-origin:top left;}
+.vm-card .vm-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;overflow:hidden;border-radius:20px;transition:opacity .55s ease,transform .55s cubic-bezier(.34,1.45,.64,1),filter .55s ease;transform-origin:center;}
+.vm-card .vm-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0;overflow:hidden;border-radius:20px;transition:opacity .55s ease,transform .55s cubic-bezier(.34,1.45,.64,1),filter .55s ease;transform-origin:center;}
+.vm-card .vm-illust{width:100%;height:100%;object-fit:cover;opacity:.32;transition:opacity .4s ease,transform .4s ease;}
+.vm-card:hover .vm-illust{opacity:.45;transform:scale(1.03);}
+.vm-card.expanded .vm-bg{opacity:0;transform:scale(.35) rotate(10deg);filter:blur(5px);pointer-events:none;}
+.vm-card>*:not(.vm-bg){position:relative;z-index:1;}
+.vm-card .vm-icon{font-size:2rem;margin-bottom:1.2rem;display:block}
+.vm-card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:.06em;margin-bottom:0;color:var(--green-dk);text-transform:uppercase;transition:font-size .3s ease,margin-bottom .3s ease,letter-spacing .3s ease;}
+.vm-card.expanded h3{font-size:1.6rem;margin-bottom:.9rem;letter-spacing:.04em;}
+.vm-card p{font-size:.92rem;line-height:1.8;color:var(--charcoal);font-weight:500;}
+
+/* VALUES */
+#values{background:var(--canvas);padding:4.5rem 5vw;}
+.values-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.val-card{border:1.5px solid var(--border);border-radius:18px;padding:2rem 1.8rem;transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden;background:var(--canvas);}
+.val-card:hover{border-color:var(--green);transform:translateY(-5px);box-shadow:0 12px 36px rgba(169,223,112,.18);}
+.val-card:nth-child(2){background:var(--charcoal);border-color:var(--charcoal)}
+.val-card:nth-child(2) h4{color:white}
+.val-card:nth-child(2) p{color:rgba(255,255,255,.5)}
+.val-card:nth-child(2) .val-num{color:rgba(169,223,112,.25)}
+.val-card:nth-child(5){background:var(--green-pale);border-color:var(--green-mid)}
+.val-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:3.5rem;line-height:1;color:rgba(0,0,0,.05);position:absolute;top:.5rem;right:1rem;letter-spacing:-.04em;}
+.val-icon{font-size:1.8rem;margin-bottom:1.1rem}
+.val-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:.5rem;}
+.val-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+/* STATS */
+#stats{background:linear-gradient(135deg,#2d6e1f 0%,#4a9e2e 40%,#3a8020 100%);padding:4.5rem 5vw;position:relative;overflow:hidden;}
+#stats::before{content:'';position:absolute;inset:0;background:url('images/stats-bg.png') center center/cover no-repeat;opacity:.20;filter:blur(4px);transform:scale(1.02);pointer-events:none;z-index:0;}
+#stats>*{position:relative;z-index:1;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.stat-block{text-align:center;padding:2rem 1rem;border-right:1px solid rgba(30,30,30,.12);}
+.stat-block:last-child{border-right:none}
+.stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.6rem);letter-spacing:-.04em;color:#fff;line-height:1;display:block;text-shadow:0 2px 4px rgba(0,0,0,.25),0 4px 12px rgba(0,0,0,.15),0 8px 24px rgba(0,0,0,.1);}
+.stat-label{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:.5rem;display:block;}
+.stats-row-2{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;margin-top:2.5rem;}
+.stats-row-2 .stat-block{border-right:1px solid rgba(255,255,255,.18);padding:0 1rem;}
+.stats-row-2 .stat-block:last-child{border-right:none}
+
+/* PARTNERS & CLIENTS */
+#partners{background:var(--canvas3);padding:4.5rem 5vw;}
+.pc-header{text-align:center;margin-bottom:3rem}
+.pc-tabs{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,0,0,.06);border-radius:999px;padding:.35rem;margin-top:1.5rem;}
+.pc-tab{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:.55rem 1.4rem;border:none;border-radius:999px;cursor:pointer;background:transparent;color:var(--muted);transition:background .25s,color .25s,transform .2s,box-shadow .25s;}
+.pc-tab.active{background:var(--green);color:var(--charcoal);box-shadow:0 3px 12px rgba(169,223,112,.35);transform:scale(1.02);}
+.pc-tab:not(.active):hover{background:rgba(169,223,112,.12);color:var(--green-dk);}
+.pc-panel{transition:opacity .35s ease,transform .35s ease;transform-origin:top center;}
+.pc-panel.hidden{display:none;}
+.pc-panel.fade-in{animation:pcFadeIn .4s cubic-bezier(.34,1.45,.64,1) forwards;}
+@keyframes pcFadeIn{0%{opacity:0;transform:scale(.97) translateY(8px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;}
+.logo-card{background:transparent;border:none;padding:1rem;display:flex;align-items:center;justify-content:center;min-height:140px;transition:transform .25s,filter .25s;}
+.logo-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
+.logo-card .lc-img{width:auto;height:60px;max-width:160px;object-fit:contain;}
+.clients-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;align-items:center;}
+.cli-card{background:transparent;border:none;padding:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;min-height:140px;min-width:0;transition:transform .25s,filter .25s;}
+.cli-name{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);text-align:center;letter-spacing:.01em;line-height:1.3;}
+.cli-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
+.cli-card .ci-img{width:auto;height:60px;max-width:min(130px,100%);object-fit:contain;}
+.ci-hygiene{height:80px!important;max-width:min(150px,100%)!important;}
+.ci-eagle{height:75px!important;max-width:min(145px,100%)!important;}
+.lc-happiness{height:78px!important;max-width:180px!important;}
+.pc-heading{display:flex;flex-direction:column;gap:.3rem;}
+.pc-logo-wrap{display:inline-flex;align-items:center;gap:0;vertical-align:middle;line-height:1;}
+.pc-inf,.pc-ty{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--charcoal);letter-spacing:-.04em;}
+.pc-logo-mark{height:1em;width:auto;margin:0 1px;vertical-align:middle;}
+
+/* CONTACT */
+#contact{background:var(--charcoal);padding:8rem 5vw;text-align:center;position:relative;overflow:hidden}
+.cta-rings{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;pointer-events:none;overflow:hidden;padding-top:2rem}
+.cta-tree{width:min(70vw,560px);height:auto;opacity:.1;animation:treeBreath 8s ease-in-out infinite;}
+#contact h2{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,4.5rem);font-weight:900;letter-spacing:-.04em;line-height:1.05;color:white;max-width:700px;margin:0 auto 1.2rem;position:relative;z-index:1}
+#contact h2 em{color:var(--green);font-style:normal}
+#contact p{color:rgba(255,255,255,.4);font-size:1rem;max-width:460px;margin:0 auto 2.8rem;position:relative;z-index:1}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-g{padding:.9rem 2.2rem;background:var(--green);color:var(--ink);border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s;box-shadow:0 4px 24px rgba(169,223,112,.3)}
+.btn-g:hover{background:white;transform:translateY(-2px)}
+.btn-out{padding:.9rem 2.2rem;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);border-radius:100px;font-size:.9rem;text-decoration:none;font-weight:600;transition:border-color .2s,color .2s,transform .15s}
+.btn-out:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.hotline-cta{margin-top:2rem;position:relative;z-index:1}
+.hotline-cta small{display:block;font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.hotline-cta a{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.5rem;color:var(--green);text-decoration:none;letter-spacing:-.02em;transition:color .2s}
+.hotline-cta a:hover{color:white}
+.contact-details{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;z-index:1;max-width:800px;margin-left:auto;margin-right:auto;}
+.cd-item .cd-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.3rem;display:block}
+.cd-item .cd-val{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.5}
+.cd-item a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.cd-item a:hover{color:var(--green)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:3rem 5vw 1.5rem;position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;width:500px;height:500px;background:radial-gradient(circle at top left,rgba(169,223,112,.22) 0%,rgba(169,223,112,.10) 35%,transparent 65%);pointer-events:none;z-index:0;}
+footer>*{position:relative;z-index:1;}
+.foot-top{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:1.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:2rem}
+.foot-wordmark{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:white}
+.foot-wordmark span{color:var(--green)}
+.foot-desc{font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:280px}
+.foot-legal{font-size:.7rem;color:rgba(255,255,255,.18);margin-top:1rem;line-height:1.65}
+.foot-col h5{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.foot-col ul li a:hover{color:var(--green)}
+.foot-contact-item{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem}
+.foot-contact-item .fci{font-size:.85rem;margin-top:.05rem;flex-shrink:0}
+.foot-contact-item a,.foot-contact-item p{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;line-height:1.5;transition:color .2s}
+.foot-contact-item a:hover{color:var(--green)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-bottom p{font-size:.7rem;color:rgba(255,255,255,.2)}
+.mst-tag{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.25rem .8rem;font-size:.68rem;color:rgba(255,255,255,.25)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* TOGGLE TOOLTIP */
+@keyframes phoneBlink{
+  0%,100%{color:var(--green);text-shadow:none}
+  25%{color:white;text-shadow:0 0 20px rgba(169,223,112,.8),0 0 40px rgba(169,223,112,.4)}
+  50%{color:var(--green);text-shadow:none}
+  75%{color:white;text-shadow:0 0 20px rgba(169,223,112,.8),0 0 40px rgba(169,223,112,.4)}
+}
+.phone-blink{animation:phoneBlink 1.2s ease-in-out}
+.phone-zalo{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:500;margin-left:.3rem;letter-spacing:.01em;}
+.toggle-tip{position:fixed;pointer-events:none;z-index:9999;background:rgba(30,30,30,.88);color:#fff;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .75rem;border-radius:999px;white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease;border:1px solid rgba(169,223,112,.3);}
+.toggle-tip.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc-grid .sv{grid-column:span 1!important;}
+  .logo-grid{grid-template-columns:repeat(3,1fr)}
+  .clients-row{grid-template-columns:repeat(3,1fr)}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:960px){
+  .open-grid{grid-template-columns:1fr 1fr;gap:5rem 2.5rem;}
+  .open-grid-row-2{margin:3rem 0;}
+}
+@media(max-width:900px){
+  .two-col,.two-col-3,.lead-grid,.vm-grid{grid-template-columns:1fr;gap:3rem}
+  .values-header{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .timeline-track::before{left:24px}
+  .tl-item{grid-template-columns:48px 1fr}
+  .tl-item.left .tl-content,.tl-item.right .tl-content{grid-column:2;text-align:left;padding-right:0;padding-left:1.2rem}
+  .tl-item.left .tl-empty,.tl-item.right .tl-empty{display:none}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stats-row .stat-block:nth-child(2n){border-right:none}
+  .stats-row-2{grid-template-columns:1fr 1fr;row-gap:1.5rem;}
+  .stats-row-2 .stat-block:nth-child(2){border-right:none}
+  .stats-row-2 .stat-block:nth-child(odd){border-right:1px solid rgba(255,255,255,.18)}
+  .stat-block{border-right:none;border-bottom:1px solid rgba(30,30,30,.12)}
+  .stat-block:last-child{border-bottom:none}
+  .contact-details{grid-template-columns:1fr}
+  .nav-center{display:none}
+}
+@media(max-width:600px){
+  .logo-grid,.clients-row{grid-template-columns:1fr 1fr}
+  .values-grid,.svc-grid{grid-template-columns:1fr}
+  .open-grid{grid-template-columns:1fr;gap:3rem 0;}
+  .hero-title-only{font-size:3.5rem}
+}
+/* ── AI Creative Section ── */
+#ai-creative{background:#fff;padding:4.5rem 5vw;}
+.aic-header{margin-bottom:2.8rem;}
+.aic-header .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.5rem;}
+.aic-header h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;}
+.aic-header h2 em{font-style:normal;color:var(--green-dk);}
+.aic-body{display:grid;grid-template-columns:2fr 3fr;gap:2rem;align-items:stretch;min-height:420px;}
+/* Left: bg image + stats overlay */
+.aic-why{position:relative;overflow:hidden;padding:2.2rem 1.8rem;display:flex;flex-direction:column;gap:1.4rem;justify-content:center;}
+.aic-why::before{content:'';position:absolute;inset:0;background:url('images/ai-creative-bg.jpg') center/cover no-repeat;z-index:0;}
+.aic-why::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.62);z-index:1;}
+.aic-why>*{position:relative;z-index:2;}
+.aic-why-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:.2rem;}
+.aic-stat{display:flex;flex-direction:column;gap:.2rem;}
+.aic-stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;line-height:1.1;color:#fff;}
+.aic-stat-label{font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.4;}
+.aic-source{font-size:.6rem;color:rgba(255,255,255,.28);margin-top:auto;line-height:1.5;}
+/* Right: features */
+.aic-features{display:flex;flex-direction:column;gap:.5rem;}
+.aic-feat{display:flex;flex-direction:column;gap:.3rem;padding:1.3rem 1.5rem;flex:1;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.06);}
+.aic-feat-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.92rem;color:var(--ink);letter-spacing:-.01em;}
+.aic-feat-desc{font-size:.76rem;color:var(--muted);line-height:1.6;}
+/* Footer note — no background, green text */
+.aic-footer{margin-top:1.2rem;display:flex;align-items:flex-start;gap:.5rem;}
+.aic-footer-check{color:var(--green-dk);font-weight:900;font-size:.8rem;flex-shrink:0;margin-top:.05rem;}
+.aic-footer-text{font-size:.75rem;color:var(--green-dk);line-height:1.55;font-weight:600;}
+@media(max-width:900px){
+  .aic-body{grid-template-columns:1fr;gap:1.5rem;}
+  .aic-why{min-height:280px;}
+}
+</style>
+<script>if(sessionStorage.getItem('loaderShown'))document.documentElement.classList.add('no-loader');</script>
+</head>
+<body>
+
+<!-- ══ LOADING SCREEN ══ -->
+<div id="infinity-loader">
+  <div class="ld-logo-row">
+    <span class="ld-letters inf">Inf</span>
+    <div class="ld-symbol-crop">
+      <div class="ld-layer ld-outer-left"></div>
+      <div class="ld-layer ld-outer-right"></div>
+      <div class="ld-layer ld-inner-left"></div>
+      <div class="ld-layer ld-inner-right"></div>
+      <div class="ld-layer ld-diag-thick"></div>
+      <div class="ld-layer ld-diag-thin"></div>
+    </div>
+    <span class="ld-letters ty">ty</span>
+  </div>
+</div>
+
+<div id="main-content">
+
+<nav id="main-nav">
+  <a href="javascript:void(0)" class="nav-logo" id="nav-logo-placeholder" style="display:flex;align-items:center;gap:4px;">
+    <span class="lg-text">Inf</span>
+    <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;" alt=""/>
+    <span class="lg-text">ty</span>
+  </a>
+
+  <ul class="nav-center">
+    <li><a href="javascript:void(0)">Giới Thiệu</a></li>
+    <li class="nav-dropdown">
+      <a href="javascript:void(0)">
+        <span class="vi">Giải Pháp</span>
+        <span class="en">Giải Pháp</span>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="our-work-ooh.html">
+          <span>
+            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Ngoài Trời (OOH)</span>
+            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Outdoor Advertising (OOH)</span>
+            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
+            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
+          </span>
+        </a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="our-work-pos.html">
+          <span>
+            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Truyền Thông Tại Điểm Bán</span>
+            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Communication at Point of Sale</span>
+            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
+            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
+          </span>
+        </a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="our-work-digital.html">
+          <span>
+            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Kỹ Thuật Số</span>
+            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Digital Advertising</span>
+            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
+            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
+          </span>
+        </a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="our-work-tv.html">
+          <span>
+            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Truyền Hình (TV)</span>
+            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">TV Advertising</span>
+            <span style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">SCTV6 · VTV1 · VTVcab · THVL1</span>
+          </span>
+        </a>
+      </div>
+    </li>
+    <li><a href="tin-tuc.html">Tin Tức & Sự Kiện</a></li>
+    <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#" onclick="scrollToPhone();return false;" class="nav-cta">Liên Hệ →</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <!-- Slides -->
+  <div class="hero-slide active" style="background-image:url('images/hero-bg.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero-bg-2.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero-bg-4.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero-bg-bus.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero-bg-bridge.png')"></div>
+  <!-- Arrows -->
+  <button class="hero-arrow left" onclick="heroSlide(-1)">&#8592;</button>
+  <button class="hero-arrow right" onclick="heroSlide(1)">&#8594;</button>
+  <!-- Dots -->
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="heroGoTo(0)"></div>
+    <div class="hero-dot" onclick="heroGoTo(1)"></div>
+    <div class="hero-dot" onclick="heroGoTo(2)"></div>
+    <div class="hero-dot" onclick="heroGoTo(3)"></div>
+    <div class="hero-dot" onclick="heroGoTo(4)"></div>
+  </div>
+  <h1 class="hero-title-only">
+    We Are<br><span>Infinity</span>
+  </h1>
+</section>
+
+<div style="background:#f5f5f3;padding:4rem 5vw 3rem;text-align:center;">
+  <p style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--charcoal);letter-spacing:-.02em;line-height:1.3;max-width:800px;margin:0 auto;">
+    <span class="vi">Chúng tôi vượt qua giới hạn và hơn nữa để đưa thương hiệu vào cuộc sống hàng ngày</span>
+    <span class="en">We go infinity and beyond, bringing your brand into everyday life</span>
+  </p>
+  <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:clamp(.9rem,1.4vw,1.05rem);color:#444;line-height:1.8;max-width:700px;margin:1.5rem auto 0;">
+    <span class="vi">Đội ngũ của chúng tôi chuyên về các giải pháp truyền thông và triển khai chiến dịch thương hiệu, đồng hành chặt chẽ cùng khách hàng để biến ý tưởng thành tác động thực tế trên mọi kênh và điểm chạm.</span>
+    <span class="en">Our team specializes in communication solutions and brand campaign implementation, partnering closely with clients to turn ideas into real-world impact across every channel and touchpoint.</span>
+  </p>
+  <div style="margin-top:2rem;">
+    <button id="learn-more-btn" onclick="toggleAbout()" style="padding:.75rem 2rem;background:var(--green-dk);color:white;border:none;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .15s;">
+      <span class="vi">Tìm hiểu thêm ↓</span>
+      <span class="en">Learn more ↓</span>
+    </button>
+  </div>
+</div>
+
+<div id="about-wrapper" style="max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.34,1.45,.64,1),opacity .5s ease;opacity:0;">
+<section id="intro">
+  <div class="intro-wm-wrap intro-wm-1">
+    <svg viewBox="0 0 120 80" fill="none"><rect x="10" y="10" width="10" height="60" rx="1" fill="#a9df70"/><rect x="28" y="10" width="10" height="60" rx="1" fill="#a9df70"/><polygon points="38,10 48,10 82,70 72,70" fill="#a9df70"/><line x1="38" y1="70" x2="82" y2="10" stroke="#a9df70" stroke-width="1.5"/><rect x="82" y="10" width="10" height="60" rx="1" fill="#a9df70"/><rect x="100" y="10" width="10" height="60" rx="1" fill="#a9df70"/></svg>
+  </div>
+  <div class="intro-wm-wrap intro-wm-2">
+    <svg viewBox="0 0 120 80" fill="none"><rect x="10" y="10" width="10" height="60" rx="1" fill="#a9df70"/><rect x="28" y="10" width="10" height="60" rx="1" fill="#a9df70"/><polygon points="38,10 48,10 82,70 72,70" fill="#a9df70"/><line x1="38" y1="70" x2="82" y2="10" stroke="#a9df70" stroke-width="1.5"/><rect x="82" y="10" width="10" height="60" rx="1" fill="#a9df70"/><rect x="100" y="10" width="10" height="60" rx="1" fill="#a9df70"/></svg>
+  </div>
+
+  <div class="open-grid">
+
+    
+    <div class="oc reveal">
+      <div class="oc-bg">
+        <img src="images/image-1.png" alt="" class="oc-illust oc-illust-large oc-illust-hero" />
+      </div>
+      <span class="oc-headline vi">Who We Are</span>
+      <span class="oc-headline en">Who We Are</span>
+      <p class="oc-italic vi">Infinity là công ty truyền thông &amp; media tích hợp, thành lập năm 2022 tại TP.HCM — chuyên về bán quảng cáo TV, tư vấn truyền thông đa nền tảng và giải pháp marketing toàn diện cho thương hiệu &amp; agency.</p>
+      <p class="oc-italic en">An integrated media &amp; communications company founded in 2022 in Ho Chi Minh City — specialising in TV advertising sales, multi-platform media consulting and full-service marketing solutions for brands &amp; agencies.</p>
+      <p class="oc-body vi">Với đội ngũ giàu kinh nghiệm 17+ năm từ WPP/Mindshare &amp; Splus Media, chúng tôi kết nối thương hiệu với đúng đối tượng khách hàng trên TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Production.</p>
+      <p class="oc-body en">With a team boasting 17+ years of experience from WPP/Mindshare &amp; Splus Media, we connect brands with the right audience across TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Production.</p>
+    </div>
+
+    
+    <div class="oc reveal d1 oc-static expanded">
+      <span class="oc-sub vi">Thành Lập Từ Năm</span>
+      <span class="oc-sub en">Founded In</span>
+      <span class="oc-year">2022</span>
+      <p class="oc-body vi">Được sáng lập bởi <strong>Lý Quốc Hưng</strong> vào ngày <strong>28/07/2022</strong>, Infinity ra đời với tầm nhìn xây dựng nền tảng media hiện đại — kết nối chiến lược với thực thi để tạo ra giá trị thực cho thương hiệu.</p>
+      <p class="oc-body en">Founded by <strong>Ly Quoc Hung</strong> on <strong>July 28, 2022</strong>, Infinity was created with the vision of building a modern media platform — connecting strategy with execution to deliver real brand value.</p>
+    </div>
+
+    
+    <div class="oc reveal d2">
+      <div class="oc-bg">
+        <img src="images/image-2.png" alt="" class="oc-illust" />
+      </div>
+      <span class="oc-headline vi">Ecosystem within</span>
+      <span class="oc-headline en">Ecosystem within</span>
+      <span class="oc-headline vi">Infinity</span>
+      <span class="oc-headline en">Infinity</span>
+      <ul class="oc-bullets">
+        <li><span class="vi">Infinity hoạt động như một hệ sinh thái kết nối nhãn hàng, agency và media owner</span><span class="en">Infinity operates as a connected ecosystem linking brands, agencies, and media owners</span></li>
+        <li><span class="vi">Hệ sinh thái này giúp đưa ra quyết định tốt hơn, gia tăng sức mua và tối ưu hiệu quả triển khai trên mọi kênh</span><span class="en">This ecosystem enables better decision-making, stronger buying power, and more efficient execution across all channels</span></li>
+        <li><span class="vi">Thông qua việc kết hợp dữ liệu, media và trading, chúng tôi mở ra cơ hội tăng trưởng mới cho khách hàng</span><span class="en">By integrating data, media, and trading, we unlock new growth opportunities for our clients</span></li>
+      </ul>
+    </div>
+
+    
+    <div class="open-grid-row-2"></div>
+
+    
+    <div class="oc reveal">
+      <div class="oc-bg">
+        <img src="images/image-3.png" alt="" class="oc-illust oc-illust-large oc-illust-up" />
+      </div>
+      <span class="oc-headline vi">Our Impact</span>
+      <span class="oc-headline en">Our Impact</span>
+      <ul class="oc-bullets">
+        <li><span class="vi">Hơn 50 tỷ VND ngân sách media được quản lý mỗi năm</span><span class="en">Over 50 billion VND in media investment handled annually</span></li>
+        <li><span class="vi">Hơn 100 chiến dịch triển khai thành công</span><span class="en">More than 100 campaigns executed successfully</span></li>
+        <li><span class="vi">Hợp tác với nhiều agency và nhãn hàng hàng đầu Việt Nam</span><span class="en">Partnerships with leading agencies and brands across Vietnam</span></li>
+        <li><span class="vi">Phủ sóng toàn quốc trên TV và Digital</span><span class="en">Nationwide coverage across TV and Digital channels</span></li>
+      </ul>
+    </div>
+
+    
+    <div class="oc reveal d1">
+      <div class="oc-bg">
+        <img src="images/image-4.png" alt="" class="oc-illust" />
+      </div>
+      <span class="oc-headline vi">Why Choose</span>
+      <span class="oc-headline en">Why Choose</span>
+      <span class="oc-headline vi">Infinity?</span>
+      <span class="oc-headline en">Infinity?</span>
+      <ul class="oc-bullets">
+        <li><span class="vi">TV, OOH &amp; Digital Trading Expertise — Quyền bán độc quyền trên hệ sinh thái của chúng tôi và hơn thế nữa — tiếp cận trực tiếp, rate card cạnh tranh nhất thị trường</span><span class="en">TV, OOH &amp; Digital Trading Expertise — Exclusive sales rights across our ecosystem and beyond — direct access, most competitive rate cards in the market</span></li>
+        <li><span class="vi">One-Stop Media Partner — TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Production — một đầu mối, một báo cáo, tối ưu toàn bộ ngân sách</span><span class="en">One-Stop Media Partner — TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Production — one point of contact, one report, full budget optimisation</span></li>
+        <li><span class="vi">17+ Năm Kinh Nghiệm — Nền tảng từ WPP/Mindshare &amp; Splus Media — am hiểu sâu cả agency lẫn nhãn hàng, lập kế hoạch media chính xác, triển khai nhanh</span><span class="en">17+ Years of Experience — Background from WPP/Mindshare &amp; Splus Media — deep understanding of both agencies and brands, precise media planning, fast turnaround</span></li>
+        <li><span class="vi">Data-Driven &amp; Transparent — Báo cáo và đo lường rõ ràng, minh bạch</span><span class="en">Data-Driven &amp; Transparent — Clear, transparent reporting and measurement</span></li>
+        <li><span class="vi">Production + Distribution trong Một Gói — AI Creative: TVC + Assets — sản xuất và phát sóng TV trong một gói tích hợp duy nhất, không cần production house riêng</span><span class="en">Production + Distribution in One Package — AI Creative: TVC + Assets — produce and broadcast TV in a single integrated package. No separate production house required</span></li>
+        <li><span class="vi">Nano/Micro KOL Edge — Tối ưu ROI KOL với đúng tier, đúng nội dung và đúng nền tảng</span><span class="en">Nano/Micro KOL Edge — Optimize KOL ROI with the right tier, right content and right platform</span></li>
+      </ul>
+    </div>
+
+    
+    <div class="oc reveal d2">
+      <div class="oc-bg">
+        <img src="images/image-5.png" alt="" class="oc-illust oc-illust-large" />
+      </div>
+      <span class="oc-headline vi">Trading Power</span>
+      <span class="oc-headline en">Trading Power</span>
+      <ul class="oc-bullets">
+        <li><span class="vi">Mạng lưới trading được xây dựng trên quan hệ vững chắc với các agency và nhãn hàng hàng đầu</span><span class="en">Our trading network is built on strong partnerships with leading agencies and top-tier brands</span></li>
+        <li><span class="vi">Cho phép Infinity triển khai chiến dịch quy mô lớn với chi phí cạnh tranh và quyền ưu tiên tiếp cận inventory cao cấp</span><span class="en">This allows Infinity to execute large-scale campaigns with competitive pricing and priority access to premium inventory</span></li>
+        <li><span class="vi">Chúng tôi vượt qua mô hình agency truyền thống để mang lại hiệu quả chi phí và hiệu suất tốt hơn</span><span class="en">We go beyond traditional agency models to deliver better cost efficiency and performance</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</div><!-- /about-wrapper -->
+
+<!-- ══════════════════════════════════
+     SOLUTIONS / GIẢI PHÁP PLACEHOLDER
+══════════════════════════════════ -->
+<section id="stats">
+  <div class="stats-row" style="grid-template-columns:repeat(3,1fr);">
+    <div class="stat-block reveal">
+      <span class="stat-num">100+</span>
+      <span class="stat-label vi">Chiến dịch thành công</span>
+      <span class="stat-label en">Campaigns executed</span>
+    </div>
+    <div class="stat-block reveal d1">
+      <span class="stat-num">2022</span>
+      <span class="stat-label vi">Năm thành lập</span>
+      <span class="stat-label en">Year founded</span>
+    </div>
+    <div class="stat-block reveal d2">
+      <span class="stat-num">5</span>
+      <span class="stat-label vi">Mảng kinh doanh</span>
+      <span class="stat-label en">Business divisions</span>
+    </div>
+  </div>
+  <div class="stats-row-2">
+    <div class="stat-block reveal">
+      <span class="stat-num">17+</span>
+      <span class="stat-label vi">Năm kinh nghiệm</span>
+      <span class="stat-label en">Years of experience</span>
+    </div>
+    <div class="stat-block reveal d1">
+      <span class="stat-num">5</span>
+      <span class="stat-label vi">Năm tuổi — Startup trẻ</span>
+      <span class="stat-label en">Years old — young startup</span>
+    </div>
+    <div class="stat-block reveal d2">
+      <span class="stat-num">1</span>
+      <span class="stat-label vi">Đam mê</span>
+      <span class="stat-label en">Passion</span>
+    </div>
+  </div>
+</section>
+
+<section id="solutions" style="padding:4rem 5vw;background:#f5f5f3;">
+
+  <!-- Block 1: OOH -->
+  <div style="margin-bottom:1rem;">
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-.02em;color:var(--ink);">
+      <span class="vi">Our <span style="color:var(--green-dk)">Work</span></span>
+      <span class="en">Our <span style="color:var(--green-dk)">Work</span></span>
+    </h3>
+  </div>
+  <div class="sol-block">
+    <div class="sol-block-header">
+      <a href="our-work-ooh.html" style="color:inherit;text-decoration:none;">
+        <span class="vi">Quảng Cáo Ngoài Trời (OOH) →</span>
+        <span class="en">Outdoor Advertising (OOH) →</span>
+      </a>
+    </div>
+    <div class="ooh-slideshow" id="ooh-slideshow">
+      <div class="ooh-track" id="ooh-track">
+        <!-- Slide 1: Dyson x2 + Bridgestone night -->
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-3">
+            <div class="sol-card"><img src="images/dyson-1.jpg" class="sol-img-real" alt="Dyson LCD"/></div>
+            <div class="sol-card"><img src="images/dyson-2.jpg" class="sol-img-real" alt="Dyson Billboard"/></div>
+            <div class="sol-card"><img src="images/bridge-1.jpg" class="sol-img-real" alt="Bridgestone Night"/></div>
+          </div>
+        </div>
+        <!-- Slide 2: Melia x2 + spcbd-2 -->
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-3">
+            <div class="sol-card"><img src="images/melia-1.jpg" class="sol-img-real" alt="Melia Airport"/></div>
+            <div class="sol-card"><img src="images/melia-2.jpg" class="sol-img-real" alt="Melia CBD"/></div>
+            <div class="sol-card"><img src="images/spcbd-2.jpg" class="sol-img-real" alt="Spotify CBD Grey D"/></div>
+          </div>
+        </div>
+        <!-- Slide 3: Spotify CBD remaining + Wrapped bus -->
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-3">
+            <div class="sol-card"><img src="images/spcbd-3.jpg" class="sol-img-real" alt="Spotify CBD 1 Trieu"/></div>
+            <div class="sol-card"><img src="images/spcbd-4.jpg" class="sol-img-real" alt="Spotify CBD Nguyen Thi Nghia"/></div>
+            <div class="sol-card"><img src="images/spwrap-1.jpg" class="sol-img-real" alt="Spotify Wrapped Bus"/></div>
+          </div>
+        </div>
+        <!-- Slide 4: Skoda + Spotify Tet x2 -->
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-3">
+            <div class="sol-card"><img src="images/ooh-skoda-new.jpg" class="sol-img-real" alt="Skoda Kushaq"/></div>
+            <div class="sol-card"><img src="images/ooh-sptet-night.jpg" class="sol-img-real" alt="Spotify Tet Night"/></div>
+            <div class="sol-card"><img src="images/ooh-sptet-day.jpg" class="sol-img-real" alt="Spotify Tet Day"/></div>
+          </div>
+        </div>
+      </div>
+      <button class="ooh-arrow ooh-left" onclick="oohSlide(-1)">&#8592;</button>
+      <button class="ooh-arrow ooh-right" onclick="oohSlide(1)">&#8594;</button>
+      <div class="ooh-dots" id="ooh-dots">
+        <div class="ooh-dot active" onclick="oohGoTo(0)"></div>
+        <div class="ooh-dot" onclick="oohGoTo(1)"></div>
+        <div class="ooh-dot" onclick="oohGoTo(2)"></div>
+        <div class="ooh-dot" onclick="oohGoTo(3)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 2: Digital Advertising -->
+  <div class="sol-block">
+    <div class="sol-block-header">
+      <a href="our-work-digital.html" style="color:inherit;text-decoration:none;">
+        <span class="vi">Quảng Cáo Kỹ Thuật Số →</span>
+        <span class="en">Digital Advertising →</span>
+      </a>
+    </div>
+    <div class="sol-grid sol-grid-3">
+      <div class="sol-card">
+        <img src="images/digital-1.jpg" class="sol-img-real" alt="Tuoi Tre Digital"/>
+      </div>
+      <div class="sol-card">
+        <img src="images/digital-2.jpg" class="sol-img-real" alt="Suc Khoe Doi Song Digital"/>
+      </div>
+      <div class="sol-card">
+        <img src="images/digital-3.jpg" class="sol-img-real" alt="Thanh Nien Digital"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 3: Point of Sale -->
+  <div class="sol-block">
+    <div class="sol-block-header">
+      <a href="our-work-pos.html" style="color:inherit;text-decoration:none;">
+        <span class="vi">Mạng Lưới Truyền Thông Tại Điểm Bán →</span>
+        <span class="en">Communication Network at Point of Sale →</span>
+      </a>
+    </div>
+    <div class="ooh-slideshow">
+      <div class="ooh-track" id="pos-track">
+        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
+          <div class="sol-card"><img src="images/pos-1.jpg" class="sol-img-real" alt="Dyson LCD Petrosetco"/></div>
+          <div class="sol-card"><img src="images/pos-7.jpg" class="sol-img-real" alt="Yola VietinBank"/></div>
+          <div class="sol-card"><img src="images/pos-10.jpg" class="sol-img-real" alt="Melia Departure Hall"/></div>
+        </div></div>
+      </div>
+      <div class="ooh-dots" id="pos-dots">
+        <div class="ooh-dot active" onclick="posGoTo(0)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: TV Advertising -->
+  <div class="sol-block">
+    <div class="sol-block-header">
+      <a href="our-work-tv.html" style="color:inherit;text-decoration:none;">
+        <span class="vi">Quảng Cáo Truyền Hình (TV) →</span>
+        <span class="en">TV Advertising →</span>
+      </a>
+    </div>
+    <div class="ooh-slideshow">
+      <div class="ooh-track" id="tv-track">
+        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
+          <div class="sol-card"><img src="images/tv-sctv6.png" class="sol-img-real" alt="SCTV6" style="object-fit:contain;background:#0a1f3c;"/></div>
+          <div class="sol-card"><img src="images/tv-thvl1.png" class="sol-img-real" alt="THVL1" style="object-fit:contain;background:#0c2a56;"/></div>
+          <div class="sol-card"><img src="images/tv-vtvcab.png" class="sol-img-real" alt="VTVcab" style="object-fit:contain;background:#0057b8;"/></div>
+        </div></div>
+        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
+          <div class="sol-card"><img src="images/tv-ontrending.jpg" class="sol-img-real" alt="ONTRENDING" style="object-fit:contain;background:#b8f0e8;"/></div>
+          <div class="sol-card"><img src="images/tv-vtv1.png" class="sol-img-real" alt="VTV1" style="object-fit:contain;background:#000;"/></div>
+          <div class="sol-card"><img src="images/tv-vtvcab17.png" class="sol-img-real" alt="VTVCab17" style="object-fit:contain;background:#e8e8e8;"/></div>
+        </div></div>
+      </div>
+      <button class="ooh-arrow ooh-left" onclick="tvSlide(-1)">&#8592;</button>
+      <button class="ooh-arrow ooh-right" onclick="tvSlide(1)">&#8594;</button>
+      <div class="ooh-dots" id="tv-dots">
+        <div class="ooh-dot active" onclick="tvGoTo(0)"></div>
+        <div class="ooh-dot" onclick="tvGoTo(1)"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="ai-creative" class="section">
+  <div class="aic-header reveal">
+    <div class="eyebrow vi">Sản Xuất Hỗ Trợ AI</div>
+    <div class="eyebrow en">AI-Powered Production</div>
+    <h2>
+      <span class="vi">Infinity <em>AI Creative</em> — Sản Xuất &amp; Phân Phối trong Một Gói</span>
+      <span class="en">Infinity <em>AI Creative</em> — Produce &amp; Distribute in One Package</span>
+    </h2>
+  </div>
+  <div class="aic-body">
+    <!-- Left: bg image + stats, all white text, no bubbles -->
+    <div class="aic-why reveal">
+      <div class="aic-why-title vi">Tại Sao Chọn AI Creative?</div>
+      <div class="aic-why-title en">Why AI Creative?</div>
+      <div class="aic-stat">
+        <div class="aic-stat-val vi">300 Triệu – 1 Tỷ VNĐ</div>
+        <div class="aic-stat-val en">VND 300M – 1B</div>
+        <div class="aic-stat-label vi">Chi phí sản xuất TVC truyền thống</div>
+        <div class="aic-stat-label en">Traditional TVC production cost</div>
+      </div>
+      <div class="aic-stat">
+        <div class="aic-stat-val vi">50 – 300 Triệu VNĐ</div>
+        <div class="aic-stat-val en">VND 50 – 300M</div>
+        <div class="aic-stat-label vi">Chi phí TVC AI</div>
+        <div class="aic-stat-label en">AI TVC cost</div>
+      </div>
+      <div class="aic-stat">
+        <div class="aic-stat-val vi">4–8 tuần</div>
+        <div class="aic-stat-val en">4–8 weeks</div>
+        <div class="aic-stat-label vi">Thời gian sản xuất truyền thống</div>
+        <div class="aic-stat-label en">Traditional production timeline</div>
+      </div>
+      <div class="aic-stat">
+        <div class="aic-stat-val vi">5–12 ngày</div>
+        <div class="aic-stat-val en">5–12 days</div>
+        <div class="aic-stat-label vi">Sản xuất AI (nhanh hơn 4–6×)</div>
+        <div class="aic-stat-label en">AI production (4–6× faster)</div>
+      </div>
+      <div class="aic-source">Source: IAB Digital Video 2025 — 39% of digital ad video in 2026 will use Gen AI</div>
+    </div>
+    <!-- Right: Features, no icons -->
+    <div class="aic-features reveal d1">
+      <div class="aic-feat">
+        <div class="aic-feat-title">AI Image &amp; Key Visual</div>
+        <div class="aic-feat-desc vi">Product shots, KV, banner — không cần studio, giao hàng trong 24h</div>
+        <div class="aic-feat-desc en">Product shots, KVs, banners — no studio required, delivered within 24h</div>
+      </div>
+      <div class="aic-feat">
+        <div class="aic-feat-title">AI TVC Production</div>
+        <div class="aic-feat-desc vi">Script → AI video → hậu kỳ → TVC 30s hoàn chỉnh trong 5–12 ngày</div>
+        <div class="aic-feat-desc en">Script → AI video → post-production → finished 30s TVC in 5–12 days</div>
+      </div>
+      <div class="aic-feat">
+        <div class="aic-feat-title vi">Cá Nhân Hóa &amp; Linh Hoạt</div>
+        <div class="aic-feat-title en">Personalised &amp; Dynamic</div>
+        <div class="aic-feat-desc vi">1 concept → nhiều phiên bản theo phân khúc, tỉ lệ và ngôn ngữ — tự động</div>
+        <div class="aic-feat-desc en">1 concept → multiple versions by segment, ratio and language — automatically</div>
+      </div>
+      <div class="aic-feat">
+        <div class="aic-feat-title vi">Phân Phối Truyền Thông</div>
+        <div class="aic-feat-title en">Media Distribution</div>
+        <div class="aic-feat-desc vi">TV · Digital · OOH — tất cả trong một gói, một đầu mối liên hệ</div>
+        <div class="aic-feat-desc en">TV broadcast · Digital · OOH — all in one package, one point of contact</div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer highlight bar -->
+  <div class="aic-footer reveal d2">
+    <span class="aic-footer-check">✓</span>
+    <span class="aic-footer-text vi">Infinity là một trong số ít agency sở hữu kênh TV riêng — sản xuất AI + phát sóng TV trong một gói tích hợp duy nhất</span>
+    <span class="aic-footer-text en">Infinity is one of the rare agencies with its own TV channels — AI production + TV broadcast in a single package</span>
+  </div>
+</section>
+
+<section id="services" class="section" style="padding-top:2.5rem;padding-bottom:2.5rem;">
+  <div class="svc-header">
+    <div class="reveal">
+      <h2 class="sec-h" style="font-size:clamp(2rem,4vw,3.4rem)">
+        <span class="vi">5 Mảng Kinh Doanh Cốt Lõi của <em>INFINITY</em></span>
+        <span class="en">5 Core Business of <em>INFINITY</em></span>
+      </h2>
+    </div>
+  </div>
+  <div class="svc-layout">
+      <div class="svc-item reveal">
+        <div class="svc-item-title">TV &amp; Media Trading</div>
+        <div class="svc-item-desc vi">Bán quảng cáo trực tiếp: SCTV6, ONSPORTS+, ONTRENDING, VTV1 (Vietnam Today), Vinh Long 1 (Phim giờ vàng 20h) + hệ sinh thái quảng cáo Digital của VTVcab.</div>
+        <div class="svc-item-desc en">Direct ad sales: SCTV6, ONSPORTS+, ONTRENDING, VTV1 (Vietnam Today), Vinh Long 1 (Prime-time Drama 20h) + VTV cab Digital ad ecosystem.</div>
+      </div>
+      <div class="svc-item reveal d1">
+        <div class="svc-item-title">Integrated Media Consulting</div>
+        <div class="svc-item-desc vi">Lập kế hoạch truyền thông đa nền tảng: TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Âm nhạc · Thiết kế & Nội dung — một đầu mối, tối ưu toàn bộ ngân sách.</div>
+        <div class="svc-item-desc en">Multi-platform media planning: TV · Digital · OTT · Social · KOL · OOH · Sponsorship · Music · Design &amp; Content — one point of contact, full budget optimisation.</div>
+      </div>
+      <div class="svc-item reveal d2">
+        <div class="svc-item-title">KOL Strategy &amp; Content</div>
+        <div class="svc-item-desc vi">Chiến lược KOL toàn diện: nghiên cứu, booking, sản xuất nội dung.</div>
+        <div class="svc-item-desc en">End-to-end KOL strategy: research, booking, content production.</div>
+      </div>
+      <div class="svc-item reveal d3">
+        <div class="svc-item-title">Sponsorship Consulting</div>
+        <div class="svc-item-desc vi">Tư vấn & triển khai tài trợ chương trình TV, thể thao và âm nhạc — tích hợp PPL, quyền hình ảnh, brand title & PR.</div>
+        <div class="svc-item-desc en">Consulting &amp; execution for TV show, sports &amp; music event sponsorships — integrating PPL, visual rights, brand title &amp; PR.</div>
+      </div>
+      <div class="svc-item reveal d4">
+        <div class="svc-item-title">Production — TVC, Digital &amp; Packaging</div>
+        <div class="svc-item-desc vi">Sản xuất TVC 15/30/60s (truyền thống & hỗ trợ AI), tài sản digital, key visual, motion graphics và thiết kế bao bì — đi kèm phân phối truyền thông.</div>
+        <div class="svc-item-desc en">Production of TVC 15/30/60s (traditional &amp; AI-assisted), digital assets, key visuals, motion graphics and packaging design — bundled with media distribution.</div>
+      </div>
+  </div>
+</section>
+
+<section id="timeline" class="section">
+  <div class="tl-tree-bg"><img src="images/image-10.png" alt="" class="tl-tree-img"/></div>
+  <div class="timeline-header reveal" id="timeline-toggle">
+    <h2 class="sec-h white">
+      <span class="vi">Hành Trình <em>Của Chúng Tôi</em></span>
+      <span class="en">Our <em>Journey</em></span>
+    </h2>
+    <div class="tl-hint">
+      <span class="vi">Nhấn để xem hành trình</span>
+      <span class="en">Click to reveal the journey</span>
+    </div>
+  </div>
+  <div class="timeline-track-wrapper">
+  <div class="timeline-track">
+    <div class="tl-item left reveal">
+      <div class="tl-content">
+        <span class="tl-year">2009 – 2019</span>
+        <div class="tl-title vi">Mindshare Unilever / WPP Việt Nam</div>
+        <div class="tl-title en">Mindshare Unilever / WPP Vietnam</div>
+        <div class="tl-desc vi">Quản lý ngân sách media cho các thương hiệu đa quốc gia của Unilever trên toàn thị trường Việt Nam.</div>
+        <div class="tl-desc en">Managed media budgets for major Unilever multinational brands across the Vietnamese market.</div>
+      </div>
+      <div class="tl-dot-wrap"><div class="tl-dot">💼</div></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item right reveal d1">
+      <div class="tl-empty"></div>
+      <div class="tl-dot-wrap"><div class="tl-dot">📈</div></div>
+      <div class="tl-content">
+        <span class="tl-year">2019 – 2023</span>
+        <div class="tl-title vi">Giám Đốc Điều Hành & Cổ Đông — Splus Media</div>
+        <div class="tl-title en">Managing Director & Shareholder — Splus Media</div>
+        <div class="tl-desc vi">Tăng gấp 3 doanh thu trong 2 năm từ vị trí Giám đốc Kinh doanh, được thăng tiến lên Giám đốc Điều hành; quản lý đội ngũ sales và tư vấn kế hoạch truyền thông.</div>
+        <div class="tl-desc en">Tripled revenue within 2 years from Sales Director, promoted to Managing Director; managed the sales team & provided media planning consultancy.</div>
+      </div>
+    </div>
+    <div class="tl-item left reveal d2">
+      <div class="tl-content">
+        <span class="tl-year">2022 – Hiện Tại</span>
+        <div class="tl-title vi">Founder &amp; CEO — Infinity Communications</div>
+        <div class="tl-title en">Founder &amp; CEO — Infinity Communications</div>
+        <div class="tl-desc vi">Xây dựng công ty truyền thông & media tích hợp từ con số 0; vận hành TV, Digital, OTT, KOL & Sponsorship.</div>
+        <div class="tl-desc en">Built an integrated media & communications company from scratch; operating TV, Digital, OTT, KOL & Sponsorship.</div>
+      </div>
+      <div class="tl-dot-wrap"><div class="tl-dot">🚀</div></div>
+      <div class="tl-empty"></div>
+    </div>
+  </div>
+  </div>
+</section>
+<section id="vision" class="section" style="background:var(--canvas3);padding-top:7rem;">
+  <!-- Vision banner -->
+  <div class="vp-banner reveal">
+    <div class="vp-bg" style="background-image:url('images/vp-bg-vision.jpg')"></div>
+    <div class="vp-overlay"></div>
+    <div class="vp-content">
+      <div class="vp-title">
+        <span class="vi">Tầm Nhìn của<br/><em>INFINITY</em></span>
+        <span class="en">Vision of<br/><em>INFINITY</em></span>
+      </div>
+      <div class="vp-desc">
+        <p class="vi">Trở thành nền tảng media trading hàng đầu tại Việt Nam — nơi mọi thương hiệu có thể tiếp cận chiến lược truyền thông tối ưu, dữ liệu thực tế và sức mạnh trading vượt trội để tăng trưởng bền vững.</p>
+        <p class="en">To become the leading media trading platform in Vietnam — where every brand can access optimal media strategy, real data insights, and superior trading power to achieve sustainable growth.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Purpose banner -->
+  <div class="vp-banner reveal">
+    <div class="vp-bg" style="background-image:url('images/vp-bg-purpose.jpg')"></div>
+    <div class="vp-overlay"></div>
+    <div class="vp-content">
+      <div class="vp-title">
+        <span class="vi">Sứ Mệnh của<br/><em>INFINITY</em></span>
+        <span class="en">Purpose of<br/><em>INFINITY</em></span>
+      </div>
+      <div class="vp-desc">
+        <p class="vi">Kết nối chiến lược và thực thi một cách liền mạch — giúp nhãn hàng, agency và media owner cùng hưởng lợi trong một hệ sinh thái media thống nhất, hiệu quả và đo lường được.</p>
+        <p class="en">Seamlessly connect strategy and execution — enabling brands, agencies, and media owners to benefit together within a unified, efficient, and measurable media ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners" class="section" style="background:var(--canvas3)">
+  <div class="pc-header reveal">
+    <h2 class="sec-h">
+      <span class="vi">Đối Tác &amp; <em>Khách Hàng</em> của Infinity</span>
+      <span class="en">Partners &amp; <em>Clients</em> of Infinity</span>
+    </h2>
+    <div class="pc-tabs">
+      <button class="pc-tab active" data-tab="partners">
+        <span class="vi">Đối Tác</span>
+        <span class="en">Partners</span>
+      </button>
+      <button class="pc-tab" data-tab="clients">
+        <span class="vi">Khách Hàng</span>
+        <span class="en">Clients</span>
+      </button>
+    </div>
+  </div>
+
+  
+  <div class="pc-panel" id="tab-partners">
+
+    <!-- Agency Partners -->
+    <div style="margin-bottom:2rem;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Agency Partners</div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="images/partner-wpp.png" alt="WPP Media" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-publicis.png" alt="Publicis Groupe" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-omd.svg" alt="OMD" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-dentsu.png" alt="Dentsu" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/image-15.png" alt="Dat Viet VAC" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-viettel.png" alt="Viettel Media" class="lc-img"/></div>
+      </div>
+    </div>
+
+    <!-- Channel Partners -->
+    <div style="margin-bottom:2rem;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Channel Partners</div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="images/partner-vtv.png" alt="VTV" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-htv.png" alt="HTV" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-thvl.png" alt="THVL" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-vtvcab.png" alt="VTVcab" class="lc-img"/></div>
+      </div>
+    </div>
+
+    <!-- OOH Partners -->
+    <div style="margin-bottom:2rem;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">OOH Partners</div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="images/partner-goldsun.png" alt="Goldsun" class="lc-img" style="height:90px;max-width:110px;"/></div>
+        <div class="logo-card"><img src="images/partner-vinama.png" alt="Vinama" class="lc-img" style="height:90px;max-width:200px;"/></div>
+        <div class="logo-card"><img src="images/partner-kynguyen.png" alt="Kỳ Nguyên Group" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-prowtech.png" alt="Prowtech" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-goldsun-focus.png" alt="Goldsun Focus Media" class="lc-img"/></div>
+      </div>
+    </div>
+
+    <!-- OTT Partners -->
+    <div>
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">OTT Partners</div>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="images/partner-fptplay.png" alt="FPT Play" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-vtvprime.png" alt="VTV Prime" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-vieon.png" alt="VieON by DatVietVAC" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-tv360.png" alt="TV360" class="lc-img"/></div>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="pc-panel hidden" id="tab-clients">
+    <div class="clients-row">
+      <div class="cli-card"><img src="images/image-17.png" alt="Hygiene" class="ci-img ci-hygiene"/><span class="cli-name">Hygiene</span></div>
+      <div class="cli-card"><img src="images/image-18.png" alt="Spotify" class="ci-img ci-spotify"/><span class="cli-name">Spotify</span></div>
+      <div class="cli-card"><img src="images/image-19.png" alt="Škoda" class="ci-img ci-skoda"/><span class="cli-name">Škoda</span></div>
+      <div class="cli-card"><img src="images/image-20.png" alt="H&M" class="ci-img ci-hm"/><span class="cli-name">H&amp;M</span></div>
+      <div class="cli-card"><img src="images/image-21.png" alt="Eagle Brand" class="ci-img ci-eagle"/><span class="cli-name">Eagle Brand</span></div>
+      <div class="cli-card"><img src="images/cl-unilever.png" alt="Unilever" class="ci-img"/><span class="cli-name">Unilever</span></div>
+      <div class="cli-card"><img src="images/cl-pg.png" alt="Procter &amp; Gamble" class="ci-img"/><span class="cli-name">Procter &amp; Gamble</span></div>
+      <div class="cli-card"><img src="images/cl-nestle.png" alt="Nestlé" class="ci-img"/><span class="cli-name">Nestlé</span></div>
+      <div class="cli-card"><img src="images/cl-pepsi.svg" alt="Pepsi" class="ci-img"/><span class="cli-name">Pepsi</span></div>
+      <div class="cli-card"><img src="images/cl-cocacola.png" alt="Coca-Cola" class="ci-img"/><span class="cli-name">Coca-Cola</span></div>
+      <div class="cli-card"><img src="images/cl-heineken.png" alt="Heineken" class="ci-img"/><span class="cli-name">Heineken</span></div>
+      <div class="cli-card"><img src="images/cl-masan.png" alt="Masan Consumer" class="ci-img"/><span class="cli-name">Masan Consumer</span></div>
+    </div>
+
+    <div id="clients-extra" style="max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.34,1.45,.64,1),opacity .5s ease;opacity:0;">
+      <div class="clients-row" style="margin-top:1.5rem;">
+        <div class="cli-card"><img src="images/cl-vinamilk.png" alt="Vinamilk" class="ci-img"/><span class="cli-name">Vinamilk</span></div>
+        <div class="cli-card"><img src="images/cl-samsung.png" alt="Samsung" class="ci-img"/><span class="cli-name">Samsung</span></div>
+        <div class="cli-card"><img src="images/cl-lg.png" alt="LG Electronics" class="ci-img"/><span class="cli-name">LG Electronics</span></div>
+        <div class="cli-card"><img src="images/cl-viettel.png" alt="Viettel" class="ci-img"/><span class="cli-name">Viettel</span></div>
+        <div class="cli-card"><img src="images/cl-mobifone.png" alt="MobiFone" class="ci-img"/><span class="cli-name">MobiFone</span></div>
+        <div class="cli-card"><img src="images/cl-grab.png" alt="Grab" class="ci-img"/><span class="cli-name">Grab</span></div>
+        <div class="cli-card"><img src="images/cl-loreal.png" alt="L'Oréal" class="ci-img"/><span class="cli-name">L'Oréal</span></div>
+        <div class="cli-card"><img src="images/cl-colgate.png" alt="Colgate" class="ci-img"/><span class="cli-name">Colgate</span></div>
+        <div class="cli-card"><img src="images/cl-nivea.png" alt="Nivea" class="ci-img"/><span class="cli-name">Nivea</span></div>
+        <div class="cli-card"><img src="images/cl-techcombank.png" alt="Techcombank" class="ci-img"/><span class="cli-name">Techcombank</span></div>
+        <div class="cli-card"><img src="images/cl-vpbank.png" alt="VPBank" class="ci-img"/><span class="cli-name">VPBank</span></div>
+        <div class="cli-card"><img src="images/cl-manulife.svg" alt="Manulife" class="ci-img"/><span class="cli-name">Manulife</span></div>
+        <div class="cli-card"><img src="images/cl-thtruemilk.png" alt="TH True Milk" class="ci-img"/><span class="cli-name">TH True Milk</span></div>
+        <div class="cli-card"><img src="images/cl-abbott.png" alt="Abbott" class="ci-img"/><span class="cli-name">Abbott</span></div>
+        <div class="cli-card"><img src="images/cl-svb.png" alt="SVB Financial Group" class="ci-img"/><span class="cli-name">SVB Financial Group</span></div>
+        <div class="cli-card"><img src="images/cl-gsk.png" alt="GSK" class="ci-img"/><span class="cli-name">GSK</span></div>
+        <div class="cli-card"><img src="images/cl-urc.svg" alt="Universal Robina" class="ci-img"/><span class="cli-name">Universal Robina</span></div>
+        <div class="cli-card"><img src="images/cl-tcp.png" alt="TCP Group" class="ci-img"/><span class="cli-name">TCP Group</span></div>
+        <div class="cli-card"><img src="images/cl-uniqlo.png" alt="UNIQLO" class="ci-img"/><span class="cli-name">UNIQLO</span></div>
+        <div class="cli-card"><img src="images/cl-omachi.png" alt="Omachi" class="ci-img"/><span class="cli-name">Omachi</span></div>
+        <div class="cli-card"><img src="images/cl-kokomi.png" alt="Kokomi" class="ci-img"/><span class="cli-name">Kokomi</span></div>
+        <div class="cli-card"><img src="images/cl-dove.png" alt="Dove" class="ci-img"/><span class="cli-name">Dove</span></div>
+        <div class="cli-card"><img src="images/cl-ensure.png" alt="Ensure" class="ci-img"/><span class="cli-name">Ensure</span></div>
+        <div class="cli-card"><img src="images/cl-sunsilk.png" alt="Sunsilk" class="ci-img"/><span class="cli-name">Sunsilk</span></div>
+        <div class="cli-card"><img src="images/cl-sting.png" alt="Sting" class="ci-img"/><span class="cli-name">Sting</span></div>
+        <div class="cli-card"><img src="images/cl-sensodyne.png" alt="Sensodyne" class="ci-img"/><span class="cli-name">Sensodyne</span></div>
+        <div class="cli-card"><img src="images/cl-yomost.png" alt="YoMost" class="ci-img"/><span class="cli-name">YoMost</span></div>
+        <div class="cli-card"><img src="images/cl-tropicana.png" alt="Tropicana Twister" class="ci-img"/><span class="cli-name">Tropicana Twister</span></div>
+        <div class="cli-card"><img src="images/cl-clear.svg" alt="Clear" class="ci-img"/><span class="cli-name">Clear</span></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button id="clients-toggle-btn" onclick="toggleClients()" style="padding:.75rem 2rem;background:var(--green-dk);color:white;border:none;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .15s;">
+        <span class="vi">Xem tất cả ↓</span>
+        <span class="en">View all ↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <a href="#" class="foot-logo-row" style="display:flex;align-items:center;gap:4px;">
+        <span class="lg-text-foot">Inf</span>
+        <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;filter:brightness(0.75);" alt=""/>
+        <span class="lg-text-foot">ty</span>
+      </a>
+      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam — kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
+      <p class="foot-desc en">Vietnam's leading media trading platform — combining strategy, data, and trading power to drive sustainable growth.</p>
+      <p class="foot-legal vi">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ TRUYỀN THÔNG INFINITY<br>MST: 0317406640</p>
+      <p class="foot-legal en">INFINITY MEDIA & TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
+    </div>
+    <div class="foot-col">
+      <h5>Điều Hướng</h5>
+      <ul>
+        <li><a href="javascript:void(0)">Giới Thiệu</a></li>
+        <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
+        <li><a href="our-work-pos.html" class="vi">Truyền Thông Tại Điểm Bán</a><a href="our-work-pos.html" class="en">Point of Sale</a></li>
+        <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
+        <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
+        <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
+        <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5 class="vi">Liên Hệ</h5>
+      <h5 class="en">Contact</h5>
+      <div class="foot-contact-item"><span class="fci">✉️</span><a href="mailto:leo@infinitycomm.vn"><strong>Info:</strong> leo@infinitycomm.vn</a></div>
+      <div class="foot-contact-item"><span class="fci">📍</span><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="vi">Số 8 Đường số 5, KDC Amelie Villa, Xã Nhà Bè, TP. HCM</a><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="en">No. 8, Street 5, Amelie Villa Residence, Nha Be Ward, HCMC</a></div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="vi">© 2025 Công Ty TNHH TM & DV Truyền Thông Infinity. Bảo lưu mọi quyền.</p>
+    <p class="en">© 2025 Infinity Media & Trading Services Co., Ltd. All rights reserved.</p>
+    <div class="mst-tag">MST: 0317406640</div>
+  </div>
+</footer>
+
+<script>
+/* ── SCROLL TO PHONE ── */
+function scrollToPhone(){
+  const el = document.getElementById('phone-number');
+  if(!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(()=>{
+    el.classList.add('phone-blink');
+    setTimeout(()=>el.classList.remove('phone-blink'), 1200);
+  }, 600);
+}
+
+/* ── OOH SLIDESHOW ── */
+(function(){
+  const track = document.getElementById('ooh-track');
+  const dotsEl = document.getElementById('ooh-dots');
+  const dots  = dotsEl ? dotsEl.querySelectorAll('.ooh-dot') : [];
+  const slides = track ? track.children.length : 0;
+  let cur = 0;
+  function goTo(n){
+    cur = (n + slides) % slides;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+  }
+  window.oohSlide = (dir) => goTo(cur + dir);
+  window.oohGoTo  = (n)   => goTo(n);
+
+  // ── POS carousel ──
+  (() => {
+    const track = document.getElementById('pos-track');
+    const dots  = document.getElementById('pos-dots');
+    if (!track) return;
+    const slides = track.children.length;
+    let cur = 0;
+    const go = n => {
+      cur = (n + slides) % slides;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dots.querySelectorAll('.ooh-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+    };
+    window.posSlide = dir => go(cur + dir);
+    window.posGoTo  = n   => go(n);
+  })();
+
+  // ── TV carousel ──
+  (() => {
+    const track = document.getElementById('tv-track');
+    const dots  = document.getElementById('tv-dots');
+    if (!track) return;
+    const slides = track.children.length;
+    let cur = 0;
+    const go = n => {
+      cur = (n + slides) % slides;
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      dots.querySelectorAll('.ooh-dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+    };
+    window.tvSlide = dir => go(cur + dir);
+    window.tvGoTo  = n   => go(n);
+  })();
+})();
+
+/* ── LEARN MORE TOGGLE ── */
+function toggleAbout(){
+  const wrapper = document.getElementById('about-wrapper');
+  const btn = document.getElementById('learn-more-btn');
+  const isOpen = wrapper.style.opacity === '1';
+  if(!isOpen){
+    wrapper.style.maxHeight = '9999px';
+    wrapper.style.opacity = '1';
+    btn.querySelector('.vi').textContent = 'Thu gọn ↑';
+    btn.querySelector('.en').textContent = 'Show less ↑';
+  } else {
+    wrapper.style.maxHeight = '0';
+    wrapper.style.opacity = '0';
+    btn.querySelector('.vi').textContent = 'Tìm hiểu thêm ↓';
+    btn.querySelector('.en').textContent = 'Learn more ↓';
+  }
+}
+
+/* ── CLIENTS GRID TOGGLE ── */
+function toggleClients(){
+  const wrapper = document.getElementById('clients-extra');
+  const btn = document.getElementById('clients-toggle-btn');
+  const isOpen = wrapper.style.opacity === '1';
+  if(!isOpen){
+    wrapper.style.maxHeight = '9999px';
+    wrapper.style.opacity = '1';
+    btn.querySelector('.vi').textContent = 'Thu gọn ↑';
+    btn.querySelector('.en').textContent = 'Show less ↑';
+  } else {
+    wrapper.style.maxHeight = '0';
+    wrapper.style.opacity = '0';
+    btn.querySelector('.vi').textContent = 'Xem tất cả ↓';
+    btn.querySelector('.en').textContent = 'View all ↓';
+  }
+}
+
+/* ── HERO SLIDESHOW ── */
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  let current  = 0;
+  let timer;
+  function goTo(n){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    resetTimer();
+  }
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(()=>goTo(current+1), 6000);
+  }
+  window.heroSlide = (dir) => goTo(current+dir);
+  window.heroGoTo  = (n)   => goTo(n);
+  resetTimer();
+})();
+
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  localStorage.setItem('inf-lang', lang);
+}
+// Init language
+const savedLang = localStorage.getItem('inf-lang') || 'en';
+setLang(savedLang);
+
+/* ── CURSOR ── */
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+  // active link
+  const sections = document.querySelectorAll('section[id]');
+  let cur2 = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 140) cur2 = s.id;
+  });
+  document.querySelectorAll('.nav-center a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur2);
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── HERO ENTRANCE ── */
+['.hero-title-only']
+  .forEach((sel, i) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    el.style.opacity = '0'; el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity .7s ${i * 0.12}s ease, transform .7s ${i * 0.12}s ease`;
+    setTimeout(() => { el.style.opacity='1'; el.style.transform='none'; }, 80);
+  });
+</script>
+
+<script>
+// Click to expand/collapse: about cells & service cards
+document.querySelectorAll('.oc:not(.oc-static), .sv, .vm-card').forEach(el => {
+  el.addEventListener('click', () => {
+    if (el.classList.contains('crumbling')) return;
+    if (el.classList.contains('expanded')) {
+      el.classList.add('crumbling');
+      el.classList.remove('expanded');
+      setTimeout(() => el.classList.remove('crumbling'), 450);
+    } else {
+      el.classList.add('expanded');
+    }
+  });
+});
+
+// ── Partners/Clients tab switcher ──
+document.querySelectorAll('.pc-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    // Update active tab button
+    document.querySelectorAll('.pc-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    // Show/hide panels with animation
+    document.querySelectorAll('.pc-panel').forEach(panel => {
+      if (panel.id === 'tab-' + target) {
+        panel.classList.remove('hidden');
+        panel.classList.add('fade-in');
+        setTimeout(() => panel.classList.remove('fade-in'), 400);
+      } else {
+        panel.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Section-level toggle: "Our Journey" header reveals/hides the entire timeline
+const tlToggle = document.getElementById('timeline-toggle');
+const tlHint = tlToggle ? tlToggle.querySelector('.tl-hint') : null;
+if (tlHint) {
+  const tlWrapper = document.querySelector('.timeline-track-wrapper');
+  const tlSection = document.getElementById('timeline');
+  tlHint.addEventListener('click', () => {
+    tlToggle.classList.toggle('expanded');
+    if (tlWrapper) tlWrapper.classList.toggle('expanded');
+    if (tlSection) tlSection.classList.toggle('tree-revealed');
+  });
+}
+
+// ── Cursor toggle tooltip ──
+(function() {
+  const tip = document.createElement('div');
+  tip.className = 'toggle-tip';
+  document.body.appendChild(tip);
+
+  const SELECTORS = '.oc:not(.oc-static), .sv, .vm-card, .tl-hint';
+  const isVI = () => document.documentElement.getAttribute('data-lang') === 'vi';
+
+  let current = null;
+
+  document.addEventListener('mousemove', (e) => {
+    const target = e.target.closest(SELECTORS);
+    // Only show tooltip on COLLAPSED elements
+    if (target && !target.closest('#timeline-toggle')?.classList.contains('expanded') && !target.classList.contains('expanded')) {
+      current = target;
+      tip.textContent = isVI() ? 'Nhấn để mở' : 'Click to toggle';
+      tip.classList.add('visible');
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top  = (e.clientY + 18) + 'px';
+    } else {
+      current = null;
+      tip.classList.remove('visible');
+    }
+  });
+
+  // Hide tooltip immediately when clicking (element expands)
+  document.addEventListener('click', () => {
+    tip.classList.remove('visible');
+    current = null;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    tip.classList.remove('visible');
+  });
+})();
+</script>
+</div><!-- /main-content -->
+
+<script>
+/* ── LOADER ── */
+(function(){
+  const loader  = document.getElementById('infinity-loader');
+  const ANIM_END = 3200;
+
+  if(sessionStorage.getItem('loaderShown')){
+    loader.style.display = 'none';
+    return;
+  }
+  sessionStorage.setItem('loaderShown', '1');
+
+  setTimeout(() => {
+    loader.classList.add('done');
+  }, ANIM_END);
+})();
+</script>
+</body>
+</html>
