@@ -411,6 +411,11 @@ footer>*{position:relative;z-index:1;}
   75%{color:white;text-shadow:0 0 20px rgba(169,223,112,.8),0 0 40px rgba(169,223,112,.4)}
 }
 .phone-blink{animation:phoneBlink 1.2s ease-in-out}
+@keyframes emailBlink{
+  0%,100%{color:rgba(255,255,255,.35);text-shadow:none;}
+  40%{color:var(--green);text-shadow:0 0 14px rgba(169,223,112,.7),0 0 28px rgba(169,223,112,.4);}
+}
+.email-blink{animation:emailBlink 1.4s ease-in-out}
 .phone-zalo{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:500;margin-left:.3rem;letter-spacing:.01em;}
 .toggle-tip{position:fixed;pointer-events:none;z-index:9999;background:rgba(30,30,30,.88);color:#fff;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .75rem;border-radius:999px;white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .18s ease;border:1px solid rgba(169,223,112,.3);}
 .toggle-tip.visible{opacity:1;transform:translateY(0);}
@@ -564,7 +569,7 @@ footer>*{position:relative;z-index:1;}
       <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
-    <a href="#" onclick="scrollToPhone();return false;" class="nav-cta">Liên Hệ →</a>
+    <a href="#" onclick="scrollToEmail();return false;" class="nav-cta">Liên Hệ →</a>
   </div>
 </nav>
 
@@ -851,7 +856,7 @@ footer>*{position:relative;z-index:1;}
           <div class="sol-card"><img src="images/pos-10.jpg" class="sol-img-real" alt="Melia Departure Hall"/></div>
         </div></div>
       </div>
-      <div class="ooh-dots" id="pos-dots">
+      <div class="ooh-dots" id="pos-dots" style="display:none;">
         <div class="ooh-dot active" onclick="posGoTo(0)"></div>
       </div>
     </div>
@@ -1243,7 +1248,7 @@ footer>*{position:relative;z-index:1;}
     <div class="foot-col">
       <h5 class="vi">Liên Hệ</h5>
       <h5 class="en">Contact</h5>
-      <div class="foot-contact-item"><span class="fci">✉️</span><a href="mailto:leo@infinitycomm.vn"><strong>Info:</strong> leo@infinitycomm.vn</a></div>
+      <div class="foot-contact-item"><span class="fci">✉️</span><a href="mailto:leo@infinitycomm.vn" id="email-contact"><strong>Info:</strong> leo@infinitycomm.vn</a></div>
       <div class="foot-contact-item"><span class="fci">📍</span><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="vi">Số 8 Đường số 5, KDC Amelie Villa, Xã Nhà Bè, TP. HCM</a><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="en">No. 8, Street 5, Amelie Villa Residence, Nha Be Ward, HCMC</a></div>
     </div>
   </div>
@@ -1256,13 +1261,13 @@ footer>*{position:relative;z-index:1;}
 
 <script>
 /* ── SCROLL TO PHONE ── */
-function scrollToPhone(){
-  const el = document.getElementById('phone-number');
+function scrollToEmail(){
+  const el = document.getElementById('email-contact');
   if(!el) return;
   el.scrollIntoView({behavior:'smooth', block:'center'});
   setTimeout(()=>{
-    el.classList.add('phone-blink');
-    setTimeout(()=>el.classList.remove('phone-blink'), 1200);
+    el.classList.add('email-blink');
+    setTimeout(()=>el.classList.remove('email-blink'), 1400);
   }, 600);
 }
 
