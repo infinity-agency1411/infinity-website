@@ -63,6 +63,11 @@ footer>*{position:relative;z-index:1;}
   50%{color:var(--green);text-shadow:0 0 12px rgba(169,223,112,.6)}
 }
 .phone-blink{animation:phoneBlink 1.2s ease-in-out}
+@keyframes emailBlink{
+  0%,100%{color:rgba(255,255,255,.35);text-shadow:none;}
+  40%{color:var(--green);text-shadow:0 0 14px rgba(169,223,112,.7),0 0 28px rgba(169,223,112,.4);}
+}
+.email-blink{animation:emailBlink 1.4s ease-in-out}
 </style>
 </head>
 <body>
@@ -124,7 +129,7 @@ footer>*{position:relative;z-index:1;}
       <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
-    <a href="#" onclick="scrollToPhone();return false;" class="nav-cta">Liên Hệ →</a>
+    <a href="#" onclick="scrollToEmail();return false;" class="nav-cta">Liên Hệ →</a>
   </div>
 </nav>
 
@@ -133,7 +138,7 @@ footer>*{position:relative;z-index:1;}
 <footer>
   <div class="foot-top">
     <div>
-      <a href="index.html" class="foot-logo-row">
+      <a href="#" class="foot-logo-row" style="display:flex;align-items:center;gap:4px;">
         <span class="lg-text-foot">Inf</span>
         <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;filter:brightness(0.75);" alt=""/>
         <span class="lg-text-foot">ty</span>
@@ -141,32 +146,31 @@ footer>*{position:relative;z-index:1;}
       <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam — kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
       <p class="foot-desc en">Vietnam's leading media trading platform — combining strategy, data, and trading power to drive sustainable growth.</p>
       <p class="foot-legal vi">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ TRUYỀN THÔNG INFINITY<br>MST: 0317406640</p>
-      <p class="foot-legal en">INFINITY MEDIA &amp; TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
+      <p class="foot-legal en">INFINITY MEDIA & TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
     </div>
-        <div class="foot-col">
+    <div class="foot-col">
       <h5>Điều Hướng</h5>
       <ul>
-        <li><a href="index.html">Giới Thiệu</a></li>
+        <li><a href="javascript:void(0)">Giới Thiệu</a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
         <li><a href="our-work-pos.html" class="vi">Truyền Thông Tại Điểm Bán</a><a href="our-work-pos.html" class="en">Point of Sale</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
         <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
         <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
-      
+      </ul>
     </div>
+
     <div class="foot-col">
       <h5 class="vi">Liên Hệ</h5>
       <h5 class="en">Contact</h5>
-            <div class="foot-contact-item"><span class="fci">📞</span><a href="tel:0902208787" id="phone-number">0902 208 787 <span class="phone-zalo">(Zalo, Viber)</span></a></div>
-      <div class="foot-contact-item"><span class="fci">✉️</span><a href="mailto:leo@infinitycomm.vn">leo@infinitycomm.vn</a></div>
-      <div class="foot-contact-item"><span class="fci">📍</span><a href="https://www.google.com/maps/place/Amelie+Villa" target="_blank" class="vi">Số 8 Đường số 5, KDC Amelie Villa, Xã Nhà Bè, TP. HCM</a><a href="https://www.google.com/maps/place/Amelie+Villa" target="_blank" class="en">No. 8, Street 5, Amelie Villa Residence, Nha Be Ward, HCMC</a></div>
-      <div class="foot-contact-item"><span class="fci">👤</span><p class="vi">Lý Quốc Hưng — CEO</p><p class="en">Ly Quoc Hung — CEO</p></div>
+      <div class="foot-contact-item"><span class="fci">✉️</span><a href="mailto:leo@infinitycomm.vn" id="email-contact"><strong>Info:</strong> leo@infinitycomm.vn</a></div>
+      <div class="foot-contact-item"><span class="fci">📍</span><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="vi">Số 8 Đường số 5, KDC Amelie Villa, Xã Nhà Bè, TP. HCM</a><a href="https://www.google.com/maps/place/Amelie+Villa+-+Nh%C3%A0+Ph%E1%BB%91+H%E1%BB%93ng+Th%E1%BB%8Bnh+Ph%C3%BA+M%E1%BB%B9+H%C6%B0ng/@10.6790506,106.7457464,17z/data=!3m1!4b1!4m6!3m5!1s0x31753be085680a17:0x10239ce943204db9!8m2!3d10.6790453!4d106.7483213!16s%2Fg%2F11j2f_tj9l?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="en">No. 8, Street 5, Amelie Villa Residence, Nha Be Ward, HCMC</a></div>
     </div>
   </div>
   <div class="foot-bottom">
-    <p class="vi">© 2025 Công Ty TNHH TM &amp; DV Truyền Thông Infinity. Bảo lưu mọi quyền.</p>
-    <p class="en">© 2025 Infinity Media &amp; Trading Services Co., Ltd. All rights reserved.</p>
+    <p class="vi">© 2025 Công Ty TNHH TM & DV Truyền Thông Infinity. Bảo lưu mọi quyền.</p>
+    <p class="en">© 2025 Infinity Media & Trading Services Co., Ltd. All rights reserved.</p>
     <div class="mst-tag">MST: 0317406640</div>
   </div>
 </footer>
@@ -181,13 +185,13 @@ function setLang(lang) {
 }
 const savedLang = localStorage.getItem('inf-lang') || 'en';
 setLang(savedLang);
-function scrollToPhone(){
-  const el = document.getElementById('phone-number');
+function scrollToEmail(){
+  const el = document.getElementById('email-contact');
   if(!el) return;
   el.scrollIntoView({behavior:'smooth', block:'center'});
   setTimeout(()=>{
-    el.classList.add('phone-blink');
-    setTimeout(()=>el.classList.remove('phone-blink'), 1200);
+    el.classList.add('email-blink');
+    setTimeout(()=>el.classList.remove('email-blink'), 1400);
   }, 600);
 }
 
