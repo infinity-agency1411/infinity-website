@@ -456,35 +456,30 @@ footer>*{position:relative;z-index:1;}
   .open-grid{grid-template-columns:1fr;gap:3rem 0;}
   .hero-title-only{font-size:3.5rem}
 }
-/* ── AI Creative Section ── */
+/* ── AI Creative Section — Option B ── */
 #ai-creative{background:#fff;padding:4.5rem 5vw;}
-.aic-header{margin-bottom:2.8rem;}
+.aic-header{margin-bottom:2rem;}
 .aic-header .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.5rem;}
 .aic-header h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;}
 .aic-header h2 em{font-style:normal;color:var(--green-dk);}
-.aic-body{display:grid;grid-template-columns:2fr 3fr;gap:2rem;align-items:stretch;min-height:420px;}
-/* Left: bg image + stats overlay */
-.aic-why{position:relative;overflow:hidden;padding:2.2rem 1.8rem;display:flex;flex-direction:column;gap:1.4rem;justify-content:center;}
-.aic-why::before{content:'';position:absolute;inset:0;background:url('images/ai-creative-bg.jpg') center/cover no-repeat;z-index:0;}
-.aic-why::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.62);z-index:1;}
-.aic-why>*{position:relative;z-index:2;}
-.aic-why-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#fff;margin-bottom:.2rem;}
-.aic-stat{display:flex;flex-direction:column;gap:.2rem;}
-.aic-stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.5rem;line-height:1.1;color:#fff;}
-.aic-stat-label{font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.4;}
-.aic-source{font-size:.6rem;color:rgba(255,255,255,.28);margin-top:auto;line-height:1.5;}
-/* Right: features */
-.aic-features{display:flex;flex-direction:column;gap:.5rem;}
-.aic-feat{display:flex;flex-direction:column;gap:.3rem;padding:1.3rem 1.5rem;flex:1;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.06);}
-.aic-feat-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.92rem;color:var(--ink);letter-spacing:-.01em;}
-.aic-feat-desc{font-size:.76rem;color:var(--muted);line-height:1.6;}
-/* Footer note — no background, green text */
-.aic-footer{margin-top:1.2rem;display:flex;align-items:flex-start;gap:.5rem;}
-.aic-footer-check{color:var(--green-dk);font-weight:900;font-size:.8rem;flex-shrink:0;margin-top:.05rem;}
-.aic-footer-text{font-size:.75rem;color:var(--green-dk);line-height:1.55;font-weight:600;}
-@media(max-width:900px){
-  .aic-body{grid-template-columns:1fr;gap:1.5rem;}
-  .aic-why{min-height:280px;}
+/* Ribbon */
+.aic-ribbon{background:linear-gradient(90deg,#2d6e1f 0%,#4a9e2e 60%,#3a8020 100%);display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:1.2rem;}
+.aic-ribbon-item{padding:1.2rem 1.4rem;border-right:1px solid rgba(255,255,255,.15);text-align:center;display:flex;flex-direction:column;align-items:center;gap:.15rem;}
+.aic-ribbon-item:last-child{border-right:none;}
+.aic-ribbon-crossed{font-size:.82rem;color:rgba(255,255,255,.45);text-decoration:line-through;}
+.aic-ribbon-arrow{font-size:1rem;color:var(--green);font-weight:900;line-height:1;}
+.aic-ribbon-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1rem;color:#fff;line-height:1.15;}
+.aic-ribbon-sub{font-size:.68rem;color:rgba(255,255,255,.65);line-height:1.45;margin-top:.1rem;}
+/* 2×2 grid */
+.aic-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.aic-feat{border:1px solid var(--border);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.4rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.aic-feat-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem;}
+.aic-feat-title::before{content:'';display:inline-block;width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--green-dk);}
+.aic-feat-desc{font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1.3rem;}
+@media(max-width:700px){
+  .aic-ribbon{grid-template-columns:1fr 1fr;}
+  .aic-ribbon-item:nth-child(2){border-right:none;}
+  .aic-grid{grid-template-columns:1fr;}
 }
 </style>
 <script>if(sessionStorage.getItem('loaderShown'))document.documentElement.classList.add('no-loader');</script>
@@ -903,68 +898,62 @@ footer>*{position:relative;z-index:1;}
       <span class="en">Infinity <em>AI Creative</em> — Produce &amp; Distribute in One Package</span>
     </h2>
   </div>
-  <div class="aic-body">
-    <!-- Left: bg image + stats, all white text, no bubbles -->
-    <div class="aic-why reveal">
-      <div class="aic-why-title vi">Tại Sao Chọn AI Creative?</div>
-      <div class="aic-why-title en">Why AI Creative?</div>
-      <div class="aic-stat">
-        <div class="aic-stat-val vi">300 Triệu – 1 Tỷ VNĐ</div>
-        <div class="aic-stat-val en">VND 300M – 1B</div>
-        <div class="aic-stat-label vi">Chi phí sản xuất TVC truyền thống</div>
-        <div class="aic-stat-label en">Traditional TVC production cost</div>
-      </div>
-      <div class="aic-stat">
-        <div class="aic-stat-val vi">50 – 300 Triệu VNĐ</div>
-        <div class="aic-stat-val en">VND 50 – 300M</div>
-        <div class="aic-stat-label vi">Chi phí TVC AI</div>
-        <div class="aic-stat-label en">AI TVC cost</div>
-      </div>
-      <div class="aic-stat">
-        <div class="aic-stat-val vi">4–8 tuần</div>
-        <div class="aic-stat-val en">4–8 weeks</div>
-        <div class="aic-stat-label vi">Thời gian sản xuất truyền thống</div>
-        <div class="aic-stat-label en">Traditional production timeline</div>
-      </div>
-      <div class="aic-stat">
-        <div class="aic-stat-val vi">5–12 ngày</div>
-        <div class="aic-stat-val en">5–12 days</div>
-        <div class="aic-stat-label vi">Sản xuất AI (nhanh hơn 4–6×)</div>
-        <div class="aic-stat-label en">AI production (4–6× faster)</div>
-      </div>
-      <div class="aic-source">Source: IAB Digital Video 2025 — 39% of digital ad video in 2026 will use Gen AI</div>
+  <!-- Green ribbon stats -->
+  <div class="aic-ribbon reveal">
+    <div class="aic-ribbon-item">
+      <div class="aic-ribbon-crossed vi">300 Triệu – 1 Tỷ VNĐ</div>
+      <div class="aic-ribbon-crossed en">VND 300M – 1B</div>
+      <div class="aic-ribbon-arrow">↓</div>
+      <div class="aic-ribbon-val vi">50 – 300 Triệu VNĐ</div>
+      <div class="aic-ribbon-val en">VND 50 – 300M</div>
+      <div class="aic-ribbon-sub vi">Tiết kiệm chi phí so với TVC truyền thống</div>
+      <div class="aic-ribbon-sub en">Cost savings vs traditional TVC</div>
     </div>
-    <!-- Right: Features, no icons -->
-    <div class="aic-features reveal d1">
-      <div class="aic-feat">
-        <div class="aic-feat-title">AI Image &amp; Key Visual</div>
-        <div class="aic-feat-desc vi">Product shots, KV, banner — không cần studio, giao hàng trong 24h</div>
-        <div class="aic-feat-desc en">Product shots, KVs, banners — no studio required, delivered within 24h</div>
-      </div>
-      <div class="aic-feat">
-        <div class="aic-feat-title">AI TVC Production</div>
-        <div class="aic-feat-desc vi">Script → AI video → hậu kỳ → TVC 30s hoàn chỉnh trong 5–12 ngày</div>
-        <div class="aic-feat-desc en">Script → AI video → post-production → finished 30s TVC in 5–12 days</div>
-      </div>
-      <div class="aic-feat">
-        <div class="aic-feat-title vi">Cá Nhân Hóa &amp; Linh Hoạt</div>
-        <div class="aic-feat-title en">Personalised &amp; Dynamic</div>
-        <div class="aic-feat-desc vi">1 concept → nhiều phiên bản theo phân khúc, tỉ lệ và ngôn ngữ — tự động</div>
-        <div class="aic-feat-desc en">1 concept → multiple versions by segment, ratio and language — automatically</div>
-      </div>
-      <div class="aic-feat">
-        <div class="aic-feat-title vi">Phân Phối Truyền Thông</div>
-        <div class="aic-feat-title en">Media Distribution</div>
-        <div class="aic-feat-desc vi">TV · Digital · OOH — tất cả trong một gói, một đầu mối liên hệ</div>
-        <div class="aic-feat-desc en">TV broadcast · Digital · OOH — all in one package, one point of contact</div>
-      </div>
+    <div class="aic-ribbon-item">
+      <div class="aic-ribbon-crossed vi">4–8 tuần</div>
+      <div class="aic-ribbon-crossed en">4–8 weeks</div>
+      <div class="aic-ribbon-arrow">↓</div>
+      <div class="aic-ribbon-val vi">5–12 ngày</div>
+      <div class="aic-ribbon-val en">5–12 days</div>
+      <div class="aic-ribbon-sub vi">Nhanh hơn 4–6× so với sản xuất truyền thống</div>
+      <div class="aic-ribbon-sub en">4–6× faster than traditional production</div>
+    </div>
+    <div class="aic-ribbon-item">
+      <div class="aic-ribbon-val vi">1 Concept</div>
+      <div class="aic-ribbon-val en">1 Concept</div>
+      <div class="aic-ribbon-arrow">→</div>
+      <div class="aic-ribbon-sub vi">Nhiều phiên bản theo phân khúc, tỉ lệ &amp; ngôn ngữ — tự động</div>
+      <div class="aic-ribbon-sub en">Multiple versions by segment, ratio &amp; language — automatically</div>
+    </div>
+    <div class="aic-ribbon-item">
+      <div class="aic-ribbon-val">TV + Digital + OOH</div>
+      <div class="aic-ribbon-arrow">→</div>
+      <div class="aic-ribbon-sub vi">Một gói, một đầu mối liên hệ</div>
+      <div class="aic-ribbon-sub en">One package, one point of contact</div>
     </div>
   </div>
-  <!-- Footer highlight bar -->
-  <div class="aic-footer reveal d2">
-    <span class="aic-footer-check">✓</span>
-    <span class="aic-footer-text vi">Infinity là một trong số ít agency sở hữu kênh TV riêng — sản xuất AI + phát sóng TV trong một gói tích hợp duy nhất</span>
-    <span class="aic-footer-text en">Infinity is one of the rare agencies with its own TV channels — AI production + TV broadcast in a single package</span>
+  <!-- 2×2 feature cards -->
+  <div class="aic-grid reveal d1">
+    <div class="aic-feat">
+      <div class="aic-feat-title">AI Image &amp; Key Visual</div>
+      <div class="aic-feat-desc vi">Product shots, KV, banner — không cần studio, giao hàng trong 24h</div>
+      <div class="aic-feat-desc en">Product shots, KVs, banners — no studio required, delivered within 24h</div>
+    </div>
+    <div class="aic-feat">
+      <div class="aic-feat-title">AI TVC Production</div>
+      <div class="aic-feat-desc vi">Script → AI video → hậu kỳ → TVC 30s hoàn chỉnh trong 5–12 ngày</div>
+      <div class="aic-feat-desc en">Script → AI video → post-production → finished 30s TVC in 5–12 days</div>
+    </div>
+    <div class="aic-feat">
+      <div class="aic-feat-title"><span class="vi">Cá Nhân Hóa &amp; Linh Hoạt</span><span class="en">Personalised &amp; Dynamic</span></div>
+      <div class="aic-feat-desc vi">1 concept → nhiều phiên bản theo phân khúc, tỉ lệ và ngôn ngữ — tự động</div>
+      <div class="aic-feat-desc en">1 concept → multiple versions by segment, ratio and language — automatically</div>
+    </div>
+    <div class="aic-feat">
+      <div class="aic-feat-title"><span class="vi">Phân Phối Truyền Thông</span><span class="en">Media Distribution</span></div>
+      <div class="aic-feat-desc vi">TV · Digital · OOH — tất cả trong một gói, một đầu mối liên hệ</div>
+      <div class="aic-feat-desc en">TV broadcast · Digital · OOH — all in one package, one point of contact</div>
+    </div>
   </div>
 </section>
 
@@ -1006,56 +995,6 @@ footer>*{position:relative;z-index:1;}
   </div>
 </section>
 
-<section id="timeline" class="section">
-  <div class="tl-tree-bg"><img src="images/image-10.png" alt="" class="tl-tree-img"/></div>
-  <div class="timeline-header reveal" id="timeline-toggle">
-    <h2 class="sec-h white">
-      <span class="vi">Hành Trình <em>Của Chúng Tôi</em></span>
-      <span class="en">Our <em>Journey</em></span>
-    </h2>
-    <div class="tl-hint">
-      <span class="vi">Nhấn để xem hành trình</span>
-      <span class="en">Click to reveal the journey</span>
-    </div>
-  </div>
-  <div class="timeline-track-wrapper">
-  <div class="timeline-track">
-    <div class="tl-item left reveal">
-      <div class="tl-content">
-        <span class="tl-year">2009 – 2019</span>
-        <div class="tl-title vi">Mindshare Unilever / WPP Việt Nam</div>
-        <div class="tl-title en">Mindshare Unilever / WPP Vietnam</div>
-        <div class="tl-desc vi">Quản lý ngân sách media cho các thương hiệu đa quốc gia của Unilever trên toàn thị trường Việt Nam.</div>
-        <div class="tl-desc en">Managed media budgets for major Unilever multinational brands across the Vietnamese market.</div>
-      </div>
-      <div class="tl-dot-wrap"><div class="tl-dot">💼</div></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item right reveal d1">
-      <div class="tl-empty"></div>
-      <div class="tl-dot-wrap"><div class="tl-dot">📈</div></div>
-      <div class="tl-content">
-        <span class="tl-year">2019 – 2023</span>
-        <div class="tl-title vi">Giám Đốc Điều Hành & Cổ Đông — Splus Media</div>
-        <div class="tl-title en">Managing Director & Shareholder — Splus Media</div>
-        <div class="tl-desc vi">Tăng gấp 3 doanh thu trong 2 năm từ vị trí Giám đốc Kinh doanh, được thăng tiến lên Giám đốc Điều hành; quản lý đội ngũ sales và tư vấn kế hoạch truyền thông.</div>
-        <div class="tl-desc en">Tripled revenue within 2 years from Sales Director, promoted to Managing Director; managed the sales team & provided media planning consultancy.</div>
-      </div>
-    </div>
-    <div class="tl-item left reveal d2">
-      <div class="tl-content">
-        <span class="tl-year">2022 – Hiện Tại</span>
-        <div class="tl-title vi">Founder &amp; CEO — Infinity Communications</div>
-        <div class="tl-title en">Founder &amp; CEO — Infinity Communications</div>
-        <div class="tl-desc vi">Xây dựng công ty truyền thông & media tích hợp từ con số 0; vận hành TV, Digital, OTT, KOL & Sponsorship.</div>
-        <div class="tl-desc en">Built an integrated media & communications company from scratch; operating TV, Digital, OTT, KOL & Sponsorship.</div>
-      </div>
-      <div class="tl-dot-wrap"><div class="tl-dot">🚀</div></div>
-      <div class="tl-empty"></div>
-    </div>
-  </div>
-  </div>
-</section>
 <section id="vision" class="section" style="background:var(--canvas3);padding-top:7rem;">
   <!-- Vision banner -->
   <div class="vp-banner reveal">
