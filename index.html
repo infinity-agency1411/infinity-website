@@ -456,30 +456,65 @@ footer>*{position:relative;z-index:1;}
   .open-grid{grid-template-columns:1fr;gap:3rem 0;}
   .hero-title-only{font-size:3.5rem}
 }
-/* ── AI Creative Section — Option B ── */
+/* ── AI Creative Section — New Layout ── */
 #ai-creative{background:#fff;padding:4.5rem 5vw;}
-.aic-header{margin-bottom:2rem;}
-.aic-header .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.5rem;}
-.aic-header h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;}
-.aic-header h2 em{font-style:normal;color:var(--green-dk);}
-/* Ribbon */
-.aic-ribbon{background:linear-gradient(90deg,#2d6e1f 0%,#4a9e2e 60%,#3a8020 100%);display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:1.2rem;}
-.aic-ribbon-item{padding:1.2rem 1.4rem;border-right:1px solid rgba(255,255,255,.15);text-align:center;display:flex;flex-direction:column;align-items:center;gap:.15rem;}
-.aic-ribbon-item:last-child{border-right:none;}
-.aic-ribbon-crossed{font-size:.82rem;color:rgba(255,255,255,.45);text-decoration:line-through;}
-.aic-ribbon-arrow{font-size:1rem;color:var(--green);font-weight:900;line-height:1;}
-.aic-ribbon-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1rem;color:#fff;line-height:1.15;}
-.aic-ribbon-sub{font-size:.68rem;color:rgba(255,255,255,.65);line-height:1.45;margin-top:.1rem;}
-/* 2×2 grid */
-.aic-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-.aic-feat{border:1px solid var(--border);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.4rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.aic-feat-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem;}
-.aic-feat-title::before{content:'';display:inline-block;width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--green-dk);}
-.aic-feat-desc{font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1.3rem;}
+.aic-badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--green-pale);border:1px solid #c8ed9e;border-radius:100px;padding:.28rem .9rem;font-size:.82rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green-dk);margin-bottom:1rem;}
+.aic-badge span{width:6px;height:6px;border-radius:50%;background:var(--green-dk);flex-shrink:0;}
+.aic-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.4vw,2.52rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:var(--ink);margin:0 0 2.4rem;}
+.aic-title em{font-style:normal;color:var(--green-dk);}
+/* Stats bar */
+.aic-stats{display:grid;grid-template-columns:repeat(4,1fr);border-radius:12px;overflow:hidden;margin-bottom:3rem;background:linear-gradient(135deg,#2d6e1f 0%,#4a9e2e 60%,#3a8020 100%);}
+.aic-stat{padding:1.3rem 1.2rem;border-right:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;gap:.25rem;}
+.aic-stat:last-child{border-right:none;}
+.aic-stat-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.aic-stat-cross{font-size:.94rem;color:rgba(255,255,255,.4);text-decoration:line-through;}
+.aic-stat-arrow{font-size:.78rem;color:rgba(255,255,255,.7);font-weight:900;}
+.aic-stat-val{font-weight:900;font-size:1.32rem;color:#fff;letter-spacing:-.02em;}
+.aic-stat-val.green{color:#fff;text-transform:uppercase;}
+.aic-stat-sub{font-size:.74rem;color:rgba(255,255,255,.6);line-height:1.5;}
+/* Rows */
+.aic-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:2rem 0;border-bottom:1px solid var(--border);}
+.aic-row.last{border-bottom:none;}
+.aic-imgbox{position:relative;border-radius:12px;overflow:hidden;background:#0d0d0d;aspect-ratio:4/3;}
+.aic-imgbox img{width:100%;height:100%;object-fit:cover;display:block;}
+.aic-darkbox{position:relative;border-radius:12px;overflow:hidden;background:#0d0d0d;aspect-ratio:4/3;padding:1.4rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;}
+.aic-darkbox-dark{background:#0a0a0a;}
+.aic-mono{font-family:monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+.aic-text{display:flex;flex-direction:column;gap:.9rem;}
+.aic-eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.14em;color:var(--green-dk);text-transform:uppercase;}
+.aic-heading{font-size:clamp(1.32rem,2.4vw,1.74rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:var(--ink);}
+.aic-heading em{font-style:normal;color:var(--green-dk);}
+.aic-body{font-size:1.02rem;color:var(--muted);line-height:1.8;}
+.aic-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;}
+.aic-tag-g{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .65rem;border-radius:100px;border:1px solid #c8ed9e;color:var(--green-dk);background:var(--green-pale);}
+.aic-tag-grey{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .65rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:#f4f4f2;}
+/* TVC pipeline */
+.aic-pipeline{display:flex;align-items:center;width:100%;justify-content:space-between;position:relative;}
+.aic-pipeline-line{position:absolute;left:14px;right:14px;top:9px;height:1px;background:repeating-linear-gradient(90deg,#a9df70 0 6px,transparent 6px 12px);}
+.aic-pipe-step{display:flex;flex-direction:column;align-items:center;gap:.4rem;z-index:1;}
+.aic-pipe-dot{width:18px;height:18px;border-radius:50%;}
+/* Spoke diagram */
+.aic-spoke{position:relative;width:100%;height:100%;}
+@keyframes aicPulse{0%{opacity:.5;transform:translate(-50%,-50%) scale(.8);}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2);}}
+.aic-pulse{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(169,223,112,.12);transform:translate(-50%,-50%);animation:aicPulse 3s ease-out infinite;}
+.aic-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.aic-hub-box{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#2d6e1f,#4a9e2e);border:1.5px solid #a9df70;box-shadow:0 0 0 4px rgba(169,223,112,.12),0 0 20px rgba(169,223,112,.3);display:flex;align-items:center;justify-content:center;}
+.aic-hub-box img{height:20px;object-fit:contain;filter:brightness(0) invert(1);}
+.aic-hub-label{font-size:.48rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a9df70;background:rgba(0,0,0,.65);padding:.12rem .32rem;border-radius:3px;}
+.aic-node{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:.22rem;}
+.aic-fmtbox{border-radius:5px;padding:.3rem .45rem;min-width:48px;text-align:center;}
+.aic-fmtbox-val{font-size:.66rem;font-weight:900;color:#fff;line-height:1;}
+.aic-fmtbox-lbl{font-size:.41rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.12rem;}
+.aic-badge-node{border-radius:4px;border:1px solid rgba(169,223,112,.45);background:rgba(45,110,31,.4);padding:.18rem .38rem;}
+.aic-badge-node div{font-size:.4rem;font-weight:800;color:#a9df70;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;}
+.aic-logobox{display:flex;flex-direction:column;align-items:center;gap:.2rem;}
+.aic-logobox-img{width:48px;height:30px;border-radius:4px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;padding:3px;}
+.aic-logobox-img img{max-height:18px;max-width:40px;object-fit:contain;}
+.aic-logobox-lbl{font-size:.43rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase;}
 @media(max-width:700px){
-  .aic-ribbon{grid-template-columns:1fr 1fr;}
-  .aic-ribbon-item:nth-child(2){border-right:none;}
-  .aic-grid{grid-template-columns:1fr;}
+  .aic-stats{grid-template-columns:1fr 1fr;}
+  .aic-stat:nth-child(2){border-right:none;}
+  .aic-row{grid-template-columns:1fr;gap:2rem;}
 }
 </style>
 <script>if(sessionStorage.getItem('loaderShown'))document.documentElement.classList.add('no-loader');</script>
@@ -570,7 +605,10 @@ footer>*{position:relative;z-index:1;}
 
 <section id="hero">
   <!-- Slides -->
-  <div class="hero-slide active" style="background-image:url('images/hero-bg.png')"></div>
+  <div class="hero-slide active" style="background-image:url('images/hero-bg-tower.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/grab-sacom.png')"></div>
+  <div class="hero-slide" style="background-image:url('images/digital-2.jpg');background-position:center center;"></div>
+  <div class="hero-slide" style="background-image:url('images/hero-bg.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-2.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-4.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-bus.png')"></div>
@@ -579,13 +617,7 @@ footer>*{position:relative;z-index:1;}
   <button class="hero-arrow left" onclick="heroSlide(-1)">&#8592;</button>
   <button class="hero-arrow right" onclick="heroSlide(1)">&#8594;</button>
   <!-- Dots -->
-  <div class="hero-dots">
-    <div class="hero-dot active" onclick="heroGoTo(0)"></div>
-    <div class="hero-dot" onclick="heroGoTo(1)"></div>
-    <div class="hero-dot" onclick="heroGoTo(2)"></div>
-    <div class="hero-dot" onclick="heroGoTo(3)"></div>
-    <div class="hero-dot" onclick="heroGoTo(4)"></div>
-  </div>
+  <div class="hero-dots" id="hero-dots"></div>
   <h1 class="hero-title-only">
     We Are<br><span>Infinity</span>
   </h1>
@@ -752,6 +784,185 @@ footer>*{position:relative;z-index:1;}
   </div>
 </section>
 
+<section id="ai-creative" class="section">
+
+  <!-- Header -->
+  <div class="aic-badge reveal vi"><span></span>Sản Xuất Hỗ Trợ AI</div>
+  <div class="aic-badge reveal en"><span></span>AI-Powered Production</div>
+  <h2 class="aic-title reveal">
+    <span class="vi">Infinity <em>AI Creative</em> —<br>Sản Xuất &amp; Phân Phối trong Một Gói</span>
+    <span class="en">Infinity <em>AI Creative</em> —<br>Produce &amp; Distribute in One Package</span>
+  </h2>
+
+  <!-- Stats bar -->
+  <div class="aic-stats reveal">
+    <div class="aic-stat">
+      <div class="aic-stat-label vi">Chi Phí So Với TVC Truyền Thống</div>
+      <div class="aic-stat-label en">Cost vs Traditional TVC</div>
+      <div class="aic-stat-val green">↓ SAVE UP TO 70%</div>
+    </div>
+    <div class="aic-stat">
+      <div class="aic-stat-label vi">Thời Gian Thực Hiện</div>
+      <div class="aic-stat-label en">Time to Deliver</div>
+      <div class="aic-stat-cross vi">4–8 tuần</div>
+      <div class="aic-stat-cross en">4–8 weeks</div>
+      <div class="aic-stat-arrow">↓ faster</div>
+      <div class="aic-stat-val vi">5–12 ngày</div>
+      <div class="aic-stat-val en">5–12 days</div>
+      <div class="aic-stat-sub vi">Nhanh hơn 4–6× so với truyền thống</div>
+      <div class="aic-stat-sub en">4–6× faster than traditional</div>
+    </div>
+    <div class="aic-stat">
+      <div class="aic-stat-label">Versioning</div>
+      <div class="aic-stat-val">1 Concept</div>
+      <div class="aic-stat-arrow">→ auto</div>
+      <div class="aic-stat-sub vi">Nhiều phiên bản theo phân khúc, tỉ lệ &amp; ngôn ngữ — tự động</div>
+      <div class="aic-stat-sub en">Multi segment, ratio &amp; language — automatically</div>
+    </div>
+    <div class="aic-stat">
+      <div class="aic-stat-label">Distribution</div>
+      <div class="aic-stat-val">TV + Digital + OOH</div>
+      <div class="aic-stat-arrow">→ bundled</div>
+      <div class="aic-stat-sub vi">Một gói, một đầu mối liên hệ</div>
+      <div class="aic-stat-sub en">One package, one point of contact</div>
+    </div>
+  </div>
+
+  <!-- ROW 1: AI Image & KV -->
+  <div class="aic-row reveal">
+    <div class="aic-imgbox" style="aspect-ratio:16/9;max-height:280px;">
+      <img src="images/ai-kv-demo.png" alt="AI Product Photography" style="object-position:center top;">
+    </div>
+    <div class="aic-text">
+      <div class="aic-eyebrow">01 — Image &amp; KV</div>
+      <div class="aic-heading">AI Image &amp; Key Visual</div>
+      <div class="aic-body vi">Product shots, KV, banner — không cần studio, hoàn thành trong 24h.</div>
+      <div class="aic-body en">Product shots, KVs, banners — no studio required, delivered within 24h.</div>
+    </div>
+  </div>
+
+  <!-- ROW 2: AI TVC -->
+  <div class="aic-row reveal">
+    <div class="aic-text" style="order:1;">
+      <div class="aic-eyebrow">02 — TVC</div>
+      <div class="aic-heading">AI TVC Production</div>
+      <div class="aic-body vi">Script → AI video → hậu kỳ → TVC 30s hoàn chỉnh trong 5–12 ngày. So với thời gian hoàn thiện truyền thống: 4–8 tuần.</div>
+      <div class="aic-body en">Script → AI video → post-production → finished 30s TVC in 5–12 days. Traditional timeline: 4–8 weeks.</div>
+    </div>
+    <div class="aic-darkbox" style="order:2;">
+      <div class="aic-pipeline">
+        <div class="aic-pipeline-line"></div>
+        <div class="aic-pipe-step">
+          <span class="aic-pipe-dot" style="background:#181818;border:2px solid rgba(255,255,255,.3);"></span>
+          <span class="aic-mono" style="color:rgba(255,255,255,.4);">Script</span>
+        </div>
+        <div class="aic-pipe-step">
+          <span class="aic-pipe-dot" style="background:#1a2b12;border:2px solid #a9df70;box-shadow:0 0 10px rgba(169,223,112,.5);"></span>
+          <span class="aic-mono" style="color:#a9df70;">AI Gen</span>
+        </div>
+        <div class="aic-pipe-step">
+          <span class="aic-pipe-dot" style="background:#1a2b12;border:2px solid #a9df70;box-shadow:0 0 10px rgba(169,223,112,.5);"></span>
+          <span class="aic-mono" style="color:#a9df70;">Post</span>
+        </div>
+        <div class="aic-pipe-step">
+          <span class="aic-pipe-dot" style="background:#181818;border:2px solid #fff;"></span>
+          <span class="aic-mono" style="color:#fff;">TVC ✓</span>
+        </div>
+      </div>
+      <div class="aic-mono">production pipeline</div>
+    </div>
+  </div>
+
+  <!-- ROW 3: Dynamic & Distribution -->
+  <div class="aic-row last reveal">
+    <div class="aic-darkbox aic-darkbox-dark">
+      <div class="aic-spoke">
+        <div class="aic-pulse" style="width:70px;height:70px;animation-delay:0s;"></div>
+        <div class="aic-pulse" style="width:130px;height:130px;animation-delay:.6s;"></div>
+        <div class="aic-pulse" style="width:190px;height:190px;animation-delay:1.2s;"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 300 225">
+          <line x1="150" y1="112" x2="150" y2="30"  stroke="rgba(169,223,112,.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="150" y1="112" x2="268" y2="58"  stroke="rgba(169,223,112,.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="150" y1="112" x2="268" y2="166" stroke="rgba(169,223,112,.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="150" y1="112" x2="150" y2="196" stroke="rgba(169,223,112,.18)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="150" y1="112" x2="32"  y2="166" stroke="rgba(169,223,112,.18)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="150" y1="112" x2="32"  y2="58"  stroke="rgba(169,223,112,.25)" stroke-width="1" stroke-dasharray="4,3"/>
+        </svg>
+        <!-- Hub -->
+        <div class="aic-hub">
+          <div class="aic-hub-box"><img src="images/infinity-logo.png" alt="Infinity"></div>
+          <div class="aic-hub-label">AI Engine</div>
+        </div>
+        <!-- 16:9 TOP -->
+        <div class="aic-node" style="left:50%;top:11%;">
+          <div class="aic-fmtbox" style="border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);">
+            <div class="aic-fmtbox-val">16:9</div>
+            <div class="aic-fmtbox-lbl" style="color:rgba(255,255,255,.4);">TV · Banner</div>
+          </div>
+        </div>
+        <!-- 1:1 TOP-RIGHT -->
+        <div class="aic-node" style="left:89%;top:26%;">
+          <div class="aic-fmtbox" style="border:1.5px solid rgba(169,223,112,.55);background:rgba(169,223,112,.15);box-shadow:0 0 10px rgba(169,223,112,.15);">
+            <div class="aic-fmtbox-val">1:1</div>
+            <div class="aic-fmtbox-lbl" style="color:rgba(169,223,112,.8);">Social</div>
+          </div>
+        </div>
+        <!-- 9:16 BOTTOM-RIGHT -->
+        <div class="aic-node" style="left:89%;top:74%;">
+          <div class="aic-fmtbox" style="border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);">
+            <div class="aic-fmtbox-val">9:16</div>
+            <div class="aic-fmtbox-lbl" style="color:rgba(255,255,255,.4);">Story</div>
+          </div>
+        </div>
+        <!-- AUTO-RESIZE TOP-LEFT -->
+        <div class="aic-node" style="left:11%;top:26%;">
+          <div class="aic-badge-node"><div>AUTO-RESIZE</div></div>
+        </div>
+        <!-- AUTO-DUB + FPT/VieON BOTTOM-LEFT -->
+        <div class="aic-node" style="left:11%;top:68%;">
+          <div class="aic-badge-node" style="margin-bottom:.22rem;"><div>AUTO-DUB</div></div>
+          <div style="display:flex;gap:.3rem;">
+            <div class="aic-logobox">
+              <div class="aic-logobox-img"><img src="images/partner-fptplay.png" alt="FPT Play"></div>
+              <div class="aic-logobox-lbl">FPT Play</div>
+            </div>
+            <div class="aic-logobox">
+              <div class="aic-logobox-img"><img src="images/partner-vieon.png" alt="VieON"></div>
+              <div class="aic-logobox-lbl">VieON</div>
+            </div>
+          </div>
+        </div>
+        <!-- AUTO-CAPTION + VTV/HTV BOTTOM-CENTER -->
+        <div class="aic-node" style="left:50%;top:78%;">
+          <div class="aic-badge-node" style="margin-bottom:.22rem;"><div>AUTO-CAPTION</div></div>
+          <div style="display:flex;gap:.4rem;">
+            <div class="aic-logobox">
+              <div class="aic-logobox-img"><img src="images/partner-vtv.png" alt="VTV"></div>
+              <div class="aic-logobox-lbl">VTV</div>
+            </div>
+            <div class="aic-logobox">
+              <div class="aic-logobox-img"><img src="images/partner-htv.png" alt="HTV"></div>
+              <div class="aic-logobox-lbl" style="color:#a9df70;">HTV</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aic-text">
+      <div class="aic-eyebrow">03 — Dynamic &amp; Distribution</div>
+      <div class="aic-heading">
+        <span class="vi">Cá Nhân Hóa, Linh Hoạt<br><em>&amp; Phân Phối Truyền Thông</em></span>
+        <span class="en">Personalised, Dynamic<br><em>&amp; Media Distribution</em></span>
+      </div>
+      <div class="aic-body vi">TV · Digital · OOH — tất cả trong một gói. Sản xuất và lên sóng mà không cần qua đơn vị sản xuất riêng.</div>
+      <div class="aic-body en">TV broadcast · Digital · OOH — all in one package. Produce and go live without a separate production house.</div>
+      <div class="aic-body vi">1 concept → nhiều phiên bản theo phân khúc, tỉ lệ và ngôn ngữ — tự động.</div>
+      <div class="aic-body en">1 concept → multiple versions by segment, ratio and language — automatically.</div>
+    </div>
+  </div>
+
+</section>
+
 <section id="solutions" style="padding:4rem 5vw;background:#f5f5f3;">
 
   <!-- Block 1: OOH -->
@@ -830,7 +1041,7 @@ footer>*{position:relative;z-index:1;}
         <img src="images/digital-2.jpg" class="sol-img-real" alt="Suc Khoe Doi Song Digital"/>
       </div>
       <div class="sol-card">
-        <img src="images/digital-3.jpg" class="sol-img-real" alt="Thanh Nien Digital"/>
+        <img src="images/grab-sacom.png" class="sol-img-real" alt="Sacombank x Grab"/>
       </div>
     </div>
   </div>
@@ -857,12 +1068,12 @@ footer>*{position:relative;z-index:1;}
     </div>
   </div>
 
-  <!-- Block 4: TV Advertising -->
+  <!-- Block 4: Media Advertising -->
   <div class="sol-block">
     <div class="sol-block-header">
       <a href="our-work-tv.html" style="color:inherit;text-decoration:none;">
-        <span class="vi">Quảng Cáo Truyền Hình (TV) →</span>
-        <span class="en">TV Advertising →</span>
+        <span class="vi">Media Advertising | Offline + OTT →</span>
+        <span class="en">Media Advertising | Offline + OTT →</span>
       </a>
     </div>
     <div class="ooh-slideshow">
@@ -877,85 +1088,30 @@ footer>*{position:relative;z-index:1;}
           <div class="sol-card"><img src="images/tv-vtv1.png" class="sol-img-real" alt="VTV1" style="object-fit:contain;background:#000;"/></div>
           <div class="sol-card"><img src="images/tv-vtvcab17.png" class="sol-img-real" alt="VTVCab17" style="object-fit:contain;background:#e8e8e8;"/></div>
         </div></div>
+        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
+          <div class="sol-card"><img src="images/tv-vtv17.jpg" class="sol-img-real" alt="VTV17" style="object-fit:contain;background:#d4b8f0;"/></div>
+          <div class="sol-card"><img src="images/tv-fpt-truyen-hinh.jpg" class="sol-img-real" alt="FPT Truyền hình" style="object-fit:contain;background:#1a3a8c;"/></div>
+          <div class="sol-card"><img src="images/tv-htv7.png" class="sol-img-real" alt="HTV7" style="object-fit:contain;background:#0a2a5e;"/></div>
+        </div></div>
+        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
+          <div class="sol-card"><img src="images/tv-vtvcab6.png" class="sol-img-real" alt="VTVCab6" style="object-fit:contain;background:#e8e8e8;"/></div>
+          <div class="sol-card"><img src="images/tv-onsports.png" class="sol-img-real" alt="ON Sports" style="object-fit:contain;background:#fff;"/></div>
+          <div class="sol-card"><img src="images/tv-qpvn.png" class="sol-img-real" alt="QPVN" style="object-fit:contain;background:#1a5c1a;"/></div>
+        </div></div>
       </div>
       <button class="ooh-arrow ooh-left" onclick="tvSlide(-1)">&#8592;</button>
       <button class="ooh-arrow ooh-right" onclick="tvSlide(1)">&#8594;</button>
       <div class="ooh-dots" id="tv-dots">
         <div class="ooh-dot active" onclick="tvGoTo(0)"></div>
         <div class="ooh-dot" onclick="tvGoTo(1)"></div>
+        <div class="ooh-dot" onclick="tvGoTo(2)"></div>
+        <div class="ooh-dot" onclick="tvGoTo(3)"></div>
       </div>
     </div>
   </div>
 
 </section>
 
-<section id="ai-creative" class="section">
-  <div class="aic-header reveal">
-    <div class="eyebrow vi">Sản Xuất Hỗ Trợ AI</div>
-    <div class="eyebrow en">AI-Powered Production</div>
-    <h2>
-      <span class="vi">Infinity <em>AI Creative</em> — Sản Xuất &amp; Phân Phối trong Một Gói</span>
-      <span class="en">Infinity <em>AI Creative</em> — Produce &amp; Distribute in One Package</span>
-    </h2>
-  </div>
-  <!-- Green ribbon stats -->
-  <div class="aic-ribbon reveal">
-    <div class="aic-ribbon-item">
-      <div class="aic-ribbon-crossed vi">300 Triệu – 1 Tỷ VNĐ</div>
-      <div class="aic-ribbon-crossed en">VND 300M – 1B</div>
-      <div class="aic-ribbon-arrow">↓</div>
-      <div class="aic-ribbon-val vi">50 – 300 Triệu VNĐ</div>
-      <div class="aic-ribbon-val en">VND 50 – 300M</div>
-      <div class="aic-ribbon-sub vi">Tiết kiệm chi phí so với TVC truyền thống</div>
-      <div class="aic-ribbon-sub en">Cost savings vs traditional TVC</div>
-    </div>
-    <div class="aic-ribbon-item">
-      <div class="aic-ribbon-crossed vi">4–8 tuần</div>
-      <div class="aic-ribbon-crossed en">4–8 weeks</div>
-      <div class="aic-ribbon-arrow">↓</div>
-      <div class="aic-ribbon-val vi">5–12 ngày</div>
-      <div class="aic-ribbon-val en">5–12 days</div>
-      <div class="aic-ribbon-sub vi">Nhanh hơn 4–6× so với sản xuất truyền thống</div>
-      <div class="aic-ribbon-sub en">4–6× faster than traditional production</div>
-    </div>
-    <div class="aic-ribbon-item">
-      <div class="aic-ribbon-val vi">1 Concept</div>
-      <div class="aic-ribbon-val en">1 Concept</div>
-      <div class="aic-ribbon-arrow">→</div>
-      <div class="aic-ribbon-sub vi">Nhiều phiên bản theo phân khúc, tỉ lệ &amp; ngôn ngữ — tự động</div>
-      <div class="aic-ribbon-sub en">Multiple versions by segment, ratio &amp; language — automatically</div>
-    </div>
-    <div class="aic-ribbon-item">
-      <div class="aic-ribbon-val">TV + Digital + OOH</div>
-      <div class="aic-ribbon-arrow">→</div>
-      <div class="aic-ribbon-sub vi">Một gói, một đầu mối liên hệ</div>
-      <div class="aic-ribbon-sub en">One package, one point of contact</div>
-    </div>
-  </div>
-  <!-- 2×2 feature cards -->
-  <div class="aic-grid reveal d1">
-    <div class="aic-feat">
-      <div class="aic-feat-title">AI Image &amp; Key Visual</div>
-      <div class="aic-feat-desc vi">Product shots, KV, banner — không cần studio, giao hàng trong 24h</div>
-      <div class="aic-feat-desc en">Product shots, KVs, banners — no studio required, delivered within 24h</div>
-    </div>
-    <div class="aic-feat">
-      <div class="aic-feat-title">AI TVC Production</div>
-      <div class="aic-feat-desc vi">Script → AI video → hậu kỳ → TVC 30s hoàn chỉnh trong 5–12 ngày</div>
-      <div class="aic-feat-desc en">Script → AI video → post-production → finished 30s TVC in 5–12 days</div>
-    </div>
-    <div class="aic-feat">
-      <div class="aic-feat-title"><span class="vi">Cá Nhân Hóa &amp; Linh Hoạt</span><span class="en">Personalised &amp; Dynamic</span></div>
-      <div class="aic-feat-desc vi">1 concept → nhiều phiên bản theo phân khúc, tỉ lệ và ngôn ngữ — tự động</div>
-      <div class="aic-feat-desc en">1 concept → multiple versions by segment, ratio and language — automatically</div>
-    </div>
-    <div class="aic-feat">
-      <div class="aic-feat-title"><span class="vi">Phân Phối Truyền Thông</span><span class="en">Media Distribution</span></div>
-      <div class="aic-feat-desc vi">TV · Digital · OOH — tất cả trong một gói, một đầu mối liên hệ</div>
-      <div class="aic-feat-desc en">TV broadcast · Digital · OOH — all in one package, one point of contact</div>
-    </div>
-  </div>
-</section>
 
 <section id="services" class="section" style="padding-top:2.5rem;padding-bottom:2.5rem;">
   <div class="svc-header">
@@ -1070,6 +1226,7 @@ footer>*{position:relative;z-index:1;}
         <div class="logo-card"><img src="images/partner-htv.png" alt="HTV" class="lc-img"/></div>
         <div class="logo-card"><img src="images/partner-thvl.png" alt="THVL" class="lc-img"/></div>
         <div class="logo-card"><img src="images/partner-vtvcab.png" alt="VTVcab" class="lc-img"/></div>
+        <div class="logo-card"><img src="images/partner-qpvn.png" alt="QPVN" class="lc-img"/></div>
       </div>
     </div>
 
@@ -1296,11 +1453,21 @@ function toggleClients(){
 
 /* ── HERO SLIDESHOW ── */
 (function(){
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  let current  = 0;
+  const slides   = document.querySelectorAll('.hero-slide');
+  const dotsWrap = document.getElementById('hero-dots');
+  let current = 0;
   let timer;
+
+  // Auto-generate one dot per slide
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsWrap.appendChild(d);
+  });
+
   function goTo(n){
+    const dots = dotsWrap.querySelectorAll('.hero-dot');
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
@@ -1310,9 +1477,9 @@ function toggleClients(){
   }
   function resetTimer(){
     clearInterval(timer);
-    timer = setInterval(()=>goTo(current+1), 6000);
+    timer = setInterval(() => goTo(current + 1), 6000);
   }
-  window.heroSlide = (dir) => goTo(current+dir);
+  window.heroSlide = (dir) => goTo(current + dir);
   window.heroGoTo  = (n)   => goTo(n);
   resetTimer();
 })();
