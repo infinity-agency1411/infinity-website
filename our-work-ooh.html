@@ -56,14 +56,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:cen
 .sol-grid-2{grid-template-columns:repeat(2,1fr);}
 .sol-grid-2 .sol-img-real{height:340px;}
 .sol-card{position:relative;overflow:hidden;}
-.sol-img-placeholder{width:100%;height:240px;background:linear-gradient(135deg,rgba(169,223,112,.08),rgba(125,191,68,.12));border:none;}
-.sol-img-real{width:100%;height:240px;object-fit:cover;display:block;}
+.sol-img-placeholder{width:100%;height:340px;background:linear-gradient(135deg,rgba(169,223,112,.08),rgba(125,191,68,.12));border:none;}
+.sol-img-real{width:100%;height:340px;object-fit:cover;object-position:top;display:block;}
 .sol-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 100%);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;padding:.8rem 1.2rem;display:block;}
 
 .ooh-slideshow{position:relative;overflow:hidden;}
 .ooh-track{display:flex;transition:transform .5s cubic-bezier(.22,1,.36,1);}
 .ooh-slide{min-width:100%;position:relative;}
-.ooh-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.4);border:1.5px solid rgba(255,255,255,.25);color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:background .2s;backdrop-filter:blur(4px);}
+.ooh-arrow{position:absolute;top:170px;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.4);border:1.5px solid rgba(255,255,255,.25);color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:background .2s;backdrop-filter:blur(4px);}
 .ooh-arrow:hover{background:rgba(74,158,46,.6);border-color:var(--green);}
 .ooh-left{left:1rem;}
 .ooh-right{right:1rem;}
@@ -212,77 +212,51 @@ footer>*{position:relative;z-index:1;}
 
 <div class="ow-wrap">
 
-  <!-- 1. Skoda Pano Advertisement -->
+  <!-- 1. Pano & LED Advertisement (3 slides) -->
   <div class="sol-block">
-    <div class="sol-block-header">Skoda Pano Advertisement</div>
+    <div class="sol-block-header">Pano &amp; LED Advertisement</div>
     <div class="ooh-slideshow">
       <div class="ooh-track">
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-3">
-            <div class="sol-card">
-              <img src="images/ooh-1.png" class="sol-img-real" alt="Skoda Billboard 1"/>
-            </div>
-            <div class="sol-card">
-              <img src="images/ooh-2.png" class="sol-img-real" alt="Skoda Billboard 2"/>
-            </div>
-            <div class="sol-card">
-              <img src="images/ooh-3.png" class="sol-img-real" alt="Skoda Billboard 3"/>
-            </div>
+            <div class="sol-card"><img src="images/ooh-1.png" class="sol-img-real" alt="Pano Billboard 1"/></div>
+            <div class="sol-card"><img src="images/ooh-2.png" class="sol-img-real" alt="Pano Billboard 2"/></div>
+            <div class="sol-card"><img src="images/ooh-3.png" class="sol-img-real" alt="Pano Billboard 3"/></div>
           </div>
         </div>
-      </div>
-      <button class="ooh-arrow ooh-left">&#8592;</button>
-      <button class="ooh-arrow ooh-right">&#8594;</button>
-      <div class="ooh-dots"><div class="ooh-dot active"></div></div>
-    </div>
-  </div>
-
-  <!-- 2. Dyson — Geo-Targeting LCD -->
-  <div class="sol-block">
-    <div class="sol-block-header">Dyson — Geo-Targeting LCD · Premium Office Towers</div>
-    <div class="ooh-slideshow">
-      <div class="ooh-track">
-        <div class="ooh-slide">
-          <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/dyson-1.jpg" class="sol-img-real" alt="Dyson LCD Kiosk"/></div>
-            <div class="sol-card"><img src="images/dyson-2.jpg" class="sol-img-real" alt="Dyson Billboard"/></div>
-          </div>
-        </div>
-      </div>
-      <button class="ooh-arrow ooh-left">&#8592;</button>
-      <button class="ooh-arrow ooh-right">&#8594;</button>
-      <div class="ooh-dots"><div class="ooh-dot active"></div></div>
-    </div>
-  </div>
-
-  <!-- 3. Spotify Wrapped 2023 — Double-Decker Bus -->
-  <div class="sol-block">
-    <div class="sol-block-header">Spotify Wrapped 2023 — Double-Decker Bus · HCMC CBD</div>
-    <div class="ooh-slideshow">
-      <div class="ooh-track">
-        <div class="ooh-slide">
-          <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/spwrap-1.jpg" class="sol-img-real" alt="Spotify Wrapped Bus Back"/></div>
-            <div class="sol-card"><img src="images/spwrap-2.jpg" class="sol-img-real" alt="Spotify Wrapped Bus Side"/></div>
-          </div>
-        </div>
-      </div>
-      <button class="ooh-arrow ooh-left">&#8592;</button>
-      <button class="ooh-arrow ooh-right">&#8594;</button>
-      <div class="ooh-dots"><div class="ooh-dot active"></div></div>
-    </div>
-  </div>
-
-  <!-- 4. Bridgestone 2024 — Launch · Premium LED Billboards -->
-  <div class="sol-block">
-    <div class="sol-block-header">Bridgestone 2024 — Launch · Premium LED Billboards</div>
-    <div class="ooh-slideshow">
-      <div class="ooh-track">
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-3">
-            <div class="sol-card"><img src="images/bridge-1.jpg" class="sol-img-real" alt="Bridgestone LED Night"/></div>
-            <div class="sol-card"><img src="images/bridge-2.jpg" class="sol-img-real" alt="Bridgestone LED Art"/></div>
-            <div class="sol-card"><img src="images/bridge-3.jpg" class="sol-img-real" alt="Bridgestone LED Day"/></div>
+            <div class="sol-card"><img src="images/bridge-1.jpg" class="sol-img-real" alt="LED Billboard Night"/></div>
+            <div class="sol-card"><img src="images/bridge-2.jpg" class="sol-img-real" alt="LED Billboard Art"/></div>
+            <div class="sol-card"><img src="images/bridge-3.jpg" class="sol-img-real" alt="LED Billboard Day"/></div>
+          </div>
+        </div>
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-2">
+            <div class="sol-card"><img src="images/sptet-1.jpg" class="sol-img-real" alt="Pano Tet Day"/></div>
+            <div class="sol-card"><img src="images/sptet-2.jpg" class="sol-img-real" alt="Pano Tet Night"/></div>
+          </div>
+        </div>
+      </div>
+      <button class="ooh-arrow ooh-left">&#8592;</button>
+      <button class="ooh-arrow ooh-right">&#8594;</button>
+      <div class="ooh-dots">
+        <div class="ooh-dot active"></div>
+        <div class="ooh-dot"></div>
+        <div class="ooh-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Geo-Targeting LCD · Premium Office Towers -->
+  <div class="sol-block">
+    <div class="sol-block-header">LCD &amp; Billboard · High-Traffic Locations</div>
+    <div class="ooh-slideshow">
+      <div class="ooh-track">
+        <div class="ooh-slide">
+          <div class="sol-grid sol-grid-2">
+            <div class="sol-card"><img src="images/dyson-1.jpg" class="sol-img-real" alt="LCD Kiosk"/></div>
+            <div class="sol-card"><img src="images/dyson-2.jpg" class="sol-img-real" alt="LCD Billboard"/></div>
           </div>
         </div>
       </div>
@@ -292,15 +266,15 @@ footer>*{position:relative;z-index:1;}
     </div>
   </div>
 
-  <!-- 5. Melia Resort 2024 — Airport-to-CBD Convergent Zones -->
+  <!-- 3. Double-Decker Bus · HCMC CBD -->
   <div class="sol-block">
-    <div class="sol-block-header">Melia Resort 2024 — Airport-to-CBD Convergent Zones</div>
+    <div class="sol-block-header">Double-Decker Bus · HCMC CBD</div>
     <div class="ooh-slideshow">
       <div class="ooh-track">
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/melia-1.jpg" class="sol-img-real" alt="Melia Billboard Horizontal"/></div>
-            <div class="sol-card"><img src="images/melia-2.jpg" class="sol-img-real" alt="Melia Billboard Vertical"/></div>
+            <div class="sol-card"><img src="images/spwrap-1.jpg" class="sol-img-real" alt="Double-Decker Bus Back"/></div>
+            <div class="sol-card"><img src="images/spwrap-2.jpg" class="sol-img-real" alt="Double-Decker Bus Side"/></div>
           </div>
         </div>
       </div>
@@ -310,15 +284,15 @@ footer>*{position:relative;z-index:1;}
     </div>
   </div>
 
-  <!-- 6. Spotify Tet 2024 — Nguyen Hue St -->
+  <!-- 4. Airport-to-CBD Convergent Zones -->
   <div class="sol-block">
-    <div class="sol-block-header">Spotify Tet 2024 — Nguyen Hue St · 10× Presence, Same Cost</div>
+    <div class="sol-block-header">Airport-to-CBD Convergent Zones</div>
     <div class="ooh-slideshow">
       <div class="ooh-track">
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/sptet-1.jpg" class="sol-img-real" alt="Spotify Tet Suni Ha Linh Day"/></div>
-            <div class="sol-card"><img src="images/sptet-2.jpg" class="sol-img-real" alt="Spotify Tet Hoang Thuy Linh Night"/></div>
+            <div class="sol-card"><img src="images/melia-1.jpg" class="sol-img-real" alt="Airport-to-CBD Billboard Horizontal"/></div>
+            <div class="sol-card"><img src="images/melia-2.jpg" class="sol-img-real" alt="Airport-to-CBD Billboard Vertical"/></div>
           </div>
         </div>
       </div>
@@ -328,21 +302,21 @@ footer>*{position:relative;z-index:1;}
     </div>
   </div>
 
-  <!-- 7. Spotify 2024 — Iconic CBD Hubs · Dynamic Creatives -->
+  <!-- 5. Iconic CBD Hubs · Dynamic Creatives -->
   <div class="sol-block">
-    <div class="sol-block-header">Spotify 2024 — Iconic CBD Hubs · Dynamic Creatives</div>
+    <div class="sol-block-header">Iconic CBD Hubs · Dynamic Creatives</div>
     <div class="ooh-slideshow">
       <div class="ooh-track">
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/spcbd-1.jpg" class="sol-img-real" alt="Spotify CBD Radar"/></div>
-            <div class="sol-card"><img src="images/spcbd-2.jpg" class="sol-img-real" alt="Spotify CBD Grey D"/></div>
+            <div class="sol-card"><img src="images/spcbd-1.jpg" class="sol-img-real" alt="CBD Hub 1"/></div>
+            <div class="sol-card"><img src="images/spcbd-2.jpg" class="sol-img-real" alt="CBD Hub 2"/></div>
           </div>
         </div>
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-2">
-            <div class="sol-card"><img src="images/spcbd-3.jpg" class="sol-img-real" alt="Spotify CBD 1 Trieu"/></div>
-            <div class="sol-card"><img src="images/spcbd-4.jpg" class="sol-img-real" alt="Spotify CBD Nguyen Thi Nghia"/></div>
+            <div class="sol-card"><img src="images/spcbd-3.jpg" class="sol-img-real" alt="CBD Hub 3"/></div>
+            <div class="sol-card"><img src="images/spcbd-4.jpg" class="sol-img-real" alt="CBD Hub 4"/></div>
           </div>
         </div>
       </div>
