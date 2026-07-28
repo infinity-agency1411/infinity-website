@@ -70,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:cen
 nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .nav-logo{display:flex;align-items:center;gap:1px;text-decoration:none}
 .nav-logo svg{height:26px;width:auto}
-.lg-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:var(--charcoal);line-height:1;}
+.lg-text{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.02em;color:var(--charcoal);line-height:1;}
 .lg-mark{height:1.55rem;width:auto;margin:0 2px;vertical-align:middle;}
 .foot-logo-row{display:flex;align-items:center;gap:1px;text-decoration:none}
 .lg-text-foot{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.05em;letter-spacing:-.02em;color:white;line-height:1;}
@@ -78,17 +78,22 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .nav-center{display:flex;gap:1.2rem;list-style:none;align-items:center}
 .nav-center a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:1.5px solid transparent}
 .nav-center a:hover,.nav-center a.active{color:var(--ink);border-bottom-color:var(--green)}
-/* ── Dropdown Giải pháp ── */
-.nav-dropdown{position:relative;}
+/* ── Mega Menu Giải pháp ── */
+.nav-dropdown{position:static;}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:.25rem;cursor:pointer;line-height:1;}
 .nav-dropdown>a::after{content:'▾';font-size:.6rem;opacity:.6;transition:transform .2s;}
 .nav-dropdown:hover>a::after{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:white;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);padding:.6rem;min-width:280px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateX(-50%) translateY(-6px);z-index:200;}
-.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-.nav-dropdown-menu a{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-radius:8px;color:var(--ink);font-size:.78rem;font-weight:500;letter-spacing:.02em;text-transform:none;border-bottom:none;transition:background .15s,color .15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
-.nav-dropdown-menu .dd-icon{font-size:1rem;width:28px;text-align:center;flex-shrink:0;}
-.nav-dropdown-divider{height:1px;background:var(--border);margin:.3rem .9rem;}
+.nav-dropdown-menu{position:absolute;top:100%;left:0;right:0;width:100%;background:white;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);padding:1.8rem 4vw 1.6rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateY(-6px);z-index:200;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0 2px;}
+.mega-col{padding:0 1rem;}
+.mega-col+.mega-col{border-left:1px solid var(--border);}
+.mega-col-title,.nav-dropdown-menu .mega-col-title{display:block;font-weight:800;font-size:.68rem;color:var(--ink) !important;letter-spacing:.04em;margin-bottom:.6rem;padding-bottom:.45rem;border-bottom:2px solid var(--green);text-decoration:none;text-transform:uppercase;line-height:1.25;}
+.mega-col-title:hover,.nav-dropdown-menu .mega-col-title:hover{color:var(--green-dk) !important;}
+.mega-sub{display:flex;flex-direction:column;gap:.1rem;}
+.mega-sub a{display:block;padding:.28rem .4rem;border-radius:6px;color:var(--muted);font-size:.65rem;font-weight:400;letter-spacing:.01em;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;border-bottom:none;}
+.mega-sub a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
+.nav-dropdown-divider{display:none;}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .lang-toggle{display:flex;align-items:center;background:var(--canvas3);border:1px solid var(--border);border-radius:100px;padding:3px;gap:2px;}
 .lang-btn{padding:.3rem .75rem;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;}
@@ -202,7 +207,7 @@ p.sec-body.light{color:rgba(255,255,255,.5)}
 /* SERVICES */
 #services{background:#f5f5f3;padding:3rem 5vw}
 .svc-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;}
-.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4.5rem 0;margin-top:1rem;}
+.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4.5rem 0;margin-top:1rem;}
 .svc-grid .sv{grid-column:span 2;}
 .svc-grid .sv:nth-child(4),.svc-grid .sv:nth-child(5){grid-column:span 3;}
 .sv{padding:1.2rem 1rem;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:transform .25s,padding .3s ease;background:transparent;border:none;cursor:pointer;min-height:160px;user-select:none;}
@@ -339,11 +344,11 @@ p.sec-body.light{color:rgba(255,255,255,.5)}
 .pc-panel.hidden{display:none;}
 .pc-panel.fade-in{animation:pcFadeIn .4s cubic-bezier(.34,1.45,.64,1) forwards;}
 @keyframes pcFadeIn{0%{opacity:0;transform:scale(.97) translateY(8px)}100%{opacity:1;transform:scale(1) translateY(0)}}
-.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;}
+.logo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;}
 .logo-card{background:transparent;border:none;padding:1rem;display:flex;align-items:center;justify-content:center;min-height:140px;transition:transform .25s,filter .25s;}
 .logo-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
 .logo-card .lc-img{width:auto;height:60px;max-width:160px;object-fit:contain;}
-.clients-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;align-items:center;}
+.clients-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;align-items:center;}
 .cli-card{background:transparent;border:none;padding:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;min-height:140px;min-width:0;transition:transform .25s,filter .25s;}
 .cli-name{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);text-align:center;letter-spacing:.01em;line-height:1.3;}
 .cli-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
@@ -555,40 +560,63 @@ footer>*{position:relative;z-index:1;}
         <span class="en">Giải Pháp</span>
       </a>
       <div class="nav-dropdown-menu">
-        <a href="our-work-ooh.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Ngoài Trời (OOH)</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Outdoor Advertising (OOH)</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-pos.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Truyền Thông Tại Điểm Bán</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Communication at Point of Sale</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-digital.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Kỹ Thuật Số</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Digital Advertising</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-tv.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Truyền Hình (TV)</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">TV Advertising</span>
-            <span style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">SCTV6 · VTV1 · VTVcab · THVL1</span>
-          </span>
-        </a>
+        <div class="mega-grid">
+          <!-- Col 1: OOH -->
+          <div class="mega-col">
+            <a href="our-work-ooh.html" class="mega-col-title vi">Quảng Cáo Ngoài Trời (OOH)</a>
+            <a href="our-work-ooh.html" class="mega-col-title en">Outdoor Advertising (OOH)</a>
+            <div class="mega-sub">
+              <a href="our-work-ooh.html#pano-led"><span class="vi">Pano &amp; LED</span><span class="en">Pano &amp; LED Advertisement</span></a>
+              <a href="our-work-ooh.html#lcd-billboard"><span class="vi">LCD &amp; Billboard</span><span class="en">LCD &amp; Billboard</span></a>
+              <a href="our-work-ooh.html#double-decker"><span class="vi">Xe Buýt 2 Tầng</span><span class="en">Double-Decker Bus</span></a>
+              <a href="our-work-ooh.html#cbd-hubs"><span class="vi">CBD Hubs</span><span class="en">CBD Hubs</span></a>
+              <a href="our-work-ooh.html#in-building"><span class="vi">Mạng Lưới LCD Trong Tòa Nhà</span><span class="en">In-Building LCD Network</span></a>
+              <a href="our-work-ooh.html#airport-digital"><span class="vi">Mạng Lưới Sân Bay</span><span class="en">Airport Digital Network</span></a>
+            </div>
+          </div>
+          <!-- Col 2: Digital -->
+          <div class="mega-col">
+            <a href="our-work-digital.html" class="mega-col-title vi">Quảng Cáo Kỹ Thuật Số</a>
+            <a href="our-work-digital.html" class="mega-col-title en">Digital Advertising</a>
+            <div class="mega-sub">
+              <a href="our-work-digital.html#digital-display"><span class="vi">Quảng Cáo Báo Điện Tử</span><span class="en">Digital Display</span></a>
+              <a href="our-work-digital.html#inapp"><span class="vi">In-app Advertising</span><span class="en">In-app Advertising</span></a>
+            </div>
+          </div>
+          <!-- Col 3: TV -->
+          <div class="mega-col">
+            <a href="our-work-tv.html" class="mega-col-title vi">Quảng Cáo Truyền Hình</a>
+            <a href="our-work-tv.html" class="mega-col-title en">TV Advertising</a>
+            <div class="mega-sub">
+              <a href="our-work-tv.html"><span class="vi">3 Kênh TV Độc Quyền</span><span class="en">3 Exclusive TV Channels</span></a>
+              <a href="our-work-tv.html"><span class="vi">2 Khung Giờ Vàng</span><span class="en">2 Exclusive Prime-Time Slots</span></a>
+              <a href="our-work-tv.html"><span class="vi">Hệ Sinh Thái Số</span><span class="en">Digital Ecosystem</span></a>
+              <a href="our-work-tv.html"><span class="vi">The Sports Cluster</span><span class="en">The Sports Cluster</span></a>
+            </div>
+          </div>
+          <!-- Col 4: Production -->
+          <div class="mega-col">
+            <a href="index.html#production-creative" class="mega-col-title vi">Production &amp; Creative</a>
+            <a href="index.html#production-creative" class="mega-col-title en">Production &amp; Creative</a>
+            <div class="mega-sub">
+              <a href="index.html#production-creative"><span class="vi">Sản Xuất TVC</span><span class="en">TVC Production</span></a>
+              <a href="index.html#production-creative"><span class="vi">Sản Xuất Digital Assets</span><span class="en">Digital Asset Production</span></a>
+              <a href="index.html#production-creative"><span class="vi">Packaging &amp; Brand Design</span><span class="en">Packaging &amp; Brand Design</span></a>
+            </div>
+          </div>
+          <!-- Col 5: KOL -->
+          <div class="mega-col">
+            <a href="index.html#kol-strategy" class="mega-col-title vi">KOL Strategy &amp; Content</a>
+            <a href="index.html#kol-strategy" class="mega-col-title en">KOL Strategy &amp; Content</a>
+            <div class="mega-sub">
+              <a href="index.html#kol-strategy"><span class="vi">Research &amp; Strategy</span><span class="en">KOL Research &amp; Strategy</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Management &amp; Booking</span><span class="en">KOL Management &amp; Booking</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Content Production</span><span class="en">Content Production &amp; Creative</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Boost &amp; Amplification</span><span class="en">Boost &amp; Amplification</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Reporting &amp; Insights</span><span class="en">Reporting &amp; Insights</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
     <li><a href="tin-tuc.html">Tin Tức & Sự Kiện</a></li>
@@ -609,11 +637,10 @@ footer>*{position:relative;z-index:1;}
   <div class="hero-slide active" style="background-image:url('images/vincom-hcmc.png')"></div>
   <div class="hero-slide" style="background-image:url('images/slide-grab-sacom.jpg');background-position:center center;"></div>
   <div class="hero-slide" style="background-image:url('images/slide-digital.jpg');background-position:center center;"></div>
-  <div class="hero-slide" style="background-image:url('images/kol-slide.png');background-position:center center;"></div>
-  <div class="hero-slide" style="background-image:url('images/tv-portfolio-slide.png');background-position:center center;background-size:contain;background-color:#0d0d0d;"></div>
+  <div class="hero-slide" style="background-image:url('images/kol-slide.png');background-size:107%;background-position:center 10%;background-color:#f5f5f3;"></div>
+  <div class="hero-slide" style="background-image:url('images/tv-portfolio-slide.png');background-position:center center;background-size:cover;background-color:#0d0d0d;"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-2.png')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero-bg-4.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-bus.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-bridge.png')"></div>
   <!-- Arrows -->
@@ -1010,12 +1037,11 @@ footer>*{position:relative;z-index:1;}
             <div class="sol-card"><img src="images/spwrap-1.jpg" class="sol-img-real" alt="Spotify Wrapped Bus"/></div>
           </div>
         </div>
-        <!-- Slide 4: Skoda + Spotify Tet x2 -->
         <div class="ooh-slide">
           <div class="sol-grid sol-grid-3">
-            <div class="sol-card"><img src="images/ooh-skoda-new.jpg" class="sol-img-real" alt="Skoda Kushaq"/></div>
-            <div class="sol-card"><img src="images/ooh-sptet-night.jpg" class="sol-img-real" alt="Spotify Tet Night"/></div>
-            <div class="sol-card"><img src="images/ooh-sptet-day.jpg" class="sol-img-real" alt="Spotify Tet Day"/></div>
+            <div class="sol-card"><img src="images/pos-1.jpg" class="sol-img-real" alt="Dyson LCD Petrosetco"/></div>
+            <div class="sol-card"><img src="images/pos-7.jpg" class="sol-img-real" alt="Yola VietinBank"/></div>
+            <div class="sol-card"><img src="images/pos-10.jpg" class="sol-img-real" alt="Melia Departure Hall"/></div>
           </div>
         </div>
       </div>
@@ -1051,34 +1077,12 @@ footer>*{position:relative;z-index:1;}
     </div>
   </div>
 
-  <!-- Block 3: Point of Sale -->
-  <div class="sol-block">
-    <div class="sol-block-header">
-      <a href="our-work-pos.html" style="color:inherit;text-decoration:none;">
-        <span class="vi">Mạng Lưới Truyền Thông Tại Điểm Bán →</span>
-        <span class="en">Communication Network at Point of Sale →</span>
-      </a>
-    </div>
-    <div class="ooh-slideshow">
-      <div class="ooh-track" id="pos-track">
-        <div class="ooh-slide"><div class="sol-grid sol-grid-3">
-          <div class="sol-card"><img src="images/pos-1.jpg" class="sol-img-real" alt="Dyson LCD Petrosetco"/></div>
-          <div class="sol-card"><img src="images/pos-7.jpg" class="sol-img-real" alt="Yola VietinBank"/></div>
-          <div class="sol-card"><img src="images/pos-10.jpg" class="sol-img-real" alt="Melia Departure Hall"/></div>
-        </div></div>
-      </div>
-      <div class="ooh-dots" id="pos-dots" style="display:none;">
-        <div class="ooh-dot active" onclick="posGoTo(0)"></div>
-      </div>
-    </div>
-  </div>
-
   <!-- Block 4: Media Advertising -->
   <div class="sol-block">
     <div class="sol-block-header">
       <a href="our-work-tv.html" style="color:inherit;text-decoration:none;">
-        <span class="vi">Media Advertising | Offline + OTT →</span>
-        <span class="en">Media Advertising | Offline + OTT →</span>
+        <span class="vi">Quảng cáo trên TV →</span>
+        <span class="en">TV Advertising →</span>
       </a>
     </div>
     <div class="ooh-slideshow">
@@ -1130,58 +1134,97 @@ footer>*{position:relative;z-index:1;}
     </h3>
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:start;">
 
-    <!-- Card 1: TVC Production -->
-    <div style="border:1px solid var(--border);border-radius:12px;background:#fff;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;">
-      <div style="display:flex;align-items:center;gap:.9rem;">
-        <div style="width:46px;height:46px;border-radius:10px;background:var(--green-pale);border:1px solid var(--green-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/icon-tvc.png" style="width:28px;height:28px;object-fit:contain;"/></div>
-        <div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.2rem;">TVC Production</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;">Television Advertising</div>
-        </div>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>TVC 15s/30s/60s — traditional &amp; AI-assisted</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Script, storyboard, casting, filming, post-production</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>TV broadcast via SCTV6, ONSPORTS+, ONTRENDING, VTV1, Vinh Long 1</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>AI TVC package: script → finished video in 5–12 days, saving ~85% vs traditional</li>
-      </ul>
-    </div>
+    <!-- Card 1: TV SVG -->
+    <svg viewBox="0 0 220 210" width="100%" style="display:block;font-family:'Montserrat',sans-serif;">
+      <rect x="10" y="42" width="200" height="136" rx="10" fill="white" stroke="#4a9e2e" stroke-width="3.5"/>
+      <rect x="18" y="50" width="184" height="120" rx="6" fill="white" stroke="#4a9e2e" stroke-width="1.5"/>
+      <circle cx="22" cy="54" r="3" fill="none" stroke="#4a9e2e" stroke-width="1.2"/>
+      <circle cx="198" cy="54" r="3" fill="none" stroke="#4a9e2e" stroke-width="1.2"/>
+      <circle cx="22" cy="166" r="3" fill="none" stroke="#4a9e2e" stroke-width="1.2"/>
+      <circle cx="198" cy="166" r="3" fill="none" stroke="#4a9e2e" stroke-width="1.2"/>
+      <line x1="82" y1="42" x2="66" y2="14" stroke="#4a9e2e" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="64" cy="11" r="5" fill="#4a9e2e"/><circle cx="64" cy="11" r="2.5" fill="white"/>
+      <line x1="138" y1="42" x2="154" y2="14" stroke="#4a9e2e" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="156" cy="11" r="5" fill="#4a9e2e"/><circle cx="156" cy="11" r="2.5" fill="white"/>
+      <rect x="74" y="178" width="72" height="10" rx="3" fill="none" stroke="#4a9e2e" stroke-width="2.5"/>
+      <rect x="58" y="188" width="104" height="5" rx="2.5" fill="none" stroke="#4a9e2e" stroke-width="2"/>
+      <rect x="208" y="72" width="6" height="14" rx="3" fill="#4a9e2e"/>
+      <rect x="208" y="92" width="6" height="14" rx="3" fill="#4a9e2e"/>
+      <rect x="208" y="112" width="6" height="22" rx="3" fill="#4a9e2e"/>
+      <circle cx="90" cy="172" r="2.5" fill="#4a9e2e" opacity=".5"/>
+      <circle cx="100" cy="172" r="2.5" fill="#4a9e2e"/>
+      <circle cx="110" cy="172" r="2.5" fill="#4a9e2e" opacity=".5"/>
+      <circle cx="120" cy="172" r="2.5" fill="#4a9e2e" opacity=".5"/>
+      <circle cx="130" cy="172" r="2.5" fill="#4a9e2e" opacity=".5"/>
+      <text x="110" y="76" text-anchor="middle" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="#4a9e2e">TVC PRODUCTION</text>
+      <text x="110" y="94" text-anchor="middle" font-size="12" font-weight="700" fill="#1e1e1e">Television</text>
+      <text x="110" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#1e1e1e">Advertising</text>
+      <line x1="28" y1="118" x2="192" y2="118" stroke="#4a9e2e" stroke-width="0.7" opacity=".5"/>
+      <text x="28" y="130" font-size="8.5" fill="#717171">· TVC 15s/30s/60s — AI-assisted</text>
+      <text x="28" y="143" font-size="8.5" fill="#717171">· Script, casting, post-production</text>
+      <text x="28" y="156" font-size="8.5" fill="#717171">· Broadcast SCTV6 · VTV1 · 5–12d</text>
+    </svg>
 
-    <!-- Card 2: Digital Asset Production -->
-    <div style="border:1px solid var(--border);border-radius:12px;background:#fff;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;">
-      <div style="display:flex;align-items:center;gap:.9rem;">
-        <div style="width:46px;height:46px;border-radius:10px;background:var(--green-pale);border:1px solid var(--green-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/icon-digital.png" style="width:28px;height:28px;object-fit:contain;"/></div>
-        <div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.2rem;">Digital Asset Production</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;">Multi-platform Digital Content</div>
-        </div>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Key Visual &amp; product shots — AI Image Generation, delivered within 24h</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Motion graphics, animated banners, social video (Reels/TikTok/YouTube)</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Personalized creative: 1 concept → multiple ratios/languages automatically</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>KOL-ready content: brief → asset → published across the full ecosystem</li>
-      </ul>
-    </div>
+    <!-- Card 2: iPad SVG -->
+    <svg viewBox="0 0 220 255" width="100%" style="display:block;font-family:'Montserrat',sans-serif;">
+      <rect x="22" y="8" width="176" height="234" rx="16" fill="white" stroke="#4a9e2e" stroke-width="2.5"/>
+      <rect x="34" y="20" width="152" height="210" rx="6" fill="white" stroke="#4a9e2e" stroke-width="1.2"/>
+      <circle cx="110" cy="236" r="6" fill="none" stroke="#4a9e2e" stroke-width="2"/>
+      <circle cx="110" cy="236" r="3" fill="none" stroke="#4a9e2e" stroke-width="1"/>
+      <circle cx="110" cy="13" r="3" fill="none" stroke="#4a9e2e" stroke-width="1.5"/>
+      <rect x="18" y="62" width="4" height="16" rx="2" fill="none" stroke="#4a9e2e" stroke-width="1.5"/>
+      <rect x="18" y="84" width="4" height="16" rx="2" fill="none" stroke="#4a9e2e" stroke-width="1.5"/>
+      <rect x="198" y="56" width="4" height="22" rx="2" fill="none" stroke="#4a9e2e" stroke-width="1.5"/>
+      <text x="110" y="40" text-anchor="middle" font-size="6.5" font-weight="700" letter-spacing="1.2" fill="#4a9e2e">DIGITAL ASSET PRODUCTION</text>
+      <text x="110" y="58" text-anchor="middle" font-size="12" font-weight="800" fill="#1e1e1e">Multi-platform</text>
+      <text x="110" y="73" text-anchor="middle" font-size="12" font-weight="800" fill="#1e1e1e">Digital Content</text>
+      <line x1="42" y1="82" x2="178" y2="82" stroke="#4a9e2e" stroke-width="0.8" opacity=".5"/>
+      <text x="42" y="97"  font-size="8" fill="#717171">· AI Image Generation — 24h</text>
+      <text x="42" y="112" font-size="8" fill="#717171">· Motion graphics, Reels, TikTok</text>
+      <text x="42" y="127" font-size="8" fill="#717171">· Animated banners, social video</text>
+      <text x="42" y="142" font-size="8" fill="#717171">· 1 concept → multiple ratios</text>
+      <text x="42" y="157" font-size="8" fill="#717171">  &amp; languages automatically</text>
+      <text x="42" y="172" font-size="8" fill="#717171">· Brief → asset → published</text>
+      <text x="42" y="187" font-size="8" fill="#717171">  across the full ecosystem</text>
+    </svg>
 
-    <!-- Card 3: Packaging & Brand Design -->
-    <div style="border:1px solid var(--border);border-radius:12px;background:#fff;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;">
-      <div style="display:flex;align-items:center;gap:.9rem;">
-        <div style="width:46px;height:46px;border-radius:10px;background:var(--green-pale);border:1px solid var(--green-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/icon-packaging.png" style="width:28px;height:28px;object-fit:contain;"/></div>
-        <div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dk);margin-bottom:.2rem;">Packaging &amp; Brand Design</div>
-          <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2;">Packaging &amp; Brand Identity</div>
-        </div>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.5rem;">
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Packaging design: labels, boxes, pouches, bottles</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Brand identity: logo, brand guidelines, colour systems</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>3D mockups &amp; print-ready files to factory standards</li>
-        <li style="font-size:.82rem;color:var(--muted);line-height:1.65;padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:var(--green-dk);">·</span>Multi-market adaptation: Vietnam, ASEAN, international</li>
-      </ul>
-    </div>
+    <!-- Card 3: Packaging Box SVG -->
+    <svg viewBox="0 0 220 300" width="100%" style="display:block;font-family:'Montserrat',sans-serif;">
+      <defs>
+        <clipPath id="box-clip">
+          <polygon points="44,80 172,80 172,186 44,186"/>
+        </clipPath>
+      </defs>
+      <ellipse cx="112" cy="228" rx="76" ry="6" fill="#ccc" opacity=".2"/>
+      <polygon points="172,80 206,60 206,166 172,186" fill="#c8e6c9" stroke="#4a9e2e" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="44,80 172,80 172,186 44,186" fill="white" stroke="#4a9e2e" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="44,80 172,80 206,60 78,60" fill="#e8f5e9" stroke="#4a9e2e" stroke-width="1.5" stroke-linejoin="round"/>
+      <line x1="125" y1="60" x2="108" y2="80" stroke="#4a9e2e" stroke-width="1" stroke-dasharray="4,3" opacity=".55"/>
+      <!-- Content clipped inside front face -->
+      <g clip-path="url(#box-clip)">
+        <rect x="44" y="80" width="128" height="14" fill="#4a9e2e" opacity=".08"/>
+        <image href="images/infinity-logo-icon.png" x="82" y="90" width="52" height="44" opacity=".85"/>
+        <text x="108" y="144" text-anchor="middle" font-size="5.5" font-weight="600" fill="#3a7020" letter-spacing="1" opacity=".8">INFINITY COMMUNICATIONS</text>
+        <line x1="62" y1="150" x2="154" y2="150" stroke="#4a9e2e" stroke-width="0.7" opacity=".4"/>
+        <text x="108" y="161" text-anchor="middle" font-size="8" font-weight="700" fill="#3a3a3a" letter-spacing="3">PACKAGING</text>
+        <text x="108" y="176" text-anchor="middle" font-size="14" font-weight="900" fill="#1e1e1e">DESIGN</text>
+      </g>
+      <!-- Barcode lines on right face -->
+      <line x1="180" y1="118" x2="200" y2="111" stroke="#3a7020" stroke-width="1"   opacity=".25"/>
+      <line x1="180" y1="123" x2="200" y2="116" stroke="#3a7020" stroke-width="0.5" opacity=".2"/>
+      <line x1="180" y1="128" x2="200" y2="121" stroke="#3a7020" stroke-width="1.5" opacity=".25"/>
+      <line x1="180" y1="133" x2="200" y2="126" stroke="#3a7020" stroke-width="0.5" opacity=".2"/>
+      <!-- Labels below box -->
+      <text x="108" y="208" text-anchor="middle" font-size="7.5" font-weight="700" letter-spacing="1.5" fill="#4a9e2e">PACKAGING &amp; BRAND DESIGN</text>
+      <text x="108" y="221" text-anchor="middle" font-size="10" font-weight="700" fill="#1e1e1e">Packaging &amp; Brand Identity</text>
+      <line x1="44" y1="227" x2="176" y2="227" stroke="#e5e5e5" stroke-width="0.8"/>
+      <text x="44" y="240" font-size="8" fill="#717171">· Packaging design: labels, boxes, pouches</text>
+      <text x="44" y="253" font-size="8" fill="#717171">· Brand identity: logo, guidelines, colours</text>
+      <text x="44" y="266" font-size="8" fill="#717171">· 3D mockups &amp; print-ready files</text>
+      <text x="44" y="279" font-size="8" fill="#717171">· Multi-market: Vietnam, ASEAN, intl</text>
+    </svg>
 
   </div>
 </section>
@@ -1191,6 +1234,20 @@ footer>*{position:relative;z-index:1;}
 ══════════════════════════════════ -->
 <style>
 .kol-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;align-items:stretch;}
+/* KOL Timeline */
+.kol-timeline{position:relative;max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:3rem;}
+.kol-spine{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--green-dk),var(--green));transform:translateX(-50%);z-index:0;}
+.kol-tl-row{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;gap:0;position:relative;z-index:1;}
+.kol-tl-node{display:flex;justify-content:center;align-items:center;z-index:2;}
+.kol-tl-num{width:56px;height:56px;border-radius:50%;background:var(--ink);color:white;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1rem;letter-spacing:.08em;box-shadow:0 4px 16px rgba(0,0,0,.18);flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s;}
+.kol-tl-node:hover .kol-tl-num{background:var(--green-dk);transform:scale(1.12);box-shadow:0 6px 22px rgba(74,158,46,.35);}
+.kol-tl-card{background:linear-gradient(135deg,#2d6e1f 0%,#4a9e2e 60%,#3a8020 100%);border:none;border-radius:2px;padding:2rem 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.15);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;justify-content:center;aspect-ratio:16/9;}
+.kol-tl-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.25);transform:translateY(-2px);}
+.kol-tl-left .kol-tl-card{text-align:right;}
+.kol-tl-right .kol-tl-card{text-align:left;}
+.kol-tl-card .kol-card-title{color:#fff;font-size:1.2rem;margin-bottom:.8rem;font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:-.01em;}
+.kol-tl-card .kol-card-desc{color:rgba(255,255,255,.9);font-size:.95rem;line-height:1.75;}
+.kol-tl-img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#f5f5f3;border-radius:2px;display:block;}
 .kol-step{padding:0 1.2rem;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;}
 /* connector line between steps */
 .kol-step:not(:last-child)::after{content:'';position:absolute;top:38px;left:calc(50% + 26px);right:calc(-50% + 26px);height:3px;background:linear-gradient(90deg,var(--green-dk),var(--green));z-index:0;}
@@ -1205,6 +1262,9 @@ footer>*{position:relative;z-index:1;}
   .kol-grid{grid-template-columns:1fr 1fr;gap:1rem;}
   .kol-step::after{display:none;}
   .kol-step{padding:0;}
+  .kol-tl-row{grid-template-columns:1fr 56px 1fr;}
+  .kol-tl-card{max-width:100%;}
+  .kol-tl-empty{display:none;}
 }
 @media(max-width:500px){
   .kol-grid{grid-template-columns:1fr;}
@@ -1220,56 +1280,87 @@ footer>*{position:relative;z-index:1;}
     </h3>
   </div>
 
-  <div class="kol-grid">
+  <div class="kol-timeline">
+    <div class="kol-spine"></div>
 
-    <!-- Step 1 -->
-    <div class="kol-step">
-      <div class="kol-num-wrap"><div class="kol-num">I</div></div>
-      <div class="kol-card">
-        <img src="images/kol-icon-1-research.png" style="width:56px;height:56px;object-fit:contain;opacity:.12;margin-bottom:.4rem;display:block;"/>
-        <div class="kol-card-title">KOL Research &amp; Strategy</div>
-        <div class="kol-card-desc">Audience fit analysis, engagement rate, brand safety. Optimal KOL mix by tier &amp; budget.</div>
+    <!-- Step 1 — LEFT: text | node | img -->
+    <div class="kol-tl-row kol-tl-left">
+      <div class="kol-tl-card">
+        <div class="kol-card-title">
+          <span class="vi">Nghiên Cứu &amp; Chiến Lược KOL</span>
+          <span class="en">KOL Research &amp; Strategy</span>
+        </div>
+        <div class="kol-card-desc">
+          <span class="vi">Phân tích độ phù hợp khán giả, tỷ lệ tương tác &amp; sàng lọc an toàn thương hiệu trên Facebook, TikTok &amp; Instagram. Chúng tôi xây dựng mix KOL tối ưu theo tier, nền tảng &amp; ngân sách — đảm bảo mỗi booking tạo ra lượt tiếp cận đo lường được và cộng hưởng khán giả thực sự.</span>
+          <span class="en">Audience fit analysis, engagement rate &amp; brand safety screening across Facebook, TikTok &amp; Instagram. We build the optimal KOL mix by tier, platform &amp; budget — ensuring every booking drives measurable reach and genuine audience resonance.</span>
+        </div>
+      </div>
+      <div class="kol-tl-node"><div class="kol-tl-num">I</div></div>
+      <img src="images/kol-img-1.png" class="kol-tl-img" alt="KOL Research"/>
+    </div>
+
+    <!-- Step 2 — RIGHT: img | node | text -->
+    <div class="kol-tl-row kol-tl-right">
+      <img src="images/kol-img-2.png" class="kol-tl-img" alt="KOL Management"/>
+      <div class="kol-tl-node"><div class="kol-tl-num">II</div></div>
+      <div class="kol-tl-card">
+        <div class="kol-card-title">
+          <span class="vi">Quản Lý &amp; Booking KOL</span>
+          <span class="en">KOL Management &amp; Booking</span>
+        </div>
+        <div class="kol-card-desc">
+          <span class="vi">Đàm phán bản quyền, quản lý hợp đồng &amp; briefing sáng tạo chi tiết. Chúng tôi phối hợp timeline, deliverables &amp; tuân thủ thương hiệu trên mọi tier KOL — từ nano creator đến celebrity — để chiến dịch ra mắt đúng hạn và đúng brand.</span>
+          <span class="en">End-to-end rights negotiation, contract management &amp; detailed creative briefing. We coordinate timelines, deliverables &amp; brand compliance across all KOL tiers — from nano creators to celebrities — so campaigns launch on time and on brand.</span>
+        </div>
       </div>
     </div>
 
-    <!-- Step 2 -->
-    <div class="kol-step">
-      <div class="kol-num-wrap"><div class="kol-num">II</div></div>
-      <div class="kol-card">
-        <img src="images/kol-icon-2-booking.png" style="width:56px;height:56px;object-fit:contain;opacity:.12;margin-bottom:.4rem;display:block;"/>
-        <div class="kol-card-title">KOL Management &amp; Booking</div>
-        <div class="kol-card-desc">Rights negotiation, contract management, detailed briefing &amp; brand compliance assurance.</div>
+    <!-- Step 3 — LEFT: text | node | img -->
+    <div class="kol-tl-row kol-tl-left">
+      <div class="kol-tl-card">
+        <div class="kol-card-title">
+          <span class="vi">Sản Xuất &amp; Sáng Tạo Nội Dung</span>
+          <span class="en">Content Production &amp; Creative</span>
+        </div>
+        <div class="kol-card-desc">
+          <span class="vi">Sản xuất toàn diện video, ảnh, Reels &amp; TikTok theo brand guidelines và creative brief. Từ phát triển concept đến bàn giao cuối cùng, chúng tôi đảm bảo nội dung thu hút, native với từng nền tảng &amp; tối ưu tương tác.</span>
+          <span class="en">Full-service production of videos, photos, Reels &amp; TikToks aligned to brand guidelines and creative briefs. From concept development to final delivery, we ensure content is scroll-stopping, platform-native &amp; optimised for engagement.</span>
+        </div>
+      </div>
+      <div class="kol-tl-node"><div class="kol-tl-num">III</div></div>
+      <img src="images/kol-img-3.png" class="kol-tl-img" alt="Content Production"/>
+    </div>
+
+    <!-- Step 4 — RIGHT: img | node | text -->
+    <div class="kol-tl-row kol-tl-right">
+      <img src="images/kol-img-4.png" class="kol-tl-img" alt="Boost Amplification"/>
+      <div class="kol-tl-node"><div class="kol-tl-num">IV</div></div>
+      <div class="kol-tl-card">
+        <div class="kol-card-title">
+          <span class="vi">Boost &amp; Khuếch Đại</span>
+          <span class="en">Boost &amp; Amplification</span>
+        </div>
+        <div class="kol-card-desc">
+          <span class="vi">Chạy paid media trên Meta &amp; TikTok Ads kết hợp KOL whitelisting để mở rộng organic reach và tối đa ROI nội dung. Chúng tôi xác định bài đăng hiệu quả nhất và scale phân phối đến đúng khán giả vào đúng thời điểm.</span>
+          <span class="en">Paid media boost on Meta &amp; TikTok Ads paired with KOL whitelisting to extend organic reach and maximise content ROI. We identify top-performing posts and scale distribution to the right audiences at the right moment.</span>
+        </div>
       </div>
     </div>
 
-    <!-- Step 3 -->
-    <div class="kol-step">
-      <div class="kol-num-wrap"><div class="kol-num">III</div></div>
-      <div class="kol-card">
-        <img src="images/kol-icon-3-content.png" style="width:56px;height:56px;object-fit:contain;opacity:.12;margin-bottom:.4rem;display:block;"/>
-        <div class="kol-card-title">Content Production &amp; Creative</div>
-        <div class="kol-card-desc">Video, photo, Reels &amp; TikTok production to brand guidelines and creative briefs.</div>
+    <!-- Step 5 — LEFT: text | node | img -->
+    <div class="kol-tl-row kol-tl-left">
+      <div class="kol-tl-card">
+        <div class="kol-card-title">
+          <span class="vi">Báo Cáo &amp; Insight</span>
+          <span class="en">Reporting &amp; Insights</span>
+        </div>
+        <div class="kol-card-desc">
+          <span class="vi">Dashboard báo cáo minh bạch theo dõi reach, impressions, tỷ lệ tương tác, EMV &amp; chuyển đổi. Insight sau chiến dịch chỉ ra điều gì hiệu quả, điều gì chưa, và cách tối ưu activation tiếp theo để đạt kết quả mạnh hơn.</span>
+          <span class="en">Transparent reporting dashboard covering reach, impressions, engagement rate, EMV &amp; conversion tracking. Post-campaign insights identify what worked, what didn't, and how to optimise the next activation for even stronger results.</span>
+        </div>
       </div>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="kol-step">
-      <div class="kol-num-wrap"><div class="kol-num">IV</div></div>
-      <div class="kol-card">
-        <img src="images/kol-icon-4-boost.png" style="width:56px;height:56px;object-fit:contain;opacity:.12;margin-bottom:.4rem;display:block;"/>
-        <div class="kol-card-title">Boost &amp; Amplification</div>
-        <div class="kol-card-desc">Paid boost on Meta &amp; TikTok; KOL whitelisting to maximise content ROI.</div>
-      </div>
-    </div>
-
-    <!-- Step 5 -->
-    <div class="kol-step">
-      <div class="kol-num-wrap"><div class="kol-num">V</div></div>
-      <div class="kol-card">
-        <img src="images/kol-icon-5-reporting.png" style="width:56px;height:56px;object-fit:contain;opacity:.12;margin-bottom:.4rem;display:block;"/>
-        <div class="kol-card-title">Reporting &amp; Insights</div>
-        <div class="kol-card-desc">Clear report system &amp; dashboard with full campaign performance visibility.</div>
-      </div>
+      <div class="kol-tl-node"><div class="kol-tl-num">V</div></div>
+      <img src="images/kol-img-5.png" class="kol-tl-img" alt="Reporting Insights"/>
     </div>
 
   </div>
@@ -1495,7 +1586,6 @@ footer>*{position:relative;z-index:1;}
       <ul>
         <li><a href="javascript:void(0)">Giới Thiệu</a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
-        <li><a href="our-work-pos.html" class="vi">Truyền Thông Tại Điểm Bán</a><a href="our-work-pos.html" class="en">Point of Sale</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
         <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>

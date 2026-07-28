@@ -11,24 +11,29 @@
 [data-lang="vi"] .en{display:none!important}
 [data-lang="en"] .vi{display:none!important}
 body{font-family:'Montserrat',sans-serif;background:#f5f5f3;color:var(--ink);overflow-x:hidden;}
-nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;height:56px;background:rgba(255,255,255,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:center;justify-content:space-between;padding:0 4vw;height:56px;background:rgba(255,255,255,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.lg-text{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1.3rem;letter-spacing:-.02em;color:var(--charcoal);line-height:1;}
 .nav-logo{display:flex;align-items:center;gap:1px;text-decoration:none}
-.lg-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;color:var(--charcoal);line-height:1;}
-.lg-mark{height:1.55rem;width:auto;margin:0 2px;vertical-align:middle;}
+.nav-logo svg{height:26px;width:auto}
 .nav-center{display:flex;gap:1.2rem;list-style:none;align-items:center}
-.nav-center a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:1.5px solid transparent}
+.nav-center a{color:var(--muted);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;padding-bottom:2px;border-bottom:1.5px solid transparent}
 .nav-center a:hover,.nav-center a.active{color:var(--ink);border-bottom-color:var(--green)}
-/* ── Dropdown Giải pháp ── */
-.nav-dropdown{position:relative;}
+.nav-dropdown{position:static;}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:.25rem;cursor:pointer;line-height:1;}
 .nav-dropdown>a::after{content:'▾';font-size:.6rem;opacity:.6;transition:transform .2s;}
 .nav-dropdown:hover>a::after{transform:rotate(180deg);}
-.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:white;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);padding:.6rem;min-width:280px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateX(-50%) translateY(-6px);z-index:200;}
-.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-.nav-dropdown-menu a{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-radius:8px;color:var(--ink);font-size:.78rem;font-weight:500;letter-spacing:.02em;text-transform:none;border-bottom:none;transition:background .15s,color .15s;white-space:nowrap;}
-.nav-dropdown-menu a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
-.nav-dropdown-menu .dd-icon{font-size:1rem;width:28px;text-align:center;flex-shrink:0;}
-.nav-dropdown-divider{height:1px;background:var(--border);margin:.3rem .9rem;}
+.nav-dropdown-menu{position:absolute;top:100%;left:0;right:0;width:100%;background:white;box-shadow:0 8px 32px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);padding:1.8rem 4vw 1.6rem;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateY(-6px);z-index:200;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0 2px;}
+.mega-col{padding:0 1rem;}
+.mega-col+.mega-col{border-left:1px solid var(--border);}
+.mega-col-title,.nav-dropdown-menu .mega-col-title{display:block;font-weight:800;font-size:.68rem;color:var(--ink) !important;letter-spacing:.04em;margin-bottom:.6rem;padding-bottom:.45rem;border-bottom:2px solid var(--green);text-decoration:none;text-transform:uppercase;line-height:1.25;}
+.mega-col-title:hover,.nav-dropdown-menu .mega-col-title:hover{color:var(--green-dk) !important;}
+.mega-sub{display:flex;flex-direction:column;gap:.1rem;}
+.mega-sub a{display:block;padding:.28rem .4rem;border-radius:6px;color:var(--muted);font-size:.65rem;font-weight:400;letter-spacing:.01em;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;border-bottom:none;}
+.mega-sub a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
+.nav-dropdown-divider{display:none;}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-cta{padding:.55rem 1.4rem;background:var(--green);color:var(--ink);border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;white-space:nowrap;}
 .nav-cta:hover{background:var(--green-dk);transform:translateY(-1px)}
@@ -154,41 +159,64 @@ footer>*{position:relative;z-index:1;}
         <span class="vi">Giải Pháp</span>
         <span class="en">Giải Pháp</span>
       </a>
-                  <div class="nav-dropdown-menu">
-        <a href="our-work-ooh.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Ngoài Trời (OOH)</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Outdoor Advertising (OOH)</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Billboard · LED · Transit</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-pos.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Truyền Thông Tại Điểm Bán</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Communication at Point of Sale</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Dyson · Yola · Melia</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-digital.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Kỹ Thuật Số</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">Digital Advertising</span>
-            <span class="vi" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
-            <span class="en" style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">Display · In-app · Social</span>
-          </span>
-        </a>
-        <div class="nav-dropdown-divider"></div>
-        <a href="our-work-tv.html">
-          <span>
-            <span class="vi" style="display:block;font-weight:700;font-size:.8rem;">Quảng Cáo Truyền Hình (TV)</span>
-            <span class="en" style="display:block;font-weight:700;font-size:.8rem;">TV Advertising</span>
-            <span style="display:block;font-size:.7rem;color:var(--muted);font-weight:400;">SCTV6 · VTV1 · VTVcab · THVL1</span>
-          </span>
-        </a>
+      <div class="nav-dropdown-menu">
+        <div class="mega-grid">
+          <!-- Col 1: OOH -->
+          <div class="mega-col">
+            <a href="our-work-ooh.html" class="mega-col-title vi">Quảng Cáo Ngoài Trời (OOH)</a>
+            <a href="our-work-ooh.html" class="mega-col-title en">Outdoor Advertising (OOH)</a>
+            <div class="mega-sub">
+              <a href="our-work-ooh.html#pano-led"><span class="vi">Pano &amp; LED</span><span class="en">Pano &amp; LED Advertisement</span></a>
+              <a href="our-work-ooh.html#lcd-billboard"><span class="vi">LCD &amp; Billboard</span><span class="en">LCD &amp; Billboard</span></a>
+              <a href="our-work-ooh.html#double-decker"><span class="vi">Xe Buýt 2 Tầng</span><span class="en">Double-Decker Bus</span></a>
+              <a href="our-work-ooh.html#cbd-hubs"><span class="vi">CBD Hubs</span><span class="en">CBD Hubs</span></a>
+              <a href="our-work-ooh.html#in-building"><span class="vi">Mạng Lưới LCD Trong Tòa Nhà</span><span class="en">In-Building LCD Network</span></a>
+              <a href="our-work-ooh.html#airport-digital"><span class="vi">Mạng Lưới Sân Bay</span><span class="en">Airport Digital Network</span></a>
+            </div>
+          </div>
+          <!-- Col 2: Digital -->
+          <div class="mega-col">
+            <a href="our-work-digital.html" class="mega-col-title vi">Quảng Cáo Kỹ Thuật Số</a>
+            <a href="our-work-digital.html" class="mega-col-title en">Digital Advertising</a>
+            <div class="mega-sub">
+              <a href="our-work-digital.html#digital-display"><span class="vi">Quảng Cáo Báo Điện Tử</span><span class="en">Digital Display</span></a>
+              <a href="our-work-digital.html#inapp"><span class="vi">In-app Advertising</span><span class="en">In-app Advertising</span></a>
+            </div>
+          </div>
+          <!-- Col 3: TV -->
+          <div class="mega-col">
+            <a href="our-work-tv.html" class="mega-col-title vi">Quảng Cáo Truyền Hình</a>
+            <a href="our-work-tv.html" class="mega-col-title en">TV Advertising</a>
+            <div class="mega-sub">
+              <a href="our-work-tv.html"><span class="vi">3 Kênh TV Độc Quyền</span><span class="en">3 Exclusive TV Channels</span></a>
+              <a href="our-work-tv.html"><span class="vi">2 Khung Giờ Vàng</span><span class="en">2 Exclusive Prime-Time Slots</span></a>
+              <a href="our-work-tv.html"><span class="vi">Hệ Sinh Thái Số</span><span class="en">Digital Ecosystem</span></a>
+              <a href="our-work-tv.html"><span class="vi">The Sports Cluster</span><span class="en">The Sports Cluster</span></a>
+            </div>
+          </div>
+          <!-- Col 4: Production -->
+          <div class="mega-col">
+            <a href="index.html#production-creative" class="mega-col-title vi">Production &amp; Creative</a>
+            <a href="index.html#production-creative" class="mega-col-title en">Production &amp; Creative</a>
+            <div class="mega-sub">
+              <a href="index.html#production-creative"><span class="vi">Sản Xuất TVC</span><span class="en">TVC Production</span></a>
+              <a href="index.html#production-creative"><span class="vi">Sản Xuất Digital Assets</span><span class="en">Digital Asset Production</span></a>
+              <a href="index.html#production-creative"><span class="vi">Packaging &amp; Brand Design</span><span class="en">Packaging &amp; Brand Design</span></a>
+            </div>
+          </div>
+          <!-- Col 5: KOL -->
+          <div class="mega-col">
+            <a href="index.html#kol-strategy" class="mega-col-title vi">KOL Strategy &amp; Content</a>
+            <a href="index.html#kol-strategy" class="mega-col-title en">KOL Strategy &amp; Content</a>
+            <div class="mega-sub">
+              <a href="index.html#kol-strategy"><span class="vi">Research &amp; Strategy</span><span class="en">KOL Research &amp; Strategy</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Management &amp; Booking</span><span class="en">KOL Management &amp; Booking</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Content Production</span><span class="en">Content Production &amp; Creative</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Boost &amp; Amplification</span><span class="en">Boost &amp; Amplification</span></a>
+              <a href="index.html#kol-strategy"><span class="vi">Reporting &amp; Insights</span><span class="en">Reporting &amp; Insights</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </li>
     <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
@@ -217,7 +245,7 @@ footer>*{position:relative;z-index:1;}
 <div class="ow-wrap">
 
   <!-- 1. Digital Advertising -->
-  <div class="sol-block">
+  <div class="sol-block" id="digital-display">
     <div class="sol-block-header">
       <span class="vi">Quảng Cáo Báo Điện Tử — Finance &amp; Business Sites</span>
       <span class="en">Digital Display — Finance &amp; Business Sites</span>
@@ -239,7 +267,7 @@ footer>*{position:relative;z-index:1;}
   </div>
 
   <!-- 2. In-app Advertising Tet 2024 -->
-  <div class="sol-block">
+  <div class="sol-block" id="inapp">
     <div class="sol-block-header">
       <span class="vi">In-app Advertising</span>
       <span class="en">In-app Advertising</span>
@@ -321,7 +349,6 @@ footer>*{position:relative;z-index:1;}
       <ul>
         <li><a href="javascript:void(0)">Giới Thiệu</a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
-        <li><a href="our-work-pos.html" class="vi">Truyền Thông Tại Điểm Bán</a><a href="our-work-pos.html" class="en">Point of Sale</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
         <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
