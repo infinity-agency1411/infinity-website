@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Infinity — TV Advertising</title>
+<title>Infinity , TV Advertising</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root{--green:#a9df70;--green-dk:#7dbf44;--ink:#1e1e1e;--muted:#717171;--border:#e5e5e5;--charcoal:#3a3a3a;--canvas2:#f0f0ee;--canvas3:#f5f5f3;font-size:14px;}
@@ -32,8 +32,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .mega-col-title,.nav-dropdown-menu .mega-col-title{display:block;font-weight:800;font-size:.68rem;color:var(--ink) !important;letter-spacing:.04em;margin-bottom:.6rem;padding-bottom:.45rem;border-bottom:2px solid var(--green);text-decoration:none;text-transform:uppercase;line-height:1.25;}
 .mega-col-title:hover,.nav-dropdown-menu .mega-col-title:hover{color:var(--green-dk) !important;}
 .mega-sub{display:flex;flex-direction:column;gap:.1rem;}
-.mega-sub a{display:block;padding:.28rem .4rem;border-radius:6px;color:var(--muted);font-size:.65rem;font-weight:400;letter-spacing:.01em;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap;border-bottom:none;}
-.mega-sub a:hover{background:var(--canvas2);color:var(--green-dk);border-bottom:none;}
+.mega-sub a{display:block;padding:.28rem .4rem;border-radius:6px;color:var(--muted);font-size:.65rem;font-weight:400;letter-spacing:.01em;text-decoration:none;white-space:nowrap;border-bottom:none;cursor:default;}
+.mega-sub a:hover{background:none;color:var(--muted);border-bottom:none;}
 .nav-dropdown-divider{display:none;}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-cta{padding:.55rem 1.4rem;background:var(--green);color:var(--ink);border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;white-space:nowrap;}
@@ -149,14 +149,14 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 }
 
 /* ── FOOTER ── */
-footer{background:var(--ink);padding:3rem 5vw 1.5rem;position:relative;overflow:hidden;margin-top:2rem;}
+footer{background:var(--ink);padding:3rem 5vw 1.5rem;position:relative;overflow:hidden;}
 footer::before{content:'';position:absolute;top:0;left:0;width:500px;height:500px;background:radial-gradient(circle at top left,rgba(169,223,112,.22) 0%,rgba(169,223,112,.10) 35%,transparent 65%);pointer-events:none;z-index:0;}
 footer>*{position:relative;z-index:1;}
-.foot-top{display:grid;grid-template-columns:1fr auto auto;gap:4rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07);align-items:start;}
-.foot-logo-row{display:flex;align-items:center;gap:4px;text-decoration:none;margin-bottom:.9rem;}
-.lg-text-foot{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.02em;color:rgba(255,255,255,.75);line-height:1;}
-.foot-desc{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:280px;margin-bottom:.6rem;}
-.foot-legal{font-size:.65rem;color:rgba(255,255,255,.18);line-height:1.6;letter-spacing:.02em;margin-top:.5rem;}
+.foot-top{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:1.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:2rem}
+.foot-wordmark{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:white}
+.foot-wordmark span{color:var(--green)}
+.foot-desc{font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:280px}
+.foot-legal{font-size:.7rem;color:rgba(255,255,255,.18);margin-top:1rem;line-height:1.65}
 .foot-col h5{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1rem}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
@@ -165,7 +165,7 @@ footer>*{position:relative;z-index:1;}
 .foot-contact-item .fci{font-size:.85rem;margin-top:.05rem;flex-shrink:0}
 .foot-contact-item a,.foot-contact-item p{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;line-height:1.5;transition:color .2s}
 .foot-contact-item a:hover{color:var(--green)}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:1.5rem;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .foot-bottom p{font-size:.7rem;color:rgba(255,255,255,.2)}
 .mst-tag{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.25rem .8rem;font-size:.68rem;color:rgba(255,255,255,.25)}
 .phone-zalo{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:500;margin-left:.3rem;}
@@ -181,6 +181,16 @@ footer>*{position:relative;z-index:1;}
   40%{color:var(--green);text-shadow:0 0 14px rgba(169,223,112,.7),0 0 28px rgba(169,223,112,.4);}
 }
 .email-blink{animation:emailBlink 1.4s ease-in-out}
+
+.foot-logo-symbol{position:relative;width:28px;height:26px;overflow:hidden;flex-shrink:0;}
+.foot-logo-layer{position:absolute;left:-11px;top:-5px;width:50px;height:37px;background:url('images/infinity-logo.png') no-repeat left top/100% 100%;}
+.fl-outer-left{clip-path:inset(85.21% 74.60% 14.79% 21.71%);}
+.fl-outer-right{clip-path:inset(12.94% 19.91% 85.21% 76.94%);}
+.fl-inner-left{clip-path:inset(12.94% 48.65% 85.21% 30.78%);}
+.fl-inner-right{clip-path:inset(85.21% 26.28% 14.79% 52.34%);}
+.fl-diag-thick{clip-path:polygon(52.34% 85.21%,74.60% 85.21%,48.65% 12.94%,26.28% 12.94%);}
+.fl-diag-thin{clip-path:polygon(51.35% 12.94%,56.54% 12.94%,48.65% 85.21%,43.46% 85.21%);}
+.lg-text-foot{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:white;line-height:1;}
 </style>
 </head>
 <body>
@@ -204,12 +214,10 @@ footer>*{position:relative;z-index:1;}
             <a href="our-work-ooh.html" class="mega-col-title vi">Quảng Cáo Ngoài Trời (OOH)</a>
             <a href="our-work-ooh.html" class="mega-col-title en">Outdoor Advertising (OOH)</a>
             <div class="mega-sub">
-              <a href="our-work-ooh.html#pano-led"><span class="vi">Pano &amp; LED</span><span class="en">Pano &amp; LED Advertisement</span></a>
-              <a href="our-work-ooh.html#lcd-billboard"><span class="vi">LCD &amp; Billboard</span><span class="en">LCD &amp; Billboard</span></a>
-              <a href="our-work-ooh.html#double-decker"><span class="vi">Xe Buýt 2 Tầng</span><span class="en">Double-Decker Bus</span></a>
-              <a href="our-work-ooh.html#cbd-hubs"><span class="vi">CBD Hubs</span><span class="en">CBD Hubs</span></a>
-              <a href="our-work-ooh.html#in-building"><span class="vi">Mạng Lưới LCD Trong Tòa Nhà</span><span class="en">In-Building LCD Network</span></a>
-              <a href="our-work-ooh.html#airport-digital"><span class="vi">Mạng Lưới Sân Bay</span><span class="en">Airport Digital Network</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Pano &amp; LED</span><span class="en">Pano &amp; LED</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Quảng Cáo Phương Tiện</span><span class="en">Transit Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Elevator Branding</span><span class="en">Elevator Branding</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Digital OOH</span><span class="en">Digital OOH</span></a>
             </div>
           </div>
           <!-- Col 2: Digital -->
@@ -217,8 +225,11 @@ footer>*{position:relative;z-index:1;}
             <a href="our-work-digital.html" class="mega-col-title vi">Quảng Cáo Kỹ Thuật Số</a>
             <a href="our-work-digital.html" class="mega-col-title en">Digital Advertising</a>
             <div class="mega-sub">
-              <a href="our-work-digital.html#digital-display"><span class="vi">Quảng Cáo Báo Điện Tử</span><span class="en">Digital Display</span></a>
-              <a href="our-work-digital.html#inapp"><span class="vi">In-app Advertising</span><span class="en">In-app Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">In-app Advertising</span><span class="en">In-app Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Quảng Cáo Tìm Kiếm</span><span class="en">Search Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Quảng Cáo Mạng Xã Hội</span><span class="en">Social Media Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Influencer / KOL-KOC Marketing</span><span class="en">Influencer / KOL-KOC Marketing</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">OTT Marketing</span><span class="en">OTT Marketing</span></a>
             </div>
           </div>
           <!-- Col 3: TV -->
@@ -226,10 +237,10 @@ footer>*{position:relative;z-index:1;}
             <a href="our-work-tv.html" class="mega-col-title vi">Quảng Cáo Truyền Hình</a>
             <a href="our-work-tv.html" class="mega-col-title en">TV Advertising</a>
             <div class="mega-sub">
-              <a href="our-work-tv.html"><span class="vi">3 Kênh TV Độc Quyền</span><span class="en">3 Exclusive TV Channels</span></a>
-              <a href="our-work-tv.html"><span class="vi">2 Khung Giờ Vàng</span><span class="en">2 Exclusive Prime-Time Slots</span></a>
-              <a href="our-work-tv.html"><span class="vi">Hệ Sinh Thái Số</span><span class="en">Digital Ecosystem</span></a>
-              <a href="our-work-tv.html"><span class="vi">The Sports Cluster</span><span class="en">The Sports Cluster</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Truyền Hình Truyền Thống</span><span class="en">Linear TV</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Quảng Cáo OTT</span><span class="en">Streaming Advertising</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">The Sports Cluster</span><span class="en">The Sports Cluster</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Sponsorship &amp; Integration</span><span class="en">Sponsorship &amp; Integration</span></a>
             </div>
           </div>
           <!-- Col 4: Production -->
@@ -237,9 +248,9 @@ footer>*{position:relative;z-index:1;}
             <a href="index.html#production-creative" class="mega-col-title vi">Production &amp; Creative</a>
             <a href="index.html#production-creative" class="mega-col-title en">Production &amp; Creative</a>
             <div class="mega-sub">
-              <a href="index.html#production-creative"><span class="vi">Sản Xuất TVC</span><span class="en">TVC Production</span></a>
-              <a href="index.html#production-creative"><span class="vi">Sản Xuất Digital Assets</span><span class="en">Digital Asset Production</span></a>
-              <a href="index.html#production-creative"><span class="vi">Packaging &amp; Brand Design</span><span class="en">Packaging &amp; Brand Design</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Sản Xuất TVC</span><span class="en">TVC Production</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Sản Xuất Digital Assets</span><span class="en">Digital Asset Production</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Packaging &amp; Brand Design</span><span class="en">Packaging &amp; Brand Design</span></a>
             </div>
           </div>
           <!-- Col 5: KOL -->
@@ -247,11 +258,11 @@ footer>*{position:relative;z-index:1;}
             <a href="index.html#kol-strategy" class="mega-col-title vi">KOL Strategy &amp; Content</a>
             <a href="index.html#kol-strategy" class="mega-col-title en">KOL Strategy &amp; Content</a>
             <div class="mega-sub">
-              <a href="index.html#kol-strategy"><span class="vi">Research &amp; Strategy</span><span class="en">KOL Research &amp; Strategy</span></a>
-              <a href="index.html#kol-strategy"><span class="vi">Management &amp; Booking</span><span class="en">KOL Management &amp; Booking</span></a>
-              <a href="index.html#kol-strategy"><span class="vi">Content Production</span><span class="en">Content Production &amp; Creative</span></a>
-              <a href="index.html#kol-strategy"><span class="vi">Boost &amp; Amplification</span><span class="en">Boost &amp; Amplification</span></a>
-              <a href="index.html#kol-strategy"><span class="vi">Reporting &amp; Insights</span><span class="en">Reporting &amp; Insights</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Research &amp; Strategy</span><span class="en">KOL Research &amp; Strategy</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Management &amp; Booking</span><span class="en">KOL Management &amp; Booking</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Content Production</span><span class="en">Content Production &amp; Creative</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Boost &amp; Amplification</span><span class="en">Boost &amp; Amplification</span></a>
+              <a href="javascript:void(0)" style="cursor:default;pointer-events:none;"><span class="vi">Reporting &amp; Insights</span><span class="en">Reporting &amp; Insights</span></a>
             </div>
           </div>
         </div>
@@ -265,7 +276,7 @@ footer>*{position:relative;z-index:1;}
       <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
-    <a href="#" onclick="scrollToEmail();return false;" class="nav-cta">Liên Hệ →</a>
+    <a href="#" onclick="scrollToEmail();return false;" class="nav-cta"><span class="vi">Liên Hệ →</span><span class="en">Contact Us →</span></a>
   </div>
 </nav>
 
@@ -274,8 +285,8 @@ footer>*{position:relative;z-index:1;}
   <a href="index.html" class="ow-breadcrumb">← <span class="vi">Trang Chủ</span><span class="en">Home</span></a>
   <h1 class="vi">Quảng Cáo <span>Truyền Hình</span></h1>
   <h1 class="en">TV <span>Advertising</span></h1>
-  <p class="vi">Kênh phân phối độc quyền trên TV — tiếp cận hàng triệu khán giả Việt Nam qua các kênh truyền hình hàng đầu và khung giờ vàng.</p>
-  <p class="en">Exclusive TV distribution channels — reaching millions of Vietnamese viewers through leading TV channels and prime-time slots.</p>
+  <p class="vi">Kênh phân phối độc quyền trên TV , tiếp cận hàng triệu khán giả Việt Nam qua các kênh truyền hình hàng đầu và khung giờ vàng.</p>
+  <p class="en">Exclusive TV distribution channels , reaching millions of Vietnamese viewers through leading TV channels and prime-time slots.</p>
 </div>
 
 <div class="ow-wrap">
@@ -314,13 +325,13 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Top 5 kênh cáp miền Nam — tầm phủ sóng khu vực mạnh</span>
-            <span class="tv-channel-row-val en">Top 5 cable channel in Southern Vietnam — strong regional reach</span>
+            <span class="tv-channel-row-val vi">Top 5 kênh cáp miền Nam , tầm phủ sóng khu vực mạnh</span>
+            <span class="tv-channel-row-val en">Top 5 cable channel in Southern Vietnam , strong regional reach</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC 15s/30s · Sponsorship · Billboard · Brand Title</span>
+            <span class="tv-channel-row-val">TVC 15s/30s , Sponsorship , Billboard , Brand Title</span>
           </div>
         </div>
       </div>
@@ -331,7 +342,7 @@ footer>*{position:relative;z-index:1;}
           <img src="images/tv-vtvcab.png" alt="VTVcab ONSPORTS+"/>
         </div>
         <div class="tv-channel-header">
-          <h3>VTVCAB6 — ONSPORTS+</h3>
+          <h3>VTVCAB6 , ONSPORTS+</h3>
           <div class="sub vi">Thể Thao</div>
           <div class="sub en">Sports</div>
         </div>
@@ -345,18 +356,18 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Nội Dung</span>
             <span class="tv-channel-row-label en">Content</span>
-            <span class="tv-channel-row-val">Premier League · La Liga · Champions League · Bundesliga · V.League · Esports</span>
+            <span class="tv-channel-row-val">Premier League , La Liga , Champions League , Bundesliga , V.League , Esports</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Kênh thể thao hàng đầu VTVcab — bản quyền phát sóng quốc tế cao cấp</span>
-            <span class="tv-channel-row-val en">VTVcab's leading sports channel — premium international broadcast rights</span>
+            <span class="tv-channel-row-val vi">Kênh thể thao hàng đầu VTVcab , bản quyền phát sóng quốc tế cao cấp</span>
+            <span class="tv-channel-row-val en">VTVcab's leading sports channel , premium international broadcast rights</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC · Live Sponsorship · Scoreboard · Lower Third</span>
+            <span class="tv-channel-row-val">TVC , Live Sponsorship , Scoreboard , Lower Third</span>
           </div>
         </div>
       </div>
@@ -367,7 +378,7 @@ footer>*{position:relative;z-index:1;}
           <img src="images/tv-ontrending.jpg" alt="ONTRENDING"/>
         </div>
         <div class="tv-channel-header">
-          <h3>VTVCAB17 — ONTRENDING</h3>
+          <h3>VTVCAB17 , ONTRENDING</h3>
           <div class="sub vi">Trending / Giới Trẻ</div>
           <div class="sub en">Trending / Youth</div>
         </div>
@@ -387,13 +398,13 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Rating tăng trưởng ổn định — tiếp cận nhân khẩu học trẻ, năng động</span>
-            <span class="tv-channel-row-val en">Consistent rating growth — reaching a young, active demographic</span>
+            <span class="tv-channel-row-val vi">Rating tăng trưởng ổn định , tiếp cận nhân khẩu học trẻ, năng động</span>
+            <span class="tv-channel-row-val en">Consistent rating growth , reaching a young, active demographic</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC · Brand Integration · Native Content · Sponsorship</span>
+            <span class="tv-channel-row-val">TVC , Brand Integration , Native Content , Sponsorship</span>
           </div>
         </div>
       </div>
@@ -425,27 +436,27 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-body">
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⏰ <span class="vi">Khung Giờ</span><span class="en">Time Slot</span></span>
-            <span class="tv-slot-row-val vi">19:00 – 20:00 hàng ngày — khung giờ tin tức quốc gia</span>
-            <span class="tv-slot-row-val en">19:00 – 20:00 daily — national prime-time news hour</span>
+            <span class="tv-slot-row-val vi">19:00 – 20:00 hàng ngày , khung giờ tin tức quốc gia</span>
+            <span class="tv-slot-row-val en">19:00 – 20:00 daily , national prime-time news hour</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">👥 <span class="vi">Khán Giả</span><span class="en">Audience</span></span>
-            <span class="tv-slot-row-val vi">ABC, 25–54, toàn quốc — lãnh đạo, chuyên gia, nội trợ</span>
-            <span class="tv-slot-row-val en">ABC, 25–54, nationwide — executives, professionals, homemakers</span>
+            <span class="tv-slot-row-val vi">ABC, 25–54, toàn quốc , lãnh đạo, chuyên gia, nội trợ</span>
+            <span class="tv-slot-row-val en">ABC, 25–54, nationwide , executives, professionals, homemakers</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📺 <span class="vi">Nội Dung</span><span class="en">Content</span></span>
-            <span class="tv-slot-row-val vi">Tin tức kinh tế, xã hội & quốc tế — rating cao nhất đài quốc gia</span>
+            <span class="tv-slot-row-val vi">Tin tức kinh tế, xã hội & quốc tế , rating cao nhất đài quốc gia</span>
             <span class="tv-slot-row-val en">Comprehensive daily news on economics, society & international affairs</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⭐ <span class="vi">Điểm Mạnh</span><span class="en">Strength</span></span>
-            <span class="tv-slot-row-val vi">Kênh quốc gia #1 được tin tưởng — phủ sóng toàn quốc, brand presence bên cạnh tin tức cao cấp</span>
-            <span class="tv-slot-row-val en">Vietnam's #1 trusted national channel — nationwide reach, brand presence alongside premium news</span>
+            <span class="tv-slot-row-val vi">Kênh quốc gia #1 được tin tưởng , phủ sóng toàn quốc, brand presence bên cạnh tin tức cao cấp</span>
+            <span class="tv-slot-row-val en">Vietnam's #1 trusted national channel , nationwide reach, brand presence alongside premium news</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📢 <span class="vi">Hình Thức QC</span><span class="en">Ad Formats</span></span>
-            <span class="tv-slot-row-val">Billboard 10s · TVC 30s · News Sponsorship · Logo Overlay</span>
+            <span class="tv-slot-row-val">Billboard 10s , TVC 30s , News Sponsorship , Logo Overlay</span>
           </div>
         </div>
       </div>
@@ -455,8 +466,8 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-header navy-bg">
           <div>
             <h3>VINH LONG 1</h3>
-            <div class="tv-slot-sub vi">PHIM GIỜ VÀNG 20H — MEKONG</div>
-            <div class="tv-slot-sub en">PRIME-TIME DRAMA 20H — MEKONG</div>
+            <div class="tv-slot-sub vi">PHIM GIỜ VÀNG 20H , MEKONG</div>
+            <div class="tv-slot-sub en">PRIME-TIME DRAMA 20H , MEKONG</div>
           </div>
           <span class="badge vi">Phim / Primetime</span>
           <span class="badge en">Drama / Primetime</span>
@@ -467,8 +478,8 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-body">
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⏰ <span class="vi">Khung Giờ</span><span class="en">Time Slot</span></span>
-            <span class="tv-slot-row-val vi">20:00 – 22:00 hàng ngày — khung giờ mạnh nhất kênh địa phương vùng Mekong</span>
-            <span class="tv-slot-row-val en">20:00 – 22:00 daily — strongest prime-time slot for regional channels in the Mekong Delta</span>
+            <span class="tv-slot-row-val vi">20:00 – 22:00 hàng ngày , khung giờ mạnh nhất kênh địa phương vùng Mekong</span>
+            <span class="tv-slot-row-val en">20:00 – 22:00 daily , strongest prime-time slot for regional channels in the Mekong Delta</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">👥 <span class="vi">Khán Giả</span><span class="en">Audience</span></span>
@@ -477,20 +488,20 @@ footer>*{position:relative;z-index:1;}
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📺 <span class="vi">Nội Dung</span><span class="en">Content</span></span>
-            <span class="tv-slot-row-val vi">Phim Việt, Hàn, Trung — gia đình, tình cảm & hành động; khán giả trung thành cao</span>
-            <span class="tv-slot-row-val en">Vietnamese, Korean & Chinese dramas — family, romance & action; highly loyal viewership</span>
+            <span class="tv-slot-row-val vi">Phim Việt, Hàn, Trung , gia đình, tình cảm & hành động; khán giả trung thành cao</span>
+            <span class="tv-slot-row-val en">Vietnamese, Korean & Chinese dramas , family, romance & action; highly loyal viewership</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⭐ <span class="vi">Điểm Mạnh</span><span class="en">Strength</span></span>
-            <span class="tv-slot-row-val vi">Top 3 kênh địa phương miền Nam — tiếp cận sâu vào thị trường Đồng bằng Sông Cửu Long</span>
-            <span class="tv-slot-row-val en">Top 3 regional channel in Southern Vietnam — deep reach into the Mekong Delta market</span>
+            <span class="tv-slot-row-val vi">Top 3 kênh địa phương miền Nam , tiếp cận sâu vào thị trường Đồng bằng Sông Cửu Long</span>
+            <span class="tv-slot-row-val en">Top 3 regional channel in Southern Vietnam , deep reach into the Mekong Delta market</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📢 <span class="vi">Hình Thức QC</span><span class="en">Ad Formats</span></span>
-            <span class="tv-slot-row-val">TVC 15s/30s · Pre/Post Billboard · Episode Brand Title · Sponsorship Spot</span>
+            <span class="tv-slot-row-val">TVC 15s/30s , Pre/Post Billboard , Episode Brand Title , Sponsorship Spot</span>
           </div>
         </div>
-        <p class="tv-source">Source: Kantar Media Vietnam — weekly GRP/rating tracking | Sold exclusively through Infinity Communications</p>
+        <p class="tv-source">Source: Kantar Media Vietnam , weekly GRP/rating tracking | Sold exclusively through Infinity Communications</p>
       </div>
 
     </div>
@@ -509,12 +520,12 @@ footer>*{position:relative;z-index:1;}
           <h3>📱 Social Media</h3>
         </div>
         <div class="tv-eco-stat">
-          <strong>55 Channels · 39M Followers</strong>
-          <span>Facebook · YouTube · TikTok</span>
+          <strong>55 Channels , 39M Followers</strong>
+          <span>Facebook , YouTube , TikTok</span>
         </div>
         <div class="tv-eco-body">
-          <p class="vi">Tin tức, highlights, hậu trường, video dạng ngắn — khuếch đại từng nội dung đến tối đa.</p>
-          <p class="en">News, highlights, behind-the-scenes, short-form video — amplifying every piece of content.</p>
+          <p class="vi">Tin tức, highlights, hậu trường, video dạng ngắn , khuếch đại từng nội dung đến tối đa.</p>
+          <p class="en">News, highlights, behind-the-scenes, short-form video , amplifying every piece of content.</p>
         </div>
       </div>
 
@@ -527,8 +538,8 @@ footer>*{position:relative;z-index:1;}
           <span>VTVprime &amp; ON Plus</span>
         </div>
         <div class="tv-eco-body">
-          <p class="vi">Bản quyền thể thao cao cấp trực tiếp + VOD phim & chương trình — xem mọi lúc, mọi nơi.</p>
-          <p class="en">Live premium sports rights + VOD for films & shows — watch anytime, anywhere.</p>
+          <p class="vi">Bản quyền thể thao cao cấp trực tiếp + VOD phim & chương trình , xem mọi lúc, mọi nơi.</p>
+          <p class="en">Live premium sports rights + VOD for films & shows , watch anytime, anywhere.</p>
         </div>
       </div>
 
@@ -538,7 +549,7 @@ footer>*{position:relative;z-index:1;}
         </div>
         <div class="tv-eco-stat">
           <strong>Original Content</strong>
-          <span>News · Gameshow · Events</span>
+          <span>News , Gameshow , Events</span>
         </div>
         <div class="tv-eco-body">
           <p class="vi">Phim doanh nghiệp, truyền thông chính sách, giải đấu thể thao và branded content.</p>
@@ -549,16 +560,16 @@ footer>*{position:relative;z-index:1;}
     </div>
     <div style="margin-top:1rem;background:var(--charcoal);padding:.9rem 1.4rem;display:flex;align-items:center;gap:.6rem;">
       <span style="color:var(--green);font-weight:900;">→</span>
-      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="vi">1 nội dung có bản quyền → phân phối đồng thời trên TV · OTT · Social → tối đa reach, một chi phí sản xuất</span>
-      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="en">One piece of licensed content → distributed simultaneously across TV · OTT · Social → maximum reach, one production cost</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="vi">1 nội dung có bản quyền → phân phối đồng thời trên TV , OTT , Social → tối đa reach, một chi phí sản xuất</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="en">One piece of licensed content → distributed simultaneously across TV , OTT , Social → maximum reach, one production cost</span>
     </div>
   </div>
 
   <!-- SECTION 4: ON Sports Cluster -->
   <div class="tv-section">
     <h2 class="tv-section-title">
-      <span class="vi">ON Sports — <em>Cụm Kênh Thể Thao</em></span>
-      <span class="en">ON Sports — <em>The Sports Cluster</em></span>
+      <span class="vi">ON Sports , <em>Cụm Kênh Thể Thao</em></span>
+      <span class="en">ON Sports , <em>The Sports Cluster</em></span>
     </h2>
     <div class="tv-sports-grid">
 
@@ -652,13 +663,13 @@ footer>*{position:relative;z-index:1;}
 <footer>
   <div class="foot-top">
     <div>
-      <a href="#" class="foot-logo-row" style="display:flex;align-items:center;gap:4px;">
+      <a href="#" class="foot-logo-row" style="display:flex;align-items:center;gap:4px;text-decoration:none;">
         <span class="lg-text-foot">Inf</span>
-        <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;filter:brightness(0.75);" alt=""/>
+        <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;" alt=""/>
         <span class="lg-text-foot">ty</span>
       </a>
-      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam — kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
-      <p class="foot-desc en">Vietnam's leading media trading platform — combining strategy, data, and trading power to drive sustainable growth.</p>
+      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam , kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
+      <p class="foot-desc en">Vietnam's leading media trading platform , combining strategy, data, and trading power to drive sustainable growth.</p>
       <p class="foot-legal vi">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ TRUYỀN THÔNG INFINITY<br>MST: 0317406640</p>
       <p class="foot-legal en">INFINITY MEDIA & TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
     </div>
