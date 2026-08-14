@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Infinity , Về Chúng Tôi / About Us</title>
+<title>Infinity, Về Chúng Tôi / About Us</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet"/>
@@ -12,11 +12,11 @@
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;background-repeat:no-repeat;opacity:0;transition:opacity .8s ease;z-index:0;}
 .hero-slide.active{opacity:1;}
 .hero-slide.active{opacity:1;}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.2);color:white;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;transition:background .2s,transform .2s;backdrop-filter:blur(4px);}
-.hero-arrow:hover{background:rgba(169,223,112,.3);border-color:var(--green);transform:translateY(-50%) scale(1.1);}
+.hero-arrow{position:absolute;bottom:.6rem;transform:none;z-index:10;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.2);color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background .2s,transform .2s;backdrop-filter:blur(4px);}
+.hero-arrow:hover{background:rgba(169,223,112,.3);border-color:var(--green);transform:scale(1.1);}
 .hero-arrow.left{left:2vw;}
 .hero-arrow.right{right:2vw;}
-.hero-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;}
+.hero-dots{position:absolute;bottom:3.2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;}
 .hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s,transform .2s;}
 .hero-dot.active{background:#f5a623;transform:scale(1.3);}
 #hero>*:not(.hero-slide):not(.hero-arrow):not(.hero-dots){position:relative;z-index:5;}
@@ -109,6 +109,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .lang-btn.active{background:var(--charcoal);color:white}
 .nav-cta{padding:.55rem 1.4rem;background:var(--green);color:var(--ink);border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;white-space:nowrap;}
 .nav-cta:hover{background:var(--green-dk);transform:translateY(-1px)}
+#back-to-top{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--green-dk);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.22);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s;z-index:999;}
+#back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+#back-to-top:hover{background:var(--green);}
+#back-to-top svg{width:20px;height:20px;}
+@media(max-width:768px){#back-to-top{bottom:1.2rem;right:1.2rem;width:42px;height:42px;}}
 
 /* BILINGUAL */
 [data-lang="vi"] .en{display:none!important}
@@ -180,7 +185,8 @@ p.sec-body.light{color:rgba(255,255,255,.5)}
 .oc-em{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1rem,1.8vw,1.5rem);color:var(--green-dk);display:block;margin-bottom:.5rem;line-height:1.2;}
 .oc-divider{height:1px;background:rgba(0,0,0,.08);margin:1.8rem 0;}
 .oc-bullets{list-style:none;margin-top:.5rem;padding-left:0;}
-.oc-bullets li{display:block;font-size:.87rem;color:var(--charcoal);line-height:1.65;margin-bottom:.9rem;font-weight:500;padding-left:0;}
+.oc-bullets li{display:block;font-size:.87rem;color:var(--charcoal);line-height:1.65;margin-bottom:.9rem;font-weight:500;padding-left:1.1rem;position:relative;}
+.oc-bullets li::before{content:'-';position:absolute;left:0;top:0;color:var(--green-dk);font-weight:800;}
 .oc-grid{gap:.6rem;}
 
 /* ══ OOH SLIDESHOW ══ */
@@ -562,11 +568,11 @@ footer>*{position:relative;z-index:1;}
   </a>
 
   <ul class="nav-center">
-    <li><a href="javascript:void(0)">Giới Thiệu</a></li>
+    <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
     <li class="nav-dropdown">
       <a href="javascript:void(0)">
         <span class="vi">Giải Pháp</span>
-        <span class="en">Giải Pháp</span>
+        <span class="en">Solutions</span>
       </a>
       <div class="nav-dropdown-menu">
         <div class="mega-grid">
@@ -629,8 +635,8 @@ footer>*{position:relative;z-index:1;}
         </div>
       </div>
     </li>
-    <li><a href="tin-tuc.html">Tin Tức & Sự Kiện</a></li>
-    <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+    <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
+    <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
   </ul>
 
   <div class="nav-right">
@@ -645,11 +651,11 @@ footer>*{position:relative;z-index:1;}
 <section id="hero">
   <!-- Slides -->
   <div class="hero-slide active" style="background-image:url('images/vincom-hcmc.png')"></div>
-  <div class="hero-slide" style="background-image:url('images/slide-grab-sacom.jpg');background-position:center center;"></div>
-  <div class="hero-slide" style="background-image:url('images/slide-digital.jpg');background-position:center center;"></div>
+  <div class="hero-slide hero-slide-i18n" data-bg-en="images/slide-grab-sacom.jpg" data-bg-vi="images/slide-grab-sacom-vi.jpg" style="background-image:url('images/slide-grab-sacom.jpg');background-position:center center;"></div>
+  <div class="hero-slide hero-slide-i18n" data-bg-en="images/slide-digital.jpg" data-bg-vi="images/slide-digital-vi.jpg" style="background-image:url('images/slide-digital.jpg');background-position:center center;"></div>
   <div class="hero-slide" style="background-image:url('images/kol-slide.png');background-size:107%;background-position:center 10%;background-color:#f5f5f3;"></div>
-  <div class="hero-slide" style="background-image:url('images/tv-portfolio-slide.png');background-position:center center;background-size:cover;background-color:#0d0d0d;"></div>
-  <div class="hero-slide" style="background-image:url('images/hero-bg.png')"></div>
+  <div class="hero-slide hero-slide-i18n" data-bg-en="images/tv-portfolio-slide.png" data-bg-vi="images/tv-portfolio-slide-vi.png" style="background-image:url('images/tv-portfolio-slide.png');background-position:center center;background-size:cover;background-color:#0d0d0d;"></div>
+  <div class="hero-slide hero-slide-i18n" data-bg-en="images/hero-bg.png" data-bg-vi="images/hero-bg-vi.png" style="background-image:url('images/hero-bg.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-2.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-bus.png')"></div>
   <div class="hero-slide" style="background-image:url('images/hero-bg-bridge.png')"></div>
@@ -665,8 +671,8 @@ footer>*{position:relative;z-index:1;}
 
 <div style="background:#f5f5f3;padding:4rem 5vw 3rem;text-align:center;">
   <p style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--charcoal);letter-spacing:-.02em;line-height:1.3;max-width:800px;margin:0 auto;">
-    <span class="vi">Đưa thương hiệu của bạn chạm đến đúng người, đúng lúc, đúng nơi</span>
-    <span class="en">We go infinity and beyond, bringing your brand into everyday life</span>
+    <span class="vi">Đưa thương hiệu của bạn đến đúng nơi, hiện đúng lúc, chạm đúng người</span>
+    <span class="en">We go to infinity and beyond, bringing your brand into everyday life</span>
   </p>
   <p style="font-family:'Montserrat',sans-serif;font-weight:400;font-size:clamp(.9rem,1.4vw,1.05rem);color:#444;line-height:1.8;max-width:700px;margin:1.5rem auto 0;">
     <span class="vi">Chúng tôi lên kế hoạch, mua media và triển khai chiến dịch cho thương hiệu, từ TV, OOH đến Digital và KOL, tất cả trong một mối quan hệ đối tác duy nhất.</span>
@@ -698,10 +704,12 @@ footer>*{position:relative;z-index:1;}
       </div>
       <span class="oc-headline vi">Who We Are</span>
       <span class="oc-headline en">Who We Are</span>
-      <p class="oc-italic vi">Infinity là công ty truyền thông &amp; media tích hợp, thành lập năm 2022 tại TP.HCM , chuyên về bán quảng cáo TV, tư vấn truyền thông đa nền tảng và giải pháp marketing toàn diện cho thương hiệu &amp; agency.</p>
-      <p class="oc-italic en">An integrated media &amp; communications company founded in 2022 in Ho Chi Minh City , specialising in TV advertising sales, multi-platform media consulting and full-service marketing solutions for brands &amp; agencies.</p>
-      <p class="oc-body vi">Với đội ngũ giàu kinh nghiệm 17+ năm từ WPP/Mindshare &amp; Splus Media, chúng tôi kết nối thương hiệu với đúng đối tượng khách hàng trên TV , Digital , OTT , Social , KOL , OOH , Sponsorship , Production.</p>
-      <p class="oc-body en">With a team boasting 17+ years of experience from WPP/Mindshare &amp; Splus Media, we connect brands with the right audience across TV , Digital , OTT , Social , KOL , OOH , Sponsorship , Production.</p>
+      <p class="oc-italic vi">- Infinity là công ty truyền thông và media tích hợp, được thành lập tại TP. Hồ Chí Minh vào năm 2022, chuyên cung cấp dịch vụ quảng cáo truyền hình, tư vấn truyền thông đa nền tảng và các giải pháp marketing toàn diện dành cho thương hiệu và agency.</p>
+      <p class="oc-italic en">- Infinity is an integrated media and communications company founded in Ho Chi Minh City in 2022, providing TV advertising, multi-platform media consulting, and full-service marketing solutions for brands and agencies.</p>
+      <p class="oc-body vi">- Với đội ngũ sở hữu hơn 17 năm kinh nghiệm tại WPP, Mindshare và Splus Media, chúng tôi giúp thương hiệu tiếp cận đúng đối tượng khách hàng thông qua TV, Digital, OTT, Social Media, KOL, OOH, Sponsorship và Production.</p>
+      <p class="oc-body en">- With a team bringing over 17 years of experience from WPP, Mindshare, and Splus Media, we help brands reach the right audience across TV, Digital, OTT, Social Media, KOL, OOH, Sponsorship, and Production.</p>
+      <p class="oc-body vi">- Được sáng lập bởi <strong>Lý Quốc Hưng</strong> vào ngày <strong>28/07/2022</strong>, Infinity ra đời với tầm nhìn xây dựng một nền tảng truyền thông hiện đại, kết nối chiến lược với triển khai nhằm tạo ra giá trị bền vững cho các thương hiệu.</p>
+      <p class="oc-body en">- Founded by <strong>Ly Quoc Hung</strong> on <strong>July 28, 2022</strong>, Infinity was built on the vision of creating a modern media platform that connects strategy with execution to deliver lasting value for brands.</p>
     </div>
 
     
@@ -709,8 +717,8 @@ footer>*{position:relative;z-index:1;}
       <span class="oc-sub vi">Thành Lập Từ Năm</span>
       <span class="oc-sub en">Founded In</span>
       <span class="oc-year">2022</span>
-      <p class="oc-body vi">Được sáng lập bởi <strong>Lý Quốc Hưng</strong> vào ngày <strong>28/07/2022</strong>, Infinity ra đời với tầm nhìn xây dựng nền tảng media hiện đại , kết nối chiến lược với thực thi để tạo ra giá trị thực cho thương hiệu.</p>
-      <p class="oc-body en">Founded by <strong>Ly Quoc Hung</strong> on <strong>July 28, 2022</strong>, Infinity was created with the vision of building a modern media platform , connecting strategy with execution to deliver real brand value.</p>
+      <p class="oc-body vi">Infinity là công ty truyền thông và media tích hợp, được thành lập tại TP. Hồ Chí Minh vào năm 2022, chuyên cung cấp dịch vụ quảng cáo truyền hình, tư vấn truyền thông đa nền tảng và các giải pháp marketing toàn diện dành cho thương hiệu và agency.</p>
+      <p class="oc-body en">Infinity is an integrated media and communications company specializing in TV advertising, multi-platform media consulting, and full-service marketing solutions for brands and agencies.</p>
     </div>
 
     
@@ -718,14 +726,12 @@ footer>*{position:relative;z-index:1;}
       <div class="oc-bg">
         <img src="images/image-2.png" alt="" class="oc-illust" />
       </div>
-      <span class="oc-headline vi">Ecosystem within</span>
-      <span class="oc-headline en">Ecosystem within</span>
-      <span class="oc-headline vi">Infinity</span>
-      <span class="oc-headline en">Infinity</span>
+      <span class="oc-headline vi">Our Ecosystem</span>
+      <span class="oc-headline en">Our Ecosystem</span>
       <ul class="oc-bullets">
-        <li><span class="vi">Infinity kết nối nhãn hàng, agency và media owner trong một hệ sinh thái chung</span><span class="en">Infinity operates as a connected ecosystem linking brands, agencies, and media owners</span></li>
-        <li><span class="vi">Nhờ đó, quyết định media nhanh hơn, sức mua mạnh hơn và chiến dịch hiệu quả hơn trên mọi kênh</span><span class="en">This ecosystem enables better decision-making, stronger buying power, and more efficient execution across all channels</span></li>
-        <li><span class="vi">Dữ liệu, media và trading được tích hợp để tạo ra những cơ hội tăng trưởng thực sự cho khách hàng</span><span class="en">By integrating data, media, and trading, we unlock new growth opportunities for our clients</span></li>
+        <li><span class="vi">Infinity kết nối nhãn hàng, agency và chủ sở hữu kênh truyền thông (media owner) trong một hệ sinh thái thống nhất.</span><span class="en">Infinity operates as a connected ecosystem linking brands, agencies, and media owners</span></li>
+        <li><span class="vi">Nhờ đó, doanh nghiệp dễ dàng đưa ra quyết định truyền thông tối ưu, gia tăng sức mua và nâng cao hiệu quả thực thi trên mọi kênh.</span><span class="en">This ecosystem enables better decision-making, stronger buying power, and more efficient execution across all channels</span></li>
+        <li><span class="vi">Việc tích hợp dữ liệu, truyền thông và thương mại giúp khai phá những cơ hội tăng trưởng mới cho khách hàng.</span><span class="en">By integrating data, media, and trading, we unlock new growth opportunities for our clients</span></li>
       </ul>
     </div>
 
@@ -740,10 +746,9 @@ footer>*{position:relative;z-index:1;}
       <span class="oc-headline vi">Our Impact</span>
       <span class="oc-headline en">Our Impact</span>
       <ul class="oc-bullets">
-        <li><span class="vi">Quản lý hơn 50 tỷ VND ngân sách media mỗi năm</span><span class="en">Over 50 billion VND in media investment handled annually</span></li>
-        <li><span class="vi">Hơn 100 chiến dịch đã được triển khai</span><span class="en">More than 100 campaigns executed successfully</span></li>
-        <li><span class="vi">Đối tác của nhiều agency và nhãn hàng lớn tại Việt Nam</span><span class="en">Partnerships with leading agencies and brands across Vietnam</span></li>
-        <li><span class="vi">Phủ sóng toàn quốc trên TV và Digital</span><span class="en">Nationwide coverage across TV and Digital channels</span></li>
+        <li><span class="vi">Triển khai thành công hơn 100 chiến dịch.</span><span class="en">Successfully executed over 100 campaigns.</span></li>
+        <li><span class="vi">Đối tác chiến lược của nhiều agency và nhãn hàng hàng đầu tại Việt Nam.</span><span class="en">Strategic partner to leading agencies and brands across Vietnam.</span></li>
+        <li><span class="vi">Phủ sóng toàn quốc trên các kênh TV và Digital.</span><span class="en">Nationwide coverage across TV and Digital channels.</span></li>
       </ul>
     </div>
 
@@ -757,12 +762,12 @@ footer>*{position:relative;z-index:1;}
       <span class="oc-headline vi">Infinity?</span>
       <span class="oc-headline en">Infinity?</span>
       <ul class="oc-bullets">
-        <li><span class="vi">Chuyên sâu về TV, OOH &amp; Digital Trading , quyền phân phối độc quyền trên hệ sinh thái riêng , tiếp cận trực tiếp với rate card tốt nhất thị trường</span><span class="en">TV, OOH &amp; Digital Trading Expertise , Exclusive sales rights across our ecosystem and beyond , direct access, most competitive rate cards in the market</span></li>
-        <li><span class="vi">Đối tác media toàn diện , TV, Digital, OTT, Social, KOL, OOH, Sponsorship, Production , một đầu mối duy nhất, một báo cáo, ngân sách được tối ưu toàn bộ</span><span class="en">One-Stop Media Partner , TV , Digital , OTT , Social , KOL , OOH , Sponsorship , Production , one point of contact, one report, full budget optimisation</span></li>
-        <li><span class="vi">Hơn 17 năm kinh nghiệm , xuất phát từ WPP/Mindshare &amp; Splus Media , hiểu sâu cả góc nhìn agency lẫn nhãn hàng, lên kế hoạch chính xác và triển khai nhanh</span><span class="en">17+ Years of Experience , Background from WPP/Mindshare &amp; Splus Media , deep understanding of both agencies and brands, precise media planning, fast turnaround</span></li>
-        <li><span class="vi">Dữ liệu làm nền tảng , báo cáo rõ ràng, số liệu minh bạch từ đầu đến cuối chiến dịch</span><span class="en">Data-Driven &amp; Transparent , Clear, transparent reporting and measurement</span></li>
-        <li><span class="vi">Sản xuất + Phân phối trong một gói duy nhất , AI Creative: TVC + Assets , không cần thuê thêm production house riêng</span><span class="en">Production + Distribution in One Package , AI Creative: TVC + Assets , produce and broadcast TV in a single integrated package. No separate production house required</span></li>
-        <li><span class="vi">Thế mạnh KOL Nano/Micro , đúng tier, đúng nội dung, đúng nền tảng để tối đa ROI</span><span class="en">Nano/Micro KOL Edge , Optimize KOL ROI with the right tier, right content and right platform</span></li>
+        <li><span class="vi"><strong>Giải pháp truyền thông trọn gói</strong>: Đồng hành cùng một đối tác duy nhất cho mọi nhu cầu truyền thông, từ chiến lược đến triển khai.</span><span class="en"><strong>One-Stop Media Partner</strong>: Everything from strategy to execution under one trusted partner.</span></li>
+        <li><span class="vi"><strong>Mạng lưới truyền thông vững mạnh</strong>: Hợp tác cùng các đối tác truyền thông uy tín, mang đến lợi thế về vị trí quảng cáo và chi phí.</span><span class="en"><strong>Strong Media Network</strong>: Premium media access through trusted partnerships across Vietnam.</span></li>
+        <li><span class="vi"><strong>Chiến lược dựa trên dữ liệu</strong>: Mọi quyết định đều dựa trên dữ liệu, đảm bảo minh bạch và hiệu quả có thể đo lường.</span><span class="en"><strong>Data-Driven Decisions</strong>: Every campaign is guided by insights, transparency, and measurable performance.</span></li>
+        <li><span class="vi"><strong>Hơn 17 năm kinh nghiệm</strong>: Kinh nghiệm thực tiễn giúp chúng tôi triển khai thành công nhiều chiến dịch cho các thương hiệu hàng đầu.</span><span class="en"><strong>Proven Experience</strong>: Over 17 years of expertise delivering successful campaigns for leading brands.</span></li>
+        <li><span class="vi"><strong>Triển khai linh hoạt</strong>: Giải pháp được thiết kế phù hợp với từng mục tiêu kinh doanh và triển khai nhanh chóng.</span><span class="en"><strong>Flexible Execution</strong>: Fast, agile, and tailored solutions that adapt to every business objective.</span></li>
+        <li><span class="vi"><strong>Tối ưu hiệu quả đầu tư</strong>: Lập kế hoạch truyền thông hiệu quả để tối đa hóa giá trị của từng khoản đầu tư quảng cáo.</span><span class="en"><strong>Smart Investment</strong>: Optimized media planning that maximizes every advertising budget.</span></li>
       </ul>
     </div>
 
@@ -773,11 +778,10 @@ footer>*{position:relative;z-index:1;}
       </div>
       <span class="oc-headline vi">Trading Power</span>
       <span class="oc-headline en">Trading Power</span>
-      <ul class="oc-bullets">
-        <li><span class="vi">Mạng lưới trading được xây dựng từ những mối quan hệ lâu dài với agency và nhãn hàng lớn</span><span class="en">Our trading network is built on strong partnerships with leading agencies and top-tier brands</span></li>
-        <li><span class="vi">Nhờ đó Infinity có thể triển khai chiến dịch lớn với chi phí cạnh tranh và ưu tiên tiếp cận inventory premium</span><span class="en">This allows Infinity to execute large-scale campaigns with competitive pricing and priority access to premium inventory</span></li>
-        <li><span class="vi">Không bị giới hạn bởi mô hình agency truyền thống, chúng tôi mang lại hiệu quả tốt hơn với chi phí hợp lý hơn</span><span class="en">We go beyond traditional agency models to deliver better cost efficiency and performance</span></li>
-      </ul>
+      <p class="oc-italic vi">Đối tác vững mạnh. Giá trị vượt trội. Hiệu quả tối ưu.</p>
+      <p class="oc-italic en">Strong partnerships. Better media value. Greater campaign impact.</p>
+      <p class="oc-body vi">Chúng tôi tận dụng mạng lưới đối tác để mang đến vị trí quảng cáo chất lượng, chi phí cạnh tranh và kết quả có thể đo lường.</p>
+      <p class="oc-body en">We leverage our media network to secure premium placements, competitive pricing, and measurable results.</p>
     </div>
 
   </div>
@@ -813,8 +817,8 @@ footer>*{position:relative;z-index:1;}
     </div>
     <div class="stat-block reveal d1">
       <span class="stat-num">5</span>
-      <span class="stat-label vi">Năm tuổi , Startup trẻ</span>
-      <span class="stat-label en">Years old , young startup</span>
+      <span class="stat-label vi">Năm tuổi, Startup trẻ</span>
+      <span class="stat-label en">Years old, young startup</span>
     </div>
     <div class="stat-block reveal d2">
       <span class="stat-num">1</span>
@@ -841,8 +845,8 @@ footer>*{position:relative;z-index:1;}
     <div class="aic-text">
       <div class="aic-eyebrow">01 · Image &amp; KV</div>
       <div class="aic-heading">AI Image &amp; Key Visual</div>
-      <div class="aic-body vi">Product shots, KV, banner , không cần studio, hoàn thành trong 24h.</div>
-      <div class="aic-body en">Product shots, KVs, banners , no studio required, delivered within 24h.</div>
+      <div class="aic-body vi">Product shots, KV, banner, không cần studio, hoàn thành trong 24h.</div>
+      <div class="aic-body en">Product shots, KVs, banners, no studio required, delivered within 24h.</div>
       <div style="margin-top:.6rem;display:inline-flex;flex-direction:column;gap:.2rem;">
         <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);" class="vi">Chi Phí So Với TVC Truyền Thống</div>
         <div style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);" class="en">Cost vs Traditional TVC</div>
@@ -904,7 +908,7 @@ footer>*{position:relative;z-index:1;}
         <div class="aic-node" style="left:50%;top:11%;">
           <div class="aic-fmtbox" style="border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);">
             <div class="aic-fmtbox-val">16:9</div>
-            <div class="aic-fmtbox-lbl" style="color:rgba(255,255,255,.4);">TV , Banner</div>
+            <div class="aic-fmtbox-lbl" style="color:rgba(255,255,255,.4);">TV, Banner</div>
           </div>
         </div>
         <!-- 1:1 TOP-RIGHT -->
@@ -961,10 +965,10 @@ footer>*{position:relative;z-index:1;}
         <span class="vi">Cá Nhân Hóa, Linh Hoạt<br><em>&amp; Phân Phối Truyền Thông</em></span>
         <span class="en">Personalised, Dynamic<br><em>&amp; Media Distribution</em></span>
       </div>
-      <div class="aic-body vi">TV , Digital , OOH , tất cả trong một gói. Sản xuất và lên sóng mà không cần qua đơn vị sản xuất riêng.</div>
-      <div class="aic-body en">TV broadcast , Digital , OOH , all in one package. Produce and go live without a separate production house.</div>
+      <div class="aic-body vi">TV, Digital, OOH, tất cả trong một gói. Sản xuất và lên sóng mà không cần qua đơn vị sản xuất riêng.</div>
+      <div class="aic-body en">TV broadcast, Digital, OOH, all in one package. Produce and go live without a separate production house.</div>
       <div class="aic-body vi">Một concept, tự động ra nhiều phiên bản theo từng phân khúc, tỉ lệ và ngôn ngữ.</div>
-      <div class="aic-body en">1 concept → multiple versions by segment, ratio and language , automatically.</div>
+      <div class="aic-body en">1 concept → multiple versions by segment, ratio and language, automatically.</div>
     </div>
   </div>
 
@@ -975,10 +979,6 @@ footer>*{position:relative;z-index:1;}
       <div style="width:100%;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);">
         <img src="images/ai-format-169.jpg" style="width:100%;height:auto;display:block;" alt="16:9 TV Banner">
       </div>
-      <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem;">
-        <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">16:9</span>
-        <span style="font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--green-dk);background:var(--green-pale);border:1px solid #c8ed9e;padding:.15rem .45rem;border-radius:100px;">TV , Banner</span>
-      </div>
     </div>
     <!-- 1:1 and 9:16 side by side -->
     <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -986,18 +986,10 @@ footer>*{position:relative;z-index:1;}
         <div style="width:100%;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);border:2px solid var(--green-dk);">
           <img src="images/ai-format-11.jpg" style="width:100%;height:auto;display:block;" alt="1:1 Social">
         </div>
-        <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem;">
-          <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">1:1</span>
-          <span style="font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--green-dk);padding:.15rem .45rem;border-radius:100px;">Social</span>
-        </div>
       </div>
       <div style="width:calc(50% - .5rem);">
         <div style="width:100%;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);">
           <img src="images/ai-format-916.jpg" style="width:100%;height:auto;display:block;" alt="9:16 Story">
-        </div>
-        <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem;">
-          <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">9:16</span>
-          <span style="font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--green-dk);background:var(--green-pale);border:1px solid #c8ed9e;padding:.15rem .45rem;border-radius:100px;">Story , TikTok</span>
         </div>
       </div>
     </div>
@@ -1311,7 +1303,7 @@ footer>*{position:relative;z-index:1;}
   <div class="kol-timeline">
     <div class="kol-spine"></div>
 
-    <!-- Step 1 , LEFT: text | node | img -->
+    <!-- Step 1, LEFT: text | node | img -->
     <div class="kol-tl-row kol-tl-left">
       <div class="kol-tl-card">
         <div class="kol-card-title">
@@ -1319,15 +1311,15 @@ footer>*{position:relative;z-index:1;}
           <span class="en">KOL Research &amp; Strategy</span>
         </div>
         <div class="kol-card-desc">
-          <span class="vi">Phân tích độ phù hợp khán giả, tỷ lệ tương tác &amp; sàng lọc an toàn thương hiệu trên Facebook, TikTok &amp; Instagram. Chúng tôi xây dựng mix KOL tối ưu theo tier, nền tảng &amp; ngân sách , đảm bảo mỗi booking tạo ra lượt tiếp cận đo lường được và cộng hưởng khán giả thực sự.</span>
-          <span class="en">Audience fit analysis, engagement rate &amp; brand safety screening across Facebook, TikTok &amp; Instagram. We build the optimal KOL mix by tier, platform &amp; budget , ensuring every booking drives measurable reach and genuine audience resonance.</span>
+          <span class="vi">Phân tích đối tượng mục tiêu, đánh giá tương tác và sàng lọc KOL phù hợp với thương hiệu trên các nền tảng mạng xã hội. Chúng tôi xây dựng chiến lược KOL tối ưu nhằm gia tăng độ phủ, mức độ tương tác và hiệu quả cho mỗi chiến dịch.</span>
+          <span class="en">Audience analysis, engagement insights, and brand safety screening across major social platforms. We build the right KOL mix to maximize reach, engagement, and campaign performance.</span>
         </div>
       </div>
       <div class="kol-tl-node"><div class="kol-tl-num">I</div></div>
       <img src="images/kol-img-1.png" class="kol-tl-img" alt="KOL Research"/>
     </div>
 
-    <!-- Step 2 , RIGHT: img | node | text -->
+    <!-- Step 2, RIGHT: img | node | text -->
     <div class="kol-tl-row kol-tl-right">
       <img src="images/kol-img-2.png" class="kol-tl-img" alt="KOL Management"/>
       <div class="kol-tl-node"><div class="kol-tl-num">II</div></div>
@@ -1337,13 +1329,13 @@ footer>*{position:relative;z-index:1;}
           <span class="en">KOL Management &amp; Booking</span>
         </div>
         <div class="kol-card-desc">
-          <span class="vi">Thương lượng quyền sử dụng nội dung, quản lý hợp đồng &amp; briefing sáng tạo chi tiết. Chúng tôi phối hợp timeline, deliverables &amp; tuân thủ thương hiệu trên mọi tier KOL , từ nano creator đến celebrity , để chiến dịch ra mắt đúng hạn và đúng brand.</span>
-          <span class="en">End-to-end rights negotiation, contract management &amp; detailed creative briefing. We coordinate timelines, deliverables &amp; brand compliance across all KOL tiers , from nano creators to celebrities , so campaigns launch on time and on brand.</span>
+          <span class="vi">Chúng tôi quản lý toàn bộ quá trình hợp tác với KOL, từ đàm phán đến triển khai chiến dịch, đảm bảo sự phối hợp liền mạch, đúng tiến độ và nhất quán với định hướng thương hiệu.</span>
+          <span class="en">End-to-end rights negotiation, contract management, and creative briefing. We manage timelines, deliverables, and brand compliance across every KOL tier, ensuring campaigns launch on time and stay on brand.</span>
         </div>
       </div>
     </div>
 
-    <!-- Step 3 , LEFT: text | node | img -->
+    <!-- Step 3, LEFT: text | node | img -->
     <div class="kol-tl-row kol-tl-left">
       <div class="kol-tl-card">
         <div class="kol-card-title">
@@ -1351,15 +1343,15 @@ footer>*{position:relative;z-index:1;}
           <span class="en">Content Production &amp; Creative</span>
         </div>
         <div class="kol-card-desc">
-          <span class="vi">Sản xuất toàn diện video, ảnh, Reels &amp; TikTok theo brand guidelines và creative brief. Từ phát triển concept đến bàn giao cuối cùng, chúng tôi đảm bảo nội dung thu hút, native với từng nền tảng &amp; tối ưu tương tác.</span>
-          <span class="en">Full-service production of videos, photos, Reels &amp; TikToks aligned to brand guidelines and creative briefs. From concept development to final delivery, we ensure content is scroll-stopping, platform-native &amp; optimised for engagement.</span>
+          <span class="vi">Chúng tôi tạo ra nội dung chất lượng cao cho mọi nền tảng. Từ ý tưởng đến triển khai, mỗi sản phẩm đều được thiết kế để thu hút người xem và mang lại hiệu quả truyền thông.</span>
+          <span class="en">We create high-quality content tailored for every platform. From concept to delivery, every asset is designed to engage audiences and deliver results.</span>
         </div>
       </div>
       <div class="kol-tl-node"><div class="kol-tl-num">III</div></div>
       <img src="images/kol-img-3.png" class="kol-tl-img" alt="Content Production"/>
     </div>
 
-    <!-- Step 4 , RIGHT: img | node | text -->
+    <!-- Step 4, RIGHT: img | node | text -->
     <div class="kol-tl-row kol-tl-right">
       <img src="images/kol-img-4.png" class="kol-tl-img" alt="Boost Amplification"/>
       <div class="kol-tl-node"><div class="kol-tl-num">IV</div></div>
@@ -1369,13 +1361,13 @@ footer>*{position:relative;z-index:1;}
           <span class="en">Boost &amp; Amplification</span>
         </div>
         <div class="kol-card-desc">
-          <span class="vi">Chạy paid media trên Meta &amp; TikTok Ads kết hợp KOL whitelisting để mở rộng organic reach và tối đa ROI nội dung. Chúng tôi xác định bài đăng hiệu quả nhất và scale phân phối đến đúng khán giả vào đúng thời điểm.</span>
-          <span class="en">Paid media boost on Meta &amp; TikTok Ads paired with KOL whitelisting to extend organic reach and maximise content ROI. We identify top-performing posts and scale distribution to the right audiences at the right moment.</span>
+          <span class="vi">Triển khai paid media trên Meta và TikTok kết hợp KOL Whitelisting nhằm mở rộng độ phủ và tối ưu hiệu quả nội dung. Chúng tôi phân phối nội dung hiệu quả đến đúng đối tượng, đúng thời điểm.</span>
+          <span class="en">Paid media across Meta and TikTok, combined with KOL Whitelisting to expand reach and maximise content performance. We scale high-performing content to the right audience at the right time.</span>
         </div>
       </div>
     </div>
 
-    <!-- Step 5 , LEFT: text | node | img -->
+    <!-- Step 5, LEFT: text | node | img -->
     <div class="kol-tl-row kol-tl-left">
       <div class="kol-tl-card">
         <div class="kol-card-title">
@@ -1383,8 +1375,8 @@ footer>*{position:relative;z-index:1;}
           <span class="en">Reporting &amp; Insights</span>
         </div>
         <div class="kol-card-desc">
-          <span class="vi">Dashboard báo cáo minh bạch theo dõi reach, impressions, tỷ lệ tương tác, EMV &amp; chuyển đổi. Insight sau chiến dịch chỉ ra điều gì hiệu quả, điều gì chưa, và cách tối ưu activation tiếp theo để đạt kết quả mạnh hơn.</span>
-          <span class="en">Transparent reporting dashboard covering reach, impressions, engagement rate, EMV &amp; conversion tracking. Post-campaign insights identify what worked, what didn't, and how to optimise the next activation for even stronger results.</span>
+          <span class="vi">Theo dõi hiệu quả chiến dịch bằng hệ thống báo cáo minh bạch. Phân tích dữ liệu giúp tối ưu các chiến dịch tiếp theo và nâng cao hiệu quả truyền thông.</span>
+          <span class="en">Track campaign performance through a transparent reporting dashboard. Actionable insights help optimise future campaigns and maximise results.</span>
         </div>
       </div>
       <div class="kol-tl-node"><div class="kol-tl-num">V</div></div>
@@ -1406,28 +1398,28 @@ footer>*{position:relative;z-index:1;}
   <div class="svc-layout">
       <div class="svc-item reveal">
         <div class="svc-item-title">TV &amp; Media Trading</div>
-        <div class="svc-item-desc vi">Bán quảng cáo trực tiếp trên hệ thống kênh truyền hình đối tác, phủ khung giờ vàng, thể thao và nội dung giải trí, cùng các vị trí quảng cáo số đi kèm.</div>
-        <div class="svc-item-desc en">Direct ad sales across our partner TV network, covering prime-time, sports and entertainment slots, with integrated digital ad placements.</div>
+        <div class="svc-item-desc vi">Kinh doanh quảng cáo trực tiếp trên hệ thống truyền hình đối tác, phủ rộng khung giờ vàng, thể thao & giải trí, tích hợp linh hoạt cùng quảng cáo số.</div>
+        <div class="svc-item-desc en">Direct ad sales across our partner TV network, covering prime-time, sports, and entertainment slots, integrated with digital ad placements.</div>
       </div>
       <div class="svc-item reveal d1">
         <div class="svc-item-title">Integrated Media Consulting</div>
-        <div class="svc-item-desc vi">Lập kế hoạch truyền thông đa nền tảng: TV , Digital , OTT , Social , KOL , OOH , Sponsorship , Âm nhạc , Thiết kế & Nội dung , một đầu mối, tối ưu toàn bộ ngân sách.</div>
-        <div class="svc-item-desc en">Multi-platform media planning: TV , Digital , OTT , Social , KOL , OOH , Sponsorship , Music , Design &amp; Content , one point of contact, full budget optimisation.</div>
+        <div class="svc-item-desc vi">Tư vấn & lập kế hoạch truyền thông đa nền tảng (TV, Digital, OTT, Social, KOL, OOH, Tài trợ, Âm nhạc, Thiết kế & Nội dung). Một đầu mối duy nhất, tối ưu toàn bộ ngân sách.</div>
+        <div class="svc-item-desc en">Multi-platform media planning across TV, Digital, OTT, Social, KOL, OOH, Sponsorship, Music, Design &amp; Content. Single point of contact, full budget optimization.</div>
       </div>
       <div class="svc-item reveal d2">
         <div class="svc-item-title">KOL Strategy &amp; Content</div>
-        <div class="svc-item-desc vi">Chiến lược KOL toàn diện: nghiên cứu, booking, sản xuất nội dung.</div>
-        <div class="svc-item-desc en">End-to-end KOL strategy: research, booking, content production.</div>
+        <div class="svc-item-desc vi">Giải pháp KOL toàn diện: Từ nghiên cứu, booking đến sản xuất nội dung sáng tạo.</div>
+        <div class="svc-item-desc en">End-to-end KOL strategy: research, booking, and content production.</div>
       </div>
       <div class="svc-item reveal d3">
         <div class="svc-item-title">Sponsorship Consulting</div>
-        <div class="svc-item-desc vi">Tư vấn & triển khai tài trợ chương trình TV, thể thao và âm nhạc , tích hợp PPL, quyền hình ảnh, brand title & PR.</div>
-        <div class="svc-item-desc en">Consulting &amp; execution for TV show, sports &amp; music event sponsorships , integrating PPL, visual rights, brand title &amp; PR.</div>
+        <div class="svc-item-desc vi">Tư vấn & triển khai tài trợ chương trình TV, sự kiện thể thao & âm nhạc. Tích hợp PPL, quyền hình ảnh, Brand Title & PR.</div>
+        <div class="svc-item-desc en">Consulting &amp; execution for TV shows, sports &amp; music event sponsorships, integrating PPL, image rights, brand title &amp; PR.</div>
       </div>
       <div class="svc-item reveal d4">
-        <div class="svc-item-title">Production , TVC, Digital &amp; Packaging</div>
-        <div class="svc-item-desc vi">Sản xuất TVC 15/30/60s (truyền thống & hỗ trợ AI), tài sản digital, key visual, motion graphics và thiết kế bao bì , đi kèm phân phối truyền thông.</div>
-        <div class="svc-item-desc en">Production of TVC 15/30/60s (traditional &amp; AI-assisted), digital assets, key visuals, motion graphics and packaging design , bundled with media distribution.</div>
+        <div class="svc-item-title">Production, TVC, Digital &amp; Packaging</div>
+        <div class="svc-item-desc vi">Sản xuất TVC 15s/30s/60s (truyền thống & ứng dụng AI), digital assets, Key Visual, Motion Graphics và thiết kế bao bì trọn gói cùng dịch vụ phân phối truyền thông.</div>
+        <div class="svc-item-desc en">Production of 15s/30s/60s TVCs (traditional &amp; AI-assisted), digital assets, key visuals, motion graphics, and packaging design bundled with media distribution.</div>
       </div>
   </div>
 </section>
@@ -1439,12 +1431,12 @@ footer>*{position:relative;z-index:1;}
     <div class="vp-overlay"></div>
     <div class="vp-content">
       <div class="vp-title">
-        <span class="vi">Tầm Nhìn của<br/><em>INFINITY</em></span>
+        <span class="vi">Tầm Nhìn</span>
         <span class="en">Our <em>Vision</em></span>
       </div>
       <div class="vp-desc">
-        <p class="vi">Trở thành nền tảng media trading hàng đầu tại Việt Nam , nơi mọi thương hiệu có thể tiếp cận chiến lược truyền thông tối ưu, dữ liệu thực tế và sức mạnh trading vượt trội để tăng trưởng bền vững.</p>
-        <p class="en">To become the leading media trading platform in Vietnam , where every brand can access optimal media strategy, real data insights, and superior trading power to achieve sustainable growth.</p>
+        <p class="vi">Trở thành nền tảng media trading hàng đầu Việt Nam, giúp các thương hiệu xây dựng chiến lược truyền thông tối ưu, khai thác dữ liệu chuyên sâu và phát huy năng lực giao dịch truyền thông vượt trội để tăng trưởng bền vững.</p>
+        <p class="en">To become Vietnam's leading media trading platform, empowering brands with strategic media solutions, data-driven insights, and superior trading power to achieve sustainable growth.</p>
       </div>
     </div>
   </div>
@@ -1454,12 +1446,12 @@ footer>*{position:relative;z-index:1;}
     <div class="vp-overlay"></div>
     <div class="vp-content">
       <div class="vp-title">
-        <span class="vi">Sứ Mệnh của<br/><em>INFINITY</em></span>
+        <span class="vi">Sứ Mệnh</span>
         <span class="en">Our <em>Purpose</em></span>
       </div>
       <div class="vp-desc">
-        <p class="vi">Kết nối chiến lược và thực thi một cách liền mạch , giúp nhãn hàng, agency và media owner cùng hưởng lợi trong một hệ sinh thái media thống nhất, hiệu quả và đo lường được.</p>
-        <p class="en">Seamlessly connect strategy and execution , enabling brands, agencies, and media owners to benefit together within a unified, efficient, and measurable media ecosystem.</p>
+        <p class="vi">Kết nối liền mạch giữa chiến lược và thực thi, tạo nên một hệ sinh thái truyền thông thống nhất, hiệu quả và minh bạch, nơi thương hiệu, agency và đối tác truyền thông cùng phát triển.</p>
+        <p class="en">To seamlessly connect strategy and execution, empowering brands, agencies, and media owners to grow together through a unified, efficient, and measurable media ecosystem.</p>
       </div>
     </div>
   </div>
@@ -1602,20 +1594,21 @@ footer>*{position:relative;z-index:1;}
         <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;" alt=""/>
         <span class="lg-text-foot">ty</span>
       </a>
-      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam , kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
-      <p class="foot-desc en">Vietnam's leading media trading platform , combining strategy, data, and trading power to drive sustainable growth.</p>
+      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam, kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
+      <p class="foot-desc en">Vietnam's leading media trading platform, combining strategy, data, and trading power to drive sustainable growth.</p>
       <p class="foot-legal vi">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ TRUYỀN THÔNG INFINITY<br>MST: 0317406640</p>
       <p class="foot-legal en">INFINITY MEDIA & TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
     </div>
     <div class="foot-col">
-      <h5>Điều Hướng</h5>
+      <h5 class="vi">Điều Hướng</h5>
+      <h5 class="en">Navigation</h5>
       <ul>
-        <li><a href="javascript:void(0)">Giới Thiệu</a></li>
+        <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
-        <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
-        <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+        <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
+        <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
       </ul>
     </div>
 
@@ -1768,6 +1761,11 @@ function setLang(lang) {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
   localStorage.setItem('inf-lang', lang);
+  // Hero slides with baked-in text: swap background image per language
+  document.querySelectorAll('.hero-slide-i18n').forEach(el => {
+    const src = lang === 'vi' ? el.dataset.bgVi : el.dataset.bgEn;
+    if (src) el.style.backgroundImage = `url('${src}')`;
+  });
   // TV dot animation: active dot switches position on lang change
   const dotMap = {vi: 0, en: 4};
   const activeDot = dotMap[lang] !== undefined ? dotMap[lang] : 2;
@@ -1938,6 +1936,21 @@ if (tlHint) {
     slides[cur].play();
   }
   slides.forEach(v => v.addEventListener('ended', playNext));
+})();
+</script>
+<button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  var threshold = 400;
+  function toggleBtn(){
+    if (window.scrollY > threshold) btn.classList.add('show');
+    else btn.classList.remove('show');
+  }
+  window.addEventListener('scroll', toggleBtn, {passive:true});
+  toggleBtn();
 })();
 </script>
 </body>

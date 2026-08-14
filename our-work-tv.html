@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Infinity , TV Advertising</title>
+<title>Infinity, TV Advertising</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root{--green:#a9df70;--green-dk:#7dbf44;--ink:#1e1e1e;--muted:#717171;--border:#e5e5e5;--charcoal:#3a3a3a;--canvas2:#f0f0ee;--canvas3:#f5f5f3;font-size:14px;}
@@ -38,6 +38,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .nav-right{display:flex;align-items:center;gap:1rem}
 .nav-cta{padding:.55rem 1.4rem;background:var(--green);color:var(--ink);border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;white-space:nowrap;}
 .nav-cta:hover{background:var(--green-dk);transform:translateY(-1px)}
+#back-to-top{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--green-dk);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.22);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s;z-index:999;}
+#back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+#back-to-top:hover{background:var(--green);}
+#back-to-top svg{width:20px;height:20px;}
+@media(max-width:768px){#back-to-top{bottom:1.2rem;right:1.2rem;width:42px;height:42px;}}
 .lang-toggle{display:flex;align-items:center;background:#f4f4f2;border:1px solid var(--border);border-radius:100px;padding:3px;gap:2px;}
 .lang-btn{padding:.3rem .75rem;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;}
 .lang-btn.active{background:var(--charcoal);color:white}
@@ -201,11 +206,11 @@ footer>*{position:relative;z-index:1;}
     <span class="lg-text">ty</span>
   </a>
   <ul class="nav-center">
-    <li><a href="index.html">Giới Thiệu</a></li>
+    <li><a href="index.html"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
     <li class="nav-dropdown">
       <a href="javascript:void(0)">
         <span class="vi">Giải Pháp</span>
-        <span class="en">Giải Pháp</span>
+        <span class="en">Solutions</span>
       </a>
       <div class="nav-dropdown-menu">
         <div class="mega-grid">
@@ -268,8 +273,8 @@ footer>*{position:relative;z-index:1;}
         </div>
       </div>
     </li>
-    <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
-    <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+    <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
+    <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -285,8 +290,8 @@ footer>*{position:relative;z-index:1;}
   <a href="index.html" class="ow-breadcrumb">← <span class="vi">Trang Chủ</span><span class="en">Home</span></a>
   <h1 class="vi">Quảng Cáo <span>Truyền Hình</span></h1>
   <h1 class="en">TV <span>Advertising</span></h1>
-  <p class="vi">Kênh phân phối độc quyền trên TV , tiếp cận hàng triệu khán giả Việt Nam qua các kênh truyền hình hàng đầu và khung giờ vàng.</p>
-  <p class="en">Exclusive TV distribution channels , reaching millions of Vietnamese viewers through leading TV channels and prime-time slots.</p>
+  <p class="vi">Kênh phân phối độc quyền trên TV, tiếp cận hàng triệu khán giả Việt Nam qua các kênh truyền hình hàng đầu và khung giờ vàng.</p>
+  <p class="en">Exclusive TV distribution channels, reaching millions of Vietnamese viewers through leading TV channels and prime-time slots.</p>
 </div>
 
 <div class="ow-wrap">
@@ -325,13 +330,13 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Top 5 kênh cáp miền Nam , tầm phủ sóng khu vực mạnh</span>
-            <span class="tv-channel-row-val en">Top 5 cable channel in Southern Vietnam , strong regional reach</span>
+            <span class="tv-channel-row-val vi">Top 5 kênh cáp miền Nam, tầm phủ sóng khu vực mạnh</span>
+            <span class="tv-channel-row-val en">Top 5 cable channel in Southern Vietnam, strong regional reach</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC 15s/30s , Sponsorship , Billboard , Brand Title</span>
+            <span class="tv-channel-row-val">TVC 15s/30s, Sponsorship, Billboard, Brand Title</span>
           </div>
         </div>
       </div>
@@ -342,7 +347,7 @@ footer>*{position:relative;z-index:1;}
           <img src="images/tv-vtvcab.png" alt="VTVcab ONSPORTS+"/>
         </div>
         <div class="tv-channel-header">
-          <h3>VTVCAB6 , ONSPORTS+</h3>
+          <h3>VTVCAB6, ONSPORTS+</h3>
           <div class="sub vi">Thể Thao</div>
           <div class="sub en">Sports</div>
         </div>
@@ -356,18 +361,18 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Nội Dung</span>
             <span class="tv-channel-row-label en">Content</span>
-            <span class="tv-channel-row-val">Premier League , La Liga , Champions League , Bundesliga , V.League , Esports</span>
+            <span class="tv-channel-row-val">Premier League, La Liga, Champions League, Bundesliga, V.League, Esports</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Kênh thể thao hàng đầu VTVcab , bản quyền phát sóng quốc tế cao cấp</span>
-            <span class="tv-channel-row-val en">VTVcab's leading sports channel , premium international broadcast rights</span>
+            <span class="tv-channel-row-val vi">Kênh thể thao hàng đầu VTVcab, bản quyền phát sóng quốc tế cao cấp</span>
+            <span class="tv-channel-row-val en">VTVcab's leading sports channel, premium international broadcast rights</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC , Live Sponsorship , Scoreboard , Lower Third</span>
+            <span class="tv-channel-row-val">TVC, Live Sponsorship, Scoreboard, Lower Third</span>
           </div>
         </div>
       </div>
@@ -378,7 +383,7 @@ footer>*{position:relative;z-index:1;}
           <img src="images/tv-ontrending.jpg" alt="ONTRENDING"/>
         </div>
         <div class="tv-channel-header">
-          <h3>VTVCAB17 , ONTRENDING</h3>
+          <h3>VTVCAB17, ONTRENDING</h3>
           <div class="sub vi">Trending / Giới Trẻ</div>
           <div class="sub en">Trending / Youth</div>
         </div>
@@ -398,13 +403,13 @@ footer>*{position:relative;z-index:1;}
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Điểm Mạnh</span>
             <span class="tv-channel-row-label en">Strength</span>
-            <span class="tv-channel-row-val vi">Rating tăng trưởng ổn định , tiếp cận nhân khẩu học trẻ, năng động</span>
-            <span class="tv-channel-row-val en">Consistent rating growth , reaching a young, active demographic</span>
+            <span class="tv-channel-row-val vi">Rating tăng trưởng ổn định, tiếp cận nhân khẩu học trẻ, năng động</span>
+            <span class="tv-channel-row-val en">Consistent rating growth, reaching a young, active demographic</span>
           </div>
           <div class="tv-channel-row">
             <span class="tv-channel-row-label vi">Hình Thức QC</span>
             <span class="tv-channel-row-label en">Ad Formats</span>
-            <span class="tv-channel-row-val">TVC , Brand Integration , Native Content , Sponsorship</span>
+            <span class="tv-channel-row-val">TVC, Brand Integration, Native Content, Sponsorship</span>
           </div>
         </div>
       </div>
@@ -436,27 +441,27 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-body">
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⏰ <span class="vi">Khung Giờ</span><span class="en">Time Slot</span></span>
-            <span class="tv-slot-row-val vi">19:00 – 20:00 hàng ngày , khung giờ tin tức quốc gia</span>
-            <span class="tv-slot-row-val en">19:00 – 20:00 daily , national prime-time news hour</span>
+            <span class="tv-slot-row-val vi">19:00 – 20:00 hàng ngày, khung giờ tin tức quốc gia</span>
+            <span class="tv-slot-row-val en">19:00 – 20:00 daily, national prime-time news hour</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">👥 <span class="vi">Khán Giả</span><span class="en">Audience</span></span>
-            <span class="tv-slot-row-val vi">ABC, 25–54, toàn quốc , lãnh đạo, chuyên gia, nội trợ</span>
-            <span class="tv-slot-row-val en">ABC, 25–54, nationwide , executives, professionals, homemakers</span>
+            <span class="tv-slot-row-val vi">ABC, 25–54, toàn quốc, lãnh đạo, chuyên gia, nội trợ</span>
+            <span class="tv-slot-row-val en">ABC, 25–54, nationwide, executives, professionals, homemakers</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📺 <span class="vi">Nội Dung</span><span class="en">Content</span></span>
-            <span class="tv-slot-row-val vi">Tin tức kinh tế, xã hội & quốc tế , rating cao nhất đài quốc gia</span>
+            <span class="tv-slot-row-val vi">Tin tức kinh tế, xã hội & quốc tế, rating cao nhất đài quốc gia</span>
             <span class="tv-slot-row-val en">Comprehensive daily news on economics, society & international affairs</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⭐ <span class="vi">Điểm Mạnh</span><span class="en">Strength</span></span>
-            <span class="tv-slot-row-val vi">Kênh quốc gia #1 được tin tưởng , phủ sóng toàn quốc, brand presence bên cạnh tin tức cao cấp</span>
-            <span class="tv-slot-row-val en">Vietnam's #1 trusted national channel , nationwide reach, brand presence alongside premium news</span>
+            <span class="tv-slot-row-val vi">Kênh quốc gia #1 được tin tưởng, phủ sóng toàn quốc, brand presence bên cạnh tin tức cao cấp</span>
+            <span class="tv-slot-row-val en">Vietnam's #1 trusted national channel, nationwide reach, brand presence alongside premium news</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📢 <span class="vi">Hình Thức QC</span><span class="en">Ad Formats</span></span>
-            <span class="tv-slot-row-val">Billboard 10s , TVC 30s , News Sponsorship , Logo Overlay</span>
+            <span class="tv-slot-row-val">Billboard 10s, TVC 30s, News Sponsorship, Logo Overlay</span>
           </div>
         </div>
       </div>
@@ -466,8 +471,8 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-header navy-bg">
           <div>
             <h3>VINH LONG 1</h3>
-            <div class="tv-slot-sub vi">PHIM GIỜ VÀNG 20H , MEKONG</div>
-            <div class="tv-slot-sub en">PRIME-TIME DRAMA 20H , MEKONG</div>
+            <div class="tv-slot-sub vi">PHIM GIỜ VÀNG 20H, MEKONG</div>
+            <div class="tv-slot-sub en">PRIME-TIME DRAMA 20H, MEKONG</div>
           </div>
           <span class="badge vi">Phim / Primetime</span>
           <span class="badge en">Drama / Primetime</span>
@@ -478,8 +483,8 @@ footer>*{position:relative;z-index:1;}
         <div class="tv-slot-body">
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⏰ <span class="vi">Khung Giờ</span><span class="en">Time Slot</span></span>
-            <span class="tv-slot-row-val vi">20:00 – 22:00 hàng ngày , khung giờ mạnh nhất kênh địa phương vùng Mekong</span>
-            <span class="tv-slot-row-val en">20:00 – 22:00 daily , strongest prime-time slot for regional channels in the Mekong Delta</span>
+            <span class="tv-slot-row-val vi">20:00 – 22:00 hàng ngày, khung giờ mạnh nhất kênh địa phương vùng Mekong</span>
+            <span class="tv-slot-row-val en">20:00 – 22:00 daily, strongest prime-time slot for regional channels in the Mekong Delta</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">👥 <span class="vi">Khán Giả</span><span class="en">Audience</span></span>
@@ -488,20 +493,20 @@ footer>*{position:relative;z-index:1;}
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📺 <span class="vi">Nội Dung</span><span class="en">Content</span></span>
-            <span class="tv-slot-row-val vi">Phim Việt, Hàn, Trung , gia đình, tình cảm & hành động; khán giả trung thành cao</span>
-            <span class="tv-slot-row-val en">Vietnamese, Korean & Chinese dramas , family, romance & action; highly loyal viewership</span>
+            <span class="tv-slot-row-val vi">Phim Việt, Hàn, Trung, gia đình, tình cảm & hành động; khán giả trung thành cao</span>
+            <span class="tv-slot-row-val en">Vietnamese, Korean & Chinese dramas, family, romance & action; highly loyal viewership</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">⭐ <span class="vi">Điểm Mạnh</span><span class="en">Strength</span></span>
-            <span class="tv-slot-row-val vi">Top 3 kênh địa phương miền Nam , tiếp cận sâu vào thị trường Đồng bằng Sông Cửu Long</span>
-            <span class="tv-slot-row-val en">Top 3 regional channel in Southern Vietnam , deep reach into the Mekong Delta market</span>
+            <span class="tv-slot-row-val vi">Top 3 kênh địa phương miền Nam, tiếp cận sâu vào thị trường Đồng bằng Sông Cửu Long</span>
+            <span class="tv-slot-row-val en">Top 3 regional channel in Southern Vietnam, deep reach into the Mekong Delta market</span>
           </div>
           <div class="tv-slot-row">
             <span class="tv-slot-row-label">📢 <span class="vi">Hình Thức QC</span><span class="en">Ad Formats</span></span>
-            <span class="tv-slot-row-val">TVC 15s/30s , Pre/Post Billboard , Episode Brand Title , Sponsorship Spot</span>
+            <span class="tv-slot-row-val">TVC 15s/30s, Pre/Post Billboard, Episode Brand Title, Sponsorship Spot</span>
           </div>
         </div>
-        <p class="tv-source">Source: Kantar Media Vietnam , weekly GRP/rating tracking | Sold exclusively through Infinity Communications</p>
+        <p class="tv-source">Source: Kantar Media Vietnam, weekly GRP/rating tracking | Sold exclusively through Infinity Communications</p>
       </div>
 
     </div>
@@ -520,12 +525,12 @@ footer>*{position:relative;z-index:1;}
           <h3>📱 Social Media</h3>
         </div>
         <div class="tv-eco-stat">
-          <strong>55 Channels , 39M Followers</strong>
-          <span>Facebook , YouTube , TikTok</span>
+          <strong>55 Channels, 39M Followers</strong>
+          <span>Facebook, YouTube, TikTok</span>
         </div>
         <div class="tv-eco-body">
-          <p class="vi">Tin tức, highlights, hậu trường, video dạng ngắn , khuếch đại từng nội dung đến tối đa.</p>
-          <p class="en">News, highlights, behind-the-scenes, short-form video , amplifying every piece of content.</p>
+          <p class="vi">Tin tức, highlights, hậu trường, video dạng ngắn, khuếch đại từng nội dung đến tối đa.</p>
+          <p class="en">News, highlights, behind-the-scenes, short-form video, amplifying every piece of content.</p>
         </div>
       </div>
 
@@ -538,8 +543,8 @@ footer>*{position:relative;z-index:1;}
           <span>VTVprime &amp; ON Plus</span>
         </div>
         <div class="tv-eco-body">
-          <p class="vi">Bản quyền thể thao cao cấp trực tiếp + VOD phim & chương trình , xem mọi lúc, mọi nơi.</p>
-          <p class="en">Live premium sports rights + VOD for films & shows , watch anytime, anywhere.</p>
+          <p class="vi">Bản quyền thể thao cao cấp trực tiếp + VOD phim & chương trình, xem mọi lúc, mọi nơi.</p>
+          <p class="en">Live premium sports rights + VOD for films & shows, watch anytime, anywhere.</p>
         </div>
       </div>
 
@@ -549,7 +554,7 @@ footer>*{position:relative;z-index:1;}
         </div>
         <div class="tv-eco-stat">
           <strong>Original Content</strong>
-          <span>News , Gameshow , Events</span>
+          <span>News, Gameshow, Events</span>
         </div>
         <div class="tv-eco-body">
           <p class="vi">Phim doanh nghiệp, truyền thông chính sách, giải đấu thể thao và branded content.</p>
@@ -560,16 +565,16 @@ footer>*{position:relative;z-index:1;}
     </div>
     <div style="margin-top:1rem;background:var(--charcoal);padding:.9rem 1.4rem;display:flex;align-items:center;gap:.6rem;">
       <span style="color:var(--green);font-weight:900;">→</span>
-      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="vi">1 nội dung có bản quyền → phân phối đồng thời trên TV , OTT , Social → tối đa reach, một chi phí sản xuất</span>
-      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="en">One piece of licensed content → distributed simultaneously across TV , OTT , Social → maximum reach, one production cost</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="vi">1 nội dung có bản quyền → phân phối đồng thời trên TV, OTT, Social → tối đa reach, một chi phí sản xuất</span>
+      <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-weight:600;" class="en">One piece of licensed content → distributed simultaneously across TV, OTT, Social → maximum reach, one production cost</span>
     </div>
   </div>
 
   <!-- SECTION 4: ON Sports Cluster -->
   <div class="tv-section">
     <h2 class="tv-section-title">
-      <span class="vi">ON Sports , <em>Cụm Kênh Thể Thao</em></span>
-      <span class="en">ON Sports , <em>The Sports Cluster</em></span>
+      <span class="vi">ON Sports, <em>Cụm Kênh Thể Thao</em></span>
+      <span class="en">ON Sports, <em>The Sports Cluster</em></span>
     </h2>
     <div class="tv-sports-grid">
 
@@ -668,20 +673,21 @@ footer>*{position:relative;z-index:1;}
         <img src="images/infinity-logo-crop.png" style="height:1.5rem;width:auto;vertical-align:text-bottom;" alt=""/>
         <span class="lg-text-foot">ty</span>
       </a>
-      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam , kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
-      <p class="foot-desc en">Vietnam's leading media trading platform , combining strategy, data, and trading power to drive sustainable growth.</p>
+      <p class="foot-desc vi">Nền tảng media trading hàng đầu Việt Nam, kết hợp chiến lược, dữ liệu và sức mạnh trading để thúc đẩy tăng trưởng bền vững.</p>
+      <p class="foot-desc en">Vietnam's leading media trading platform, combining strategy, data, and trading power to drive sustainable growth.</p>
       <p class="foot-legal vi">CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ TRUYỀN THÔNG INFINITY<br>MST: 0317406640</p>
       <p class="foot-legal en">INFINITY MEDIA & TRADING SERVICES CO., LTD<br>Tax ID: 0317406640</p>
     </div>
     <div class="foot-col">
-      <h5>Điều Hướng</h5>
+      <h5 class="vi">Điều Hướng</h5>
+      <h5 class="en">Navigation</h5>
       <ul>
-        <li><a href="javascript:void(0)">Giới Thiệu</a></li>
+        <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
-        <li><a href="tin-tuc.html">Tin Tức &amp; Sự Kiện</a></li>
-        <li><a href="tuyen-dung.html">Tuyển Dụng</a></li>
+        <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
+        <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
       </ul>
     </div>
 
@@ -719,6 +725,21 @@ function scrollToEmail(){
   }, 600);
 }
 
+</script>
+<button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  var threshold = 400;
+  function toggleBtn(){
+    if (window.scrollY > threshold) btn.classList.add('show');
+    else btn.classList.remove('show');
+  }
+  window.addEventListener('scroll', toggleBtn, {passive:true});
+  toggleBtn();
+})();
 </script>
 </body>
 </html>
