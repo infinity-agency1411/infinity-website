@@ -126,6 +126,8 @@ footer>*{position:relative;z-index:1;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
 .foot-col ul li a:hover{color:var(--green)}
+.foot-col ul li a.active{background:var(--green-dk);color:#fff;padding:.28rem .7rem;border-radius:5px;display:inline-block;margin:-.28rem -.7rem;}
+.foot-col ul li a.active:hover{color:#fff;}
 .foot-contact-item{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem}
 .foot-contact-item .fci{font-size:.85rem;margin-top:.05rem;flex-shrink:0}
 .foot-contact-item a,.foot-contact-item p{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;line-height:1.5;transition:color .2s}
@@ -307,42 +309,27 @@ footer>*{position:relative;z-index:1;}
         <div class="wp-num-wrap"><div class="wp-num">1</div></div>
         <img src="images/wp-icon-brief.png" class="wp-icon" alt="Brief"/>
         <div class="wp-title vi">Brief &amp; Yêu Cầu</div>
-        <div class="wp-title en">Brief &amp; Requirements</div>
-        <div class="wp-desc vi">Nhận brief, xác định mục tiêu, KPI &amp; ngân sách.</div>
-        <div class="wp-desc en">Receive brief, define objectives, KPIs &amp; budget.</div>
-      </div>
+        <div class="wp-title en">Brief &amp; Requirements</div>      </div>
       <div class="wp-step">
         <div class="wp-num-wrap"><div class="wp-num">2</div></div>
         <img src="images/wp-icon-plan.png" class="wp-icon" alt="Plan"/>
         <div class="wp-title vi">Lập Kế Hoạch &amp; Đề Xuất</div>
-        <div class="wp-title en">Planning &amp; Proposal</div>
-        <div class="wp-desc vi">Xây dựng kế hoạch media tối ưu, đề xuất kênh phân phối.</div>
-        <div class="wp-desc en">Develop optimal media plan, propose distribution channels.</div>
-      </div>
+        <div class="wp-title en">Planning &amp; Proposal</div>      </div>
       <div class="wp-step">
         <div class="wp-num-wrap"><div class="wp-num">3</div></div>
         <img src="images/wp-icon-booking.png" class="wp-icon" alt="Booking"/>
         <div class="wp-title vi">Booking &amp; Triển Khai</div>
-        <div class="wp-title en">Booking &amp; Execution</div>
-        <div class="wp-desc vi">Ký hợp đồng, setup tracking &amp; triển khai chiến dịch.</div>
-        <div class="wp-desc en">Sign contracts, set up tracking &amp; launch campaign.</div>
-      </div>
+        <div class="wp-title en">Booking &amp; Execution</div>      </div>
       <div class="wp-step">
         <div class="wp-num-wrap"><div class="wp-num">4</div></div>
         <img src="images/wp-icon-monitor.png" class="wp-icon" alt="Monitor"/>
         <div class="wp-title vi">Giám Sát &amp; Tối Ưu</div>
-        <div class="wp-title en">Monitor &amp; Optimise</div>
-        <div class="wp-desc vi">Theo dõi real-time, tối ưu hiệu suất &amp; CTR.</div>
-        <div class="wp-desc en">Real-time monitoring, optimise performance &amp; CTR.</div>
-      </div>
+        <div class="wp-title en">Monitor &amp; Optimise</div>      </div>
       <div class="wp-step">
         <div class="wp-num-wrap"><div class="wp-num">5</div></div>
         <img src="images/wp-icon-report.png" class="wp-icon" alt="Report"/>
         <div class="wp-title vi">Báo Cáo &amp; Insight</div>
-        <div class="wp-title en">Report &amp; Insights</div>
-        <div class="wp-desc vi">Báo cáo cuối chiến dịch: impressions, clicks, CTR &amp; ROI.</div>
-        <div class="wp-desc en">End-of-campaign report: impressions, clicks, CTR &amp; ROI.</div>
-      </div>
+        <div class="wp-title en">Report &amp; Insights</div>      </div>
     </div>
   </div>
 
@@ -364,9 +351,9 @@ footer>*{position:relative;z-index:1;}
       <h5 class="vi">Điều Hướng</h5>
       <h5 class="en">Navigation</h5>
       <ul>
-        <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
+        <li><a href="index.html"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
-        <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
+        <li><a href="our-work-digital.html" class="vi active">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en active">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
         <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
         <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>

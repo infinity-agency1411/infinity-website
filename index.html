@@ -365,6 +365,19 @@ p.sec-body.light{color:rgba(255,255,255,.5)}
 .logo-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
 .logo-card .lc-img{width:auto;height:60px;max-width:160px;object-fit:contain;}
 .clients-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;align-items:center;}
+
+/* Partners auto-scrolling carousel */
+.partners-carousel-wrap{position:relative;display:flex;align-items:center;gap:.75rem;max-width:1400px;margin:0 auto;padding:0 1rem;}
+.partners-carousel-viewport{overflow:hidden;flex:1;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+.partners-carousel-viewport.pcar-dragging{cursor:grabbing;}
+.partners-carousel-viewport.pcar-dragging .cli-card{pointer-events:none;}
+.partners-carousel-track{display:flex;gap:1.5rem;width:max-content;will-change:transform;}
+.partners-carousel-track .cli-card{flex:0 0 auto;width:160px;}
+.partners-carousel-track .cli-card .ci-img{width:120px!important;height:56px!important;max-width:120px!important;object-fit:contain;display:block;margin:0 auto;}
+.pcar-arrow{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:#fff;border:1.5px solid rgba(0,0,0,.1);color:var(--charcoal);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s,transform .15s;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.pcar-arrow:hover{background:var(--green-dk);color:#fff;transform:scale(1.06);}
+.pcar-arrow svg{width:20px;height:20px;}
+@media(max-width:768px){.pcar-arrow{width:34px;height:34px;}.pcar-arrow svg{width:16px;height:16px;}.partners-carousel-track .cli-card{width:120px;}}
 .cli-card{background:transparent;border:none;padding:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;min-height:140px;min-width:0;transition:transform .25s,filter .25s;}
 .cli-name{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);text-align:center;letter-spacing:.01em;line-height:1.3;}
 .cli-card:hover{transform:translateY(-5px) scale(1.05);filter:drop-shadow(0 8px 20px rgba(0,0,0,.12));}
@@ -412,6 +425,8 @@ footer>*{position:relative;z-index:1;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
 .foot-col ul li a:hover{color:var(--green)}
+.foot-col ul li a.active{background:var(--green-dk);color:#fff;padding:.28rem .7rem;border-radius:5px;display:inline-block;margin:-.28rem -.7rem;}
+.foot-col ul li a.active:hover{color:#fff;}
 .foot-contact-item{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem}
 .foot-contact-item .fci{font-size:.85rem;margin-top:.05rem;flex-shrink:0}
 .foot-contact-item a,.foot-contact-item p{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;line-height:1.5;transition:color .2s}
@@ -973,8 +988,8 @@ footer>*{position:relative;z-index:1;}
     <div class="aic-text">
       <div class="aic-eyebrow">03 · Dynamic &amp; Distribution</div>
       <div class="aic-heading">
-        <span class="vi">Cá Nhân Hóa, Linh Hoạt<br><em>&amp; Phân Phối Truyền Thông</em></span>
-        <span class="en">Personalised, Dynamic<br><em>&amp; Media Distribution</em></span>
+        <span class="vi">Tối Ưu Cá Nhân Hóa<br><em>&amp; Phủ Sóng Đa Truyền Thông</em></span>
+        <span class="en">Optimized Personalisation<br><em>&amp; Multi-Media Reach</em></span>
       </div>
       <div class="aic-body vi">TV, Digital, OOH, tất cả trong một gói. Sản xuất và lên sóng mà không cần qua đơn vị sản xuất riêng.</div>
       <div class="aic-body en">TV broadcast, Digital, OOH, all in one package. Produce and go live without a separate production house.</div>
@@ -1482,129 +1497,42 @@ footer>*{position:relative;z-index:1;}
 <section id="partners" class="section" style="background:var(--canvas3)">
   <div class="pc-header reveal">
     <h2 class="sec-h">
-      <span class="vi">Đối Tác &amp; <em>Khách Hàng</em> của Infinity</span>
-      <span class="en">Partners &amp; <em>Clients</em> of Infinity</span>
+      <span class="vi">Đối Tác của Infinity</span>
+      <span class="en">Partners of Infinity</span>
     </h2>
-    <div class="pc-tabs">
-      <button class="pc-tab active" data-tab="partners">
-        <span class="vi">Đối Tác</span>
-        <span class="en">Partners</span>
-      </button>
-      <button class="pc-tab" data-tab="clients">
-        <span class="vi">Khách Hàng</span>
-        <span class="en">Clients</span>
-      </button>
-    </div>
   </div>
 
-  
-  <div class="pc-panel" id="tab-partners">
-
-    <!-- Agency Partners -->
-    <div style="margin-bottom:2rem;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Agency Partners</div>
-      <div class="logo-grid">
-        <div class="logo-card"><img src="images/partner-wpp.png" alt="WPP Media" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-publicis.png" alt="Publicis Groupe" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-omd.svg" alt="OMD" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-dentsu.png" alt="Dentsu" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/image-15.png" alt="Dat Viet VAC" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-viettel.png" alt="Viettel Media" class="lc-img"/></div>
+  <div class="partners-carousel-wrap">
+    <button class="pcar-arrow pcar-arrow-left" aria-label="Previous" onclick="partnersCarouselNudge(-1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="partners-carousel-viewport">
+      <div class="partners-carousel-track" id="partners-carousel-track">
+        <div class="cli-card"><img src="images/partner-wpp.png" alt="WPP Media" class="ci-img"/><span class="cli-name">WPP Media</span></div>
+        <div class="cli-card"><img src="images/partner-publicis.png" alt="Publicis Groupe" class="ci-img"/><span class="cli-name">Publicis Groupe</span></div>
+        <div class="cli-card"><img src="images/partner-omd.svg" alt="OMD" class="ci-img"/><span class="cli-name">OMD</span></div>
+        <div class="cli-card"><img src="images/partner-dentsu.png" alt="Dentsu" class="ci-img"/><span class="cli-name">Dentsu</span></div>
+        <div class="cli-card"><img src="images/image-15.png" alt="Dat Viet VAC" class="ci-img"/><span class="cli-name">Dat Viet VAC</span></div>
+        <div class="cli-card"><img src="images/partner-viettel.png" alt="Viettel Media" class="ci-img"/><span class="cli-name">Viettel Media</span></div>
+        <div class="cli-card"><img src="images/partner-vtv.png" alt="VTV" class="ci-img"/><span class="cli-name">VTV</span></div>
+        <div class="cli-card"><img src="images/partner-htv.png" alt="HTV" class="ci-img"/><span class="cli-name">HTV</span></div>
+        <div class="cli-card"><img src="images/partner-thvl.png" alt="THVL" class="ci-img"/><span class="cli-name">THVL</span></div>
+        <div class="cli-card"><img src="images/partner-vtvcab.png" alt="VTVcab" class="ci-img"/><span class="cli-name">VTVcab</span></div>
+        <div class="cli-card"><img src="images/partner-qpvn.png" alt="QPVN" class="ci-img"/><span class="cli-name">QPVN</span></div>
+        <div class="cli-card"><img src="images/partner-goldsun.png" alt="Goldsun" class="ci-img" style="height:60px;max-width:110px;"/><span class="cli-name">Goldsun</span></div>
+        <div class="cli-card"><img src="images/partner-vinama.png" alt="Vinama" class="ci-img" style="height:60px;max-width:200px;"/><span class="cli-name">Vinama</span></div>
+        <div class="cli-card"><img src="images/partner-kynguyen.png" alt="Kỳ Nguyên Group" class="ci-img"/><span class="cli-name">Kỳ Nguyên Group</span></div>
+        <div class="cli-card"><img src="images/partner-prowtech.png" alt="Prowtech" class="ci-img"/><span class="cli-name">Prowtech</span></div>
+        <div class="cli-card"><img src="images/partner-goldsun-focus.png" alt="Goldsun Focus Media" class="ci-img"/><span class="cli-name">Goldsun Focus Media</span></div>
+        <div class="cli-card"><img src="images/partner-fptplay.png" alt="FPT Play" class="ci-img"/><span class="cli-name">FPT Play</span></div>
+        <div class="cli-card"><img src="images/partner-vtvprime.png" alt="VTV Prime" class="ci-img"/><span class="cli-name">VTV Prime</span></div>
+        <div class="cli-card"><img src="images/partner-vieon.png" alt="VieON by DatVietVAC" class="ci-img"/><span class="cli-name">VieON</span></div>
+        <div class="cli-card"><img src="images/partner-tv360.png" alt="TV360" class="ci-img"/><span class="cli-name">TV360</span></div>
       </div>
     </div>
-
-    <!-- Channel Partners -->
-    <div style="margin-bottom:2rem;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">Channel Partners</div>
-      <div class="logo-grid">
-        <div class="logo-card"><img src="images/partner-vtv.png" alt="VTV" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-htv.png" alt="HTV" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-thvl.png" alt="THVL" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-vtvcab.png" alt="VTVcab" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-qpvn.png" alt="QPVN" class="lc-img"/></div>
-      </div>
-    </div>
-
-    <!-- OOH Partners -->
-    <div style="margin-bottom:2rem;">
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">OOH Partners</div>
-      <div class="logo-grid">
-        <div class="logo-card"><img src="images/partner-goldsun.png" alt="Goldsun" class="lc-img" style="height:90px;max-width:110px;"/></div>
-        <div class="logo-card"><img src="images/partner-vinama.png" alt="Vinama" class="lc-img" style="height:90px;max-width:200px;"/></div>
-        <div class="logo-card"><img src="images/partner-kynguyen.png" alt="Kỳ Nguyên Group" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-prowtech.png" alt="Prowtech" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-goldsun-focus.png" alt="Goldsun Focus Media" class="lc-img"/></div>
-      </div>
-    </div>
-
-    <!-- OTT Partners -->
-    <div>
-      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">OTT Partners</div>
-      <div class="logo-grid">
-        <div class="logo-card"><img src="images/partner-fptplay.png" alt="FPT Play" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-vtvprime.png" alt="VTV Prime" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-vieon.png" alt="VieON by DatVietVAC" class="lc-img"/></div>
-        <div class="logo-card"><img src="images/partner-tv360.png" alt="TV360" class="lc-img"/></div>
-      </div>
-    </div>
-
-  </div>
-
-  
-  <div class="pc-panel hidden" id="tab-clients">
-    <div class="clients-row">
-      <div class="cli-card"><img src="images/image-17.png" alt="Hygiene" class="ci-img ci-hygiene"/><span class="cli-name">Hygiene</span></div>
-      <div class="cli-card"><img src="images/image-18.png" alt="Spotify" class="ci-img ci-spotify"/><span class="cli-name">Spotify</span></div>
-      <div class="cli-card"><img src="images/image-19.png" alt="Škoda" class="ci-img ci-skoda"/><span class="cli-name">Škoda</span></div>
-      <div class="cli-card"><img src="images/image-20.png" alt="H&M" class="ci-img ci-hm"/><span class="cli-name">H&amp;M</span></div>
-      <div class="cli-card"><img src="images/image-21.png" alt="Eagle Brand" class="ci-img ci-eagle"/><span class="cli-name">Eagle Brand</span></div>
-      <div class="cli-card"><img src="images/cl-unilever.png" alt="Unilever" class="ci-img"/><span class="cli-name">Unilever</span></div>
-      <div class="cli-card"><img src="images/cl-pg.png" alt="Procter &amp; Gamble" class="ci-img"/><span class="cli-name">Procter &amp; Gamble</span></div>
-      <div class="cli-card"><img src="images/cl-nestle.png" alt="Nestlé" class="ci-img"/><span class="cli-name">Nestlé</span></div>
-      <div class="cli-card"><img src="images/cl-pepsi.svg" alt="Pepsi" class="ci-img"/><span class="cli-name">Pepsi</span></div>
-      <div class="cli-card"><img src="images/cl-cocacola.png" alt="Coca-Cola" class="ci-img"/><span class="cli-name">Coca-Cola</span></div>
-    </div>
-
-    <div id="clients-extra" style="max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.34,1.45,.64,1),opacity .5s ease;opacity:0;">
-      <div class="clients-row" style="margin-top:1.5rem;">
-        <div class="cli-card"><img src="images/cl-heineken.png" alt="Heineken" class="ci-img"/><span class="cli-name">Heineken</span></div>
-        <div class="cli-card"><img src="images/cl-masan.png" alt="Masan Consumer" class="ci-img"/><span class="cli-name">Masan Consumer</span></div>
-        <div class="cli-card"><img src="images/cl-vinamilk.png" alt="Vinamilk" class="ci-img"/><span class="cli-name">Vinamilk</span></div>
-        <div class="cli-card"><img src="images/cl-samsung.png" alt="Samsung" class="ci-img"/><span class="cli-name">Samsung</span></div>
-        <div class="cli-card"><img src="images/cl-lg.png" alt="LG Electronics" class="ci-img"/><span class="cli-name">LG Electronics</span></div>
-        <div class="cli-card"><img src="images/cl-viettel.png" alt="Viettel" class="ci-img"/><span class="cli-name">Viettel</span></div>
-        <div class="cli-card"><img src="images/cl-mobifone.png" alt="MobiFone" class="ci-img"/><span class="cli-name">MobiFone</span></div>
-        <div class="cli-card"><img src="images/cl-grab.png" alt="Grab" class="ci-img"/><span class="cli-name">Grab</span></div>
-        <div class="cli-card"><img src="images/cl-loreal.png" alt="L'Oréal" class="ci-img"/><span class="cli-name">L'Oréal</span></div>
-        <div class="cli-card"><img src="images/cl-colgate.png" alt="Colgate" class="ci-img"/><span class="cli-name">Colgate</span></div>
-        <div class="cli-card"><img src="images/cl-vpbank.png" alt="VPBank" class="ci-img"/><span class="cli-name">VPBank</span></div>
-        <div class="cli-card"><img src="images/cl-manulife.svg" alt="Manulife" class="ci-img"/><span class="cli-name">Manulife</span></div>
-        <div class="cli-card"><img src="images/cl-thtruemilk.png" alt="TH True Milk" class="ci-img"/><span class="cli-name">TH True Milk</span></div>
-        <div class="cli-card"><img src="images/cl-abbott.png" alt="Abbott" class="ci-img"/><span class="cli-name">Abbott</span></div>
-        <div class="cli-card"><img src="images/cl-svb.png" alt="SVB Financial Group" class="ci-img"/><span class="cli-name">SVB Financial Group</span></div>
-        <div class="cli-card"><img src="images/cl-gsk.png" alt="GSK" class="ci-img"/><span class="cli-name">GSK</span></div>
-        <div class="cli-card"><img src="images/cl-urc.svg" alt="Universal Robina" class="ci-img"/><span class="cli-name">Universal Robina</span></div>
-        <div class="cli-card"><img src="images/cl-tcp.png" alt="TCP Group" class="ci-img"/><span class="cli-name">TCP Group</span></div>
-        <div class="cli-card"><img src="images/cl-uniqlo.png" alt="UNIQLO" class="ci-img"/><span class="cli-name">UNIQLO</span></div>
-        <div class="cli-card"><img src="images/cl-omachi.png" alt="Omachi" class="ci-img"/><span class="cli-name">Omachi</span></div>
-        <div class="cli-card"><img src="images/cl-kokomi.png" alt="Kokomi" class="ci-img"/><span class="cli-name">Kokomi</span></div>
-        <div class="cli-card"><img src="images/cl-dove.png" alt="Dove" class="ci-img"/><span class="cli-name">Dove</span></div>
-        <div class="cli-card"><img src="images/cl-ensure.png" alt="Ensure" class="ci-img"/><span class="cli-name">Ensure</span></div>
-        <div class="cli-card"><img src="images/cl-sunsilk.png" alt="Sunsilk" class="ci-img"/><span class="cli-name">Sunsilk</span></div>
-        <div class="cli-card"><img src="images/cl-sting.png" alt="Sting" class="ci-img"/><span class="cli-name">Sting</span></div>
-        <div class="cli-card"><img src="images/cl-sensodyne.png" alt="Sensodyne" class="ci-img"/><span class="cli-name">Sensodyne</span></div>
-        <div class="cli-card"><img src="images/cl-yomost.png" alt="YoMost" class="ci-img"/><span class="cli-name">YoMost</span></div>
-        <div class="cli-card"><img src="images/cl-tropicana.png" alt="Tropicana Twister" class="ci-img"/><span class="cli-name">Tropicana Twister</span></div>
-        <div class="cli-card"><img src="images/cl-clear.svg" alt="Clear" class="ci-img"/><span class="cli-name">Clear</span></div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:2rem;">
-      <button id="clients-toggle-btn" onclick="toggleClients()" style="padding:.75rem 2rem;background:var(--green-dk);color:white;border:none;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .15s;">
-        <span class="vi">Xem tất cả ↓</span>
-        <span class="en">View all ↓</span>
-      </button>
-    </div>
+    <button class="pcar-arrow pcar-arrow-right" aria-label="Next" onclick="partnersCarouselNudge(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </section>
 
@@ -1625,7 +1553,7 @@ footer>*{position:relative;z-index:1;}
       <h5 class="vi">Điều Hướng</h5>
       <h5 class="en">Navigation</h5>
       <ul>
-        <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
+        <li><a href="javascript:void(0)" class="active"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
@@ -1726,23 +1654,125 @@ function toggleAbout(){
   }
 }
 
-/* ── CLIENTS GRID TOGGLE ── */
-function toggleClients(){
-  const wrapper = document.getElementById('clients-extra');
-  const btn = document.getElementById('clients-toggle-btn');
-  const isOpen = wrapper.style.opacity === '1';
-  if(!isOpen){
-    wrapper.style.maxHeight = '9999px';
-    wrapper.style.opacity = '1';
-    btn.querySelector('.vi').textContent = 'Thu gọn ↑';
-    btn.querySelector('.en').textContent = 'Show less ↑';
-  } else {
-    wrapper.style.maxHeight = '0';
-    wrapper.style.opacity = '0';
-    btn.querySelector('.vi').textContent = 'Xem tất cả ↓';
-    btn.querySelector('.en').textContent = 'View all ↓';
+/* ── PARTNERS AUTO-SCROLLING CAROUSEL ── */
+(function(){
+  const track = document.getElementById('partners-carousel-track');
+  if (!track) return;
+  // Duplicate the card set once so the loop can be seamless
+  track.innerHTML += track.innerHTML;
+
+  let offset = 0;
+  let singleSetWidth = 0;
+  let speed = 0.4; // px per frame, auto-scroll speed
+  let paused = false;
+
+  function measure(){
+    singleSetWidth = track.scrollWidth / 2;
   }
-}
+  measure();
+  window.addEventListener('resize', measure);
+
+  function tick(){
+    if (!paused){
+      offset += speed;
+      if (offset >= singleSetWidth) offset -= singleSetWidth;
+      if (offset < 0) offset += singleSetWidth;
+      track.style.transform = `translateX(${-offset}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  window.partnersCarouselNudge = function(direction){
+    offset += direction * 280;
+    if (offset >= singleSetWidth) offset -= singleSetWidth;
+    if (offset < 0) offset += singleSetWidth;
+    track.style.transition = 'transform .4s cubic-bezier(.22,.9,.34,1)';
+    track.style.transform = `translateX(${-offset}px)`;
+    paused = true;
+    clearTimeout(window._pcarResumeTimer);
+    window._pcarResumeTimer = setTimeout(() => {
+      track.style.transition = '';
+      paused = false;
+    }, 420);
+  };
+
+  const wrap = document.querySelector('.partners-carousel-wrap');
+  if (wrap){
+    wrap.addEventListener('mouseenter', () => { if (!dragging) paused = true; });
+    wrap.addEventListener('mouseleave', () => { if (!dragging) paused = false; });
+  }
+
+  /* ── Drag / swipe to scroll ── */
+  const viewport = document.querySelector('.partners-carousel-viewport');
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartOffset = 0;
+  let dragVelocity = 0;
+  let lastDragX = 0;
+  let lastDragTime = 0;
+
+  function normalizeOffset(){
+    if (singleSetWidth <= 0) return;
+    offset = ((offset % singleSetWidth) + singleSetWidth) % singleSetWidth;
+  }
+
+  function onPointerDown(e){
+    dragging = true;
+    paused = true;
+    track.style.transition = '';
+    dragStartX = e.clientX;
+    lastDragX = e.clientX;
+    lastDragTime = performance.now();
+    dragStartOffset = offset;
+    dragVelocity = 0;
+    viewport.classList.add('pcar-dragging');
+    viewport.setPointerCapture && e.pointerId != null && viewport.setPointerCapture(e.pointerId);
+  }
+  function onPointerMove(e){
+    if (!dragging) return;
+    const dx = e.clientX - dragStartX;
+    offset = dragStartOffset - dx;
+    normalizeOffset();
+    track.style.transform = `translateX(${-offset}px)`;
+    const now = performance.now();
+    const dt = now - lastDragTime;
+    if (dt > 0){
+      dragVelocity = (lastDragX - e.clientX) / dt; // px per ms, drag-scroll direction
+      lastDragX = e.clientX;
+      lastDragTime = now;
+    }
+  }
+  function onPointerUp(){
+    if (!dragging) return;
+    dragging = false;
+    viewport.classList.remove('pcar-dragging');
+    // momentum: keep drifting briefly based on release velocity, then hand back to auto-scroll
+    let momentum = Math.max(-3, Math.min(3, dragVelocity * 16));
+    function glide(){
+      if (Math.abs(momentum) > 0.05){
+        offset += momentum;
+        normalizeOffset();
+        track.style.transform = `translateX(${-offset}px)`;
+        momentum *= 0.92;
+        requestAnimationFrame(glide);
+      } else {
+        paused = false;
+      }
+    }
+    if (Math.abs(momentum) > 0.05){
+      requestAnimationFrame(glide);
+    } else {
+      paused = false;
+    }
+  }
+
+  viewport.style.touchAction = 'pan-y';
+  viewport.addEventListener('pointerdown', onPointerDown);
+  window.addEventListener('pointermove', onPointerMove);
+  window.addEventListener('pointerup', onPointerUp);
+  window.addEventListener('pointercancel', onPointerUp);
+})();
 
 /* ── HERO SLIDESHOW ── */
 (function(){
@@ -1851,26 +1881,6 @@ document.querySelectorAll('.oc:not(.oc-static), .sv, .vm-card').forEach(el => {
     } else {
       el.classList.add('expanded');
     }
-  });
-});
-
-// ── Partners/Clients tab switcher ──
-document.querySelectorAll('.pc-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = tab.dataset.tab;
-    // Update active tab button
-    document.querySelectorAll('.pc-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    // Show/hide panels with animation
-    document.querySelectorAll('.pc-panel').forEach(panel => {
-      if (panel.id === 'tab-' + target) {
-        panel.classList.remove('hidden');
-        panel.classList.add('fade-in');
-        setTimeout(() => panel.classList.remove('fade-in'), 400);
-      } else {
-        panel.classList.add('hidden');
-      }
-    });
   });
 });
 

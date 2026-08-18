@@ -60,6 +60,8 @@ footer>*{position:relative;z-index:1;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
 .foot-col ul li a:hover{color:var(--green)}
+.foot-col ul li a.active{background:var(--green-dk);color:#fff;padding:.28rem .7rem;border-radius:5px;display:inline-block;margin:-.28rem -.7rem;}
+.foot-col ul li a.active:hover{color:#fff;}
 .foot-contact-item{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.6rem}
 .foot-contact-item .fci{font-size:.85rem;margin-top:.05rem;flex-shrink:0}
 .foot-contact-item a,.foot-contact-item p{font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;line-height:1.5;transition:color .2s}
@@ -252,12 +254,12 @@ document.getElementById('apply-modal').addEventListener('click',function(e){
       <h5 class="vi">Điều Hướng</h5>
       <h5 class="en">Navigation</h5>
       <ul>
-        <li><a href="javascript:void(0)"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
+        <li><a href="index.html"><span class="vi">Giới Thiệu</span><span class="en">About Us</span></a></li>
         <li><a href="our-work-ooh.html" class="vi">Quảng Cáo Ngoài Trời</a><a href="our-work-ooh.html" class="en">Outdoor Advertising</a></li>
         <li><a href="our-work-digital.html" class="vi">Quảng Cáo Kỹ Thuật Số</a><a href="our-work-digital.html" class="en">Digital Advertising</a></li>
         <li><a href="our-work-tv.html" class="vi">Quảng Cáo Truyền Hình</a><a href="our-work-tv.html" class="en">TV Advertising</a></li>
         <li><a href="tin-tuc.html"><span class="vi">Tin Tức &amp; Sự Kiện</span><span class="en">News &amp; Events</span></a></li>
-        <li><a href="tuyen-dung.html"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
+        <li><a href="tuyen-dung.html" class="active"><span class="vi">Tuyển Dụng</span><span class="en">Join Us</span></a></li>
       </ul>
     </div>
 
